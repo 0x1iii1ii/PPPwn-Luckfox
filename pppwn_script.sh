@@ -2,12 +2,16 @@
 
 # Disable eth0
 ifconfig eth0 down
+
 # Wait a seconds
 sleep 1
+
 # Enable eth0
 ifconfig eth0 up
+
 # Wait a seconds
 sleep 1
+
 # Change to the directory containing the pppwn executable
 cd /home/pico/PPPwn-Luckfox/
 # Execute the pppwn command with the desired options
