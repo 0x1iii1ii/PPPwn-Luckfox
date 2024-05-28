@@ -15,7 +15,7 @@ sleep 1
 # Change to the directory containing the pppwn executable
 cd /home/pico/PPPwn-Luckfox/
 # Execute the pppwn command with the desired options
-./pppwn --interface eth0 --fw 1100 --stage1 "stage1.bin" --stage2 "stage2.bin" -a -t 10 -nw
+./pppwn --interface eth0 --fw 1100 --stage1 "stage1.bin" --stage2 "stage2.bin" -a -t 10 -nw -rs
 
 # Check if the pppwn command was successful
 if [ $? -eq 0 ]; then
