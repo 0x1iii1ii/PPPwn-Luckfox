@@ -5,6 +5,8 @@ Original work by theflow <a href=https://github.com/TheOfficialFloW/PPPwn>PPPwn<
 and thanks to xfangfang <a href=https://github.com/xfangfang/PPPwn_cpp>PPPwn-CPP</a> for an executable re-write of PPPwn in C++ for Cotext-A7 which is compatible with RV1103/RV1106 chip
 on the Luckfox Pico series and SiSTRo for his <a href=https://github.com/GoldHEN/GoldHEN>GoldHen</a>, and lastly <a href=https://github.com/stooged/PI-Pwn>Stooged</a> for his inspiration. <br>
 
+![](https://github.com/0x1iii1ii/PPPwn-Luckfox/blob/main/images/image.jpg)
+
 ## Note
 
 - This is a very early <b> Work-In-Progress </b> it is still not stable sometimes the console crashes and freezes, so if you are a developer and want to improve this script, Please do so.
