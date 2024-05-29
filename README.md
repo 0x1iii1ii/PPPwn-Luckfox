@@ -2,18 +2,19 @@
 
 An alternative low-cost Linux board for exploits PS4 on V11.00 or below.<br>
 Original work by theflow <a href=https://github.com/TheOfficialFloW/PPPwn>PPPwn</a> 
-and thanks to xfangfang <a href=https://github.com/xfangfang/PPPwn_cpp>PPPwn-CPP</a> for an executable re-write of PPPwn for Cotext-A7 which is compatible with RV1103/RV1106 chip
+and thanks to xfangfang <a href=https://github.com/xfangfang/PPPwn_cpp>PPPwn-CPP</a> for an executable re-write of PPPwn in C++ for Cotext-A7 which is compatible with RV1103/RV1106 chip
 on the Luckfox Pico series and SiSTRo for his <a href=https://github.com/GoldHEN/GoldHEN>GoldHen</a>, and lastly <a href=https://github.com/stooged/PI-Pwn>Stooged</a> for his inspiration. <br>
 
 ## Note
 
-This is a very early <b> Work-In-Progress </b> it is still not stable sometimes the console crashes and freezes, so if you are a developer and want to improve this script, Please do so. <br>
+- This is a very early <b> Work-In-Progress </b> it is still not stable sometimes the console crashes and freezes, so if you are a developer and want to improve this script, Please do so.
 I'm looking for your contribution!
-
+- Currently only support PS4 `V11.00`
+  
 ## Requirements
 
-- SD Card 8GB or above
-- Luckfox Pico Pro/Max
+- An SD Card 8GB or above
+- Luckfox Pico Pro/Max/Plus
 - Ethernet Cable
 - USB Type-C for power to the board
 - A USB drive with exFAT32 formatted (only use for the first time to load GoldHEN)
@@ -24,7 +25,7 @@ I'm looking for your contribution!
 - <b>Luckfox Pico Max</b><br>
 - <b>Luckfox Pico Plus</b><br>
 
-You can get one from official site <a href=https://www.luckfox.com>Luckfox</a>  or from <a href=https://www.aliexpress.com/item/1005006083739388.html>Aliexpress</a> at around 15$.
+You can get one from the official site <a href=https://www.luckfox.com>Luckfox</a>  or from <a href=https://www.aliexpress.com/item/1005006083739388.html>Aliexpress</a> at around 15$.
 
 ## Installation Software
 
@@ -34,7 +35,20 @@ You can get one from official site <a href=https://www.luckfox.com>Luckfox</a>  
 4. Loggin to ubuntu:
 
 `Login: pico` <br>
-`Password: luckfox` <br>
+`Password: luckfox` <be>
+
+You have `2 options` to log in:
+
+- Using SSH: connect Luckfox to the internet via LAN cable, find its IP on your router and log in via SSH on PuTTY
+
+- Using Serial: you need to have a serial-usb-converter module and connect it to Luckfox like this
+                                   
+serial-usb-converter  | Luckfox
+------------- | -------------
+RX ->  | TX
+TX ->  | RX 
+
+Open PuTTY click on serial, set `COM7` base on your serial-usb-converter and set baudrate to `115200`, then click open.
 
 5. After you log in, run the following commands
 
