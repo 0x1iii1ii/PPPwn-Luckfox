@@ -48,7 +48,7 @@ For this 2 boards, there's no Ethernet port, to make it work you need to solder 
 ## Installation Software
 
 1. Download <a href=https://drive.google.com/drive/folders/1sFUWjYpDDisf92q9EwP1Ia7lHgp9PaFS>Ubuntu OS </a> After you download, extract one of the zip files according to your Luckfox Pico models. <br>
-2. Burn the image onto an SD Card. Download <a href=https://files.luckfox.com/wiki/Luckfox-Pico/Software/SocToolKit.zip>SocToolKit</a> and unzip the burning tool.
+2. Burn the image onto an SD Card. Download <a href=https://drive.google.com/file/d/1ALo4G7rEaF1GNhUHINoYHT_RGWGddzYw>SocToolKit</a> and unzip the burning tool.
 3. Open the software and select chip
 
 Luckfox Models  | Chip Type
