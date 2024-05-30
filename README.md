@@ -21,7 +21,7 @@ Once it PPPwned the process will stop. <br>
 ## Requirements
 
 - An SD Card 8GB or above
-- Luckfox Pico Pro/Max/Plus
+- Luckfox Pico/Pro/Max/Plus/Mini
 - Ethernet Cable
 - USB Type-C for power to the board
 - A USB drive with exFAT32 formatted (only use for the first time to load GoldHEN)
@@ -34,7 +34,7 @@ Once it PPPwned the process will stop. <br>
 - <b>Luckfox Pico Mini</b><br>
 - <b>Luckfox Pico </b><br>
 
-You can get one from the official site <a href=https://www.luckfox.com>Luckfox</a>  or from <a href=https://www.aliexpress.com/item/1005006083739388.html>Aliexpress</a> at around 15$.
+You can get one from the official site <a href=https://www.luckfox.com>Luckfox</a>  or from <a href=https://www.aliexpress.com/item/1005006083739388.html>Aliexpress</a> at around from 7$ to 15$.
 
 # Special Note for Luckfox Pico/Mini
 For this 2 boards, there's no Ethernet port, to make it work you need to solder the LAN Port (RJ45) cable to it, either female or male is fine, and burn the Ubuntu image with pico plus image and follow the same step as other boards.
