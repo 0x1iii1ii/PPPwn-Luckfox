@@ -11,6 +11,8 @@ on the Luckfox Pico series and SiSTRo for his <a href=https://github.com/GoldHEN
 
 - This is a <b> Work-In-Progress </b> it is still not stable sometimes the console crashes and freezes
 - Currently only support PS4 `V11.00`
+- The average PPPwned time is around 1min - 2min sometimes it load under 1 minute
+- Using `pppnw` nightly build from xfangfang PPPwn_cpp
 
 ## What it does
 
