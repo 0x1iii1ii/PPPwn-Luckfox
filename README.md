@@ -26,9 +26,18 @@ I'm looking for your contribution!
 - <b>Luckfox Pico Pro</b><br>
 - <b>Luckfox Pico Max</b><br>
 - <b>Luckfox Pico Plus</b><br>
+- <b>Luckfox Pico Mini</b><br>
+- <b>Luckfox Pico </b><br>
 
 You can get one from the official site <a href=https://www.luckfox.com>Luckfox</a>  or from <a href=https://www.aliexpress.com/item/1005006083739388.html>Aliexpress</a> at around 15$.
 
+# Special Note for Luckfox Pico/Mini
+For this 2 boards, there's no Ethernet port, to make it work you need to solder the LAN Port (RJ45) cable to it, either Female or male is fine, and burn the Ubuntu image with pico plus image and follow the same step as other boards type.
+
+<br>
+
+<img src="https://github.com/0x1iii1ii/PPPwn-Luckfox/blob/main/images/image.jpg" alt="Luckfox Pico Mini" width="300">
+<br>
 ## Installation Software
 
 1. Download <a href=https://drive.google.com/drive/folders/1sFUWjYpDDisf92q9EwP1Ia7lHgp9PaFS>Ubuntu OS </a> After you download, extract one of the zip files according to your Luckfox Pico models. <br>
