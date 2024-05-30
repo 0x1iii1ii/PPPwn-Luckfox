@@ -48,9 +48,25 @@ For this 2 boards, there's no Ethernet port, to make it work you need to solder 
 ## Installation Software
 
 1. Download <a href=https://drive.google.com/drive/folders/1sFUWjYpDDisf92q9EwP1Ia7lHgp9PaFS>Ubuntu OS </a> After you download, extract one of the zip files according to your Luckfox Pico models. <br>
-2. Burn the image onto an SD Card by following an official tutorial from Luckfox <a href=https://wiki.luckfox.com/Luckfox-Pico/Luckfox-Pico-SD-Card-burn-image>Here</a>.<br>
-3. Place the SD card into the Luckfox, power it using USB Type-C, boot it, and connect it to the internet by plugging the LAN cable into the router<br>
-4. Loggin to ubuntu:
+2. Burn the image onto an SD Card. Download <a href=https://files.luckfox.com/wiki/Luckfox-Pico/Software/SocToolKit.zip>SocToolKit</a> and unzip the burning tool.
+3. Open the software and select chip
+
+Luckfox Models  | Chip Type
+------------- | -------------
+Luckfox Pico Pro/Max  | RV1106
+Luckfox Pico/Plus/Mini  | RV1103 
+
+5. Steps to download firmware for Luckfox Pico on Windows: <br>
+  a. Choose the SD card tool.<br>
+  b. The SD card size will be displayed under USB Disk. If not displayed, reinsert the card reader.<br>
+  c. Select SD card booting.<br>
+  d. Import the boot file.（Note: The startup files do not include update.img）<br>
+  e. Click "Create SD Card".<br>
+
+<img src="https://github.com/0x1iii1ii/PPPwn-Luckfox/blob/main/images/image2.jpg" alt="Luckfox Pico Mini" width="600">
+
+7. After done, eject and place the SD card into the Luckfox, power it using USB Type-C, and connect it to the internet by plugging the LAN cable into the router<br>
+8. Loggin to ubuntu:
 
 `Login: pico` <br>
 `Password: luckfox` <be>
