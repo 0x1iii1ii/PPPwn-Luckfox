@@ -9,10 +9,15 @@ on the Luckfox Pico series and SiSTRo for his <a href=https://github.com/GoldHEN
 
 ## Note
 
-- This is a very early <b> Work-In-Progress </b> it is still not stable sometimes the console crashes and freezes, so if you are a developer and want to improve this script, Please do so.
-I'm looking for your contribution!
+- This is a <b> Work-In-Progress </b> it is still not stable sometimes the console crashes and freezes
 - Currently only support PS4 `V11.00`
-  
+
+## What it does
+
+The goal here is to setup the Luckfox pico to automatically try and PPPwn the console without any input from you, just wait on the home screen until the process completes.<br>
+The exploit may fail many times but the luckfox will continue to purge the console to keep trying to PPPwn itself.<br>
+Once it PPPwned the process will stop. <br>
+
 ## Requirements
 
 - An SD Card 8GB or above
@@ -32,12 +37,12 @@ I'm looking for your contribution!
 You can get one from the official site <a href=https://www.luckfox.com>Luckfox</a>  or from <a href=https://www.aliexpress.com/item/1005006083739388.html>Aliexpress</a> at around 15$.
 
 # Special Note for Luckfox Pico/Mini
-For this 2 boards, there's no Ethernet port, to make it work you need to solder the LAN Port (RJ45) cable to it, either Female or male is fine, and burn the Ubuntu image with pico plus image and follow the same step as other boards type.
+For this 2 boards, there's no Ethernet port, to make it work you need to solder the LAN Port (RJ45) cable to it, either female or male is fine, and burn the Ubuntu image with pico plus image and follow the same step as other boards.
 
 <br>
 
 <img src="https://github.com/0x1iii1ii/PPPwn-Luckfox/blob/main/images/image.jpg" alt="Luckfox Pico Mini" width="300">
-<br>
+
 ## Installation Software
 
 1. Download <a href=https://drive.google.com/drive/folders/1sFUWjYpDDisf92q9EwP1Ia7lHgp9PaFS>Ubuntu OS </a> After you download, extract one of the zip files according to your Luckfox Pico models. <br>
@@ -92,7 +97,6 @@ Once the Luckfox reboots pppwn will run automatically.<br>
 - Select `Set Up Internet connection` and choose `Use a LAN Cable`<br>
 - Choose `Custom` setup and choose `PPPoE` for `IP Address Settings`<br>
 - Enter `ppp` for `PPPoE User ID` and `PPPoE Password`<br>
-- NOTE if you enable internet access you must match the username and password entered during the install or use the default `ppp`
 - Choose `Automatic` for `DNS Settings` and `MTU Settings`<br>
 - Choose `Do Not Use` for `Proxy Server`<br>
 
@@ -100,12 +104,3 @@ For GoldHen you need to place the goldhen.bin file onto the root of a usb drive 
 Once goldhen has been loaded for the first time it will be copied to the consoles internal hdd and the usb is no longer required.<br>
 To update goldhen just repeat the above process and the new version will be copied to the internal hdd<br>
 
-## What it does
-
-Once everything is set up, the Luckfox should automatically try and PPPwn the console.<br>
-The exploit may fail many times but the luckfox will continue to purge the console to keep trying to PPPwn itself.<br>
-Once it PPPwned the process will stop. <br>
-
-You will need to restart the Luckfox if you wish to PPPwn the console again.<br>
-
-The idea is you boot the console and the Luckfox together and the Luckfox will keep trying to PPPwn the console without any input from you, just wait on the home screen until the process completes.<br>
