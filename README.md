@@ -56,7 +56,7 @@ Luckfox Models  | Chip Type
 Luckfox Pico Pro/Max  | RV1106
 Luckfox Pico/Plus/Mini  | RV1103 
 
-5. Steps to download firmware for Luckfox Pico on Windows: <br>
+4. Steps to download firmware for Luckfox Pico on Windows: <br>
   a. Choose the SD card tool.<br>
   b. The SD card size will be displayed under USB Disk. If not displayed, reinsert the card reader.<br>
   c. Select SD card booting.<br>
@@ -65,8 +65,8 @@ Luckfox Pico/Plus/Mini  | RV1103
 
 <img src="https://github.com/0x1iii1ii/PPPwn-Luckfox/blob/main/images/image2.jpg" alt="Luckfox Pico Mini" width="600">
 
-7. After done, eject and place the SD card into the Luckfox, power it using USB Type-C, and connect it to the internet by plugging the LAN cable into the router<br>
-8. Loggin to ubuntu:
+5. After done, eject and place the SD card into the Luckfox, power it using USB Type-C, and connect it to the internet by plugging the LAN cable into the router<br>
+6. Loggin to ubuntu:
 
 `Login: pico` <br>
 `Password: luckfox` <be>
@@ -84,7 +84,7 @@ TX ->  | RX
 
 Open PuTTY click on serial, set `COM7` base on your serial-usb-converter and set baudrate to `115200`, then click open.
 
-5. After you log in, run the following commands
+7. After you log in, run the following commands
 
 <br>
 
