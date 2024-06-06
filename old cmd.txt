@@ -1,0 +1,7 @@
+cd PPPwn-Luckfox
+chmod +x pppwn
+chmod +x pppwn_script.sh
+sudo mv pppwn.service /etc/systemd/system/
+sudo chmod +x /etc/systemd/system/pppwn.service
+sudo systemctl enable pppwn.service
+sudo reboot

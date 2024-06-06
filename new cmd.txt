@@ -1,0 +1,4 @@
+git clone https://github.com/0x1iii1ii/PPPwn-Luckfox.git
+cd PPPwn-Luckfox
+chmod +x install.sh
+sudo ./install.sh
