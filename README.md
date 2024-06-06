@@ -9,10 +9,11 @@ on the luckfox pico series and SiSTRo for his <a href=https://github.com/GoldHEN
 
 ## Note
 
-- This is a <b> Work-In-Progress </b> it is still not stable sometimes the console crashes and freezes
-- Currently only support PS4 `V11.00`
-- The average PPPwned time is around <b> 1min - 2min </b> sometimes it load under <b> 1 minute </b>
-- Using `pppwn` nightly build from xfangfang PPPwn_cpp
+- I made some changes to the installation, if you follow the tutorial from YouTube, you can find the old files <a href=https://drive.google.com/file/d/1wF3EvgBBeNKX5c05TMBPtBvTrYc4oFWb/view>here</a> (only support v11.00)
+and manually copy it to `home/root/` folder of your luckfox using <a href=https://sourceforge.net/projects/winscp/ >WinSCP</a> and run cmd in `old cmd.txt` file
+- Currently only support PS4 `9.00, 10.00, 10.01, 11.00`
+- The average PPPwned time is around `1min - 2min` sometimes it load under `1 minute`
+- Using `pppwn` nightly build from xfangfang PPPwn_cpp <be>
 
 ## What it does
 
@@ -77,16 +78,10 @@ log in using SSH: connect Luckfox to the internet via LAN cable, using `luckfox.
 <br>
 
 ```sh
-sudo apt update
-sudo apt install git -y
 git clone https://github.com/0x1iii1ii/PPPwn-Luckfox.git
 cd PPPwn-Luckfox
-chmod +x pppwn
-chmod +x pppwn_script.sh
-sudo mv pppwn.service /etc/systemd/system/
-sudo chmod +x /etc/systemd/system/pppwn.service
-sudo systemctl enable pppwn.service
-sudo reboot
+chmod +x install.sh
+sudo ./install.sh
 ```
 
 <br>
