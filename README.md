@@ -70,19 +70,7 @@ Luckfox Pico/Plus/Mini  | RV1103
 `Login: pico` <br>
 `Password: luckfox` <be>
 
-You have `2 options` to log in:
-
-- Using SSH: connect Luckfox to the internet via LAN cable, find its IP on your router and log in via SSH on PuTTY
-
-- Using Serial(UART): you need to have a serial-usb-converter module and connect it to Luckfox like this
-                                   
-serial-usb-converter  | Luckfox
-------------- | -------------
-RX ->  | TX
-TX ->  | RX 
-GND -> | GND
-
-Open PuTTY click on serial, set `COM7` base on your serial-usb-converter and set baudrate to `115200`, then click open.
+log in using SSH: connect Luckfox to the internet via LAN cable, using `luckfox.lan` as host name to log in via SSH on <a href=https://putty.org>PuTTY</a>, if it does not work find its IP on your router and try again.
 
 7. After you log in, run the following commands
 
