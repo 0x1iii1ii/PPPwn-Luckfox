@@ -1,5 +1,25 @@
 #!/bin/bash
 
+echo "______________________________                       "
+echo "\\______   \\______   \\______   \\__  _  ______  "
+echo " |     ___/|     ___/|     ___/\\ \\/ \\/ /    \\ "
+echo " |    |    |    |    |    |     \\     /   |  \\     "
+echo " |____|    |____|    |____|      \\/\\_/|___|  /    "
+echo "                                           \\/       "
+echo " __                 __      _____                    " 
+echo "|  |  __ __   ____ |  | ___/ ____\\_______  ___      "
+echo "|  | |  |  \\_/ ___\\|  |/ /\\   __\\/  _ \\  \\/  / "
+echo "|  |_|  |  /\\  \\___|    <  |  | (  <_> >    <      "
+echo "|____/____/  \\_____>__|_ \\ |__|  \\____/__/\\_ \\  "
+echo ""
+
+echo "by: https://github.com/0x1iii1ii/PPPwn-Luckfox"
+echo ""
+echo "credit to:"
+echo "https://github.com/TheOfficialFloW/PPPwn"
+echo "https://github.com/xfangfang/PPPwn_cpp"
+echo ""
+
 # Display the list of firmware versions
 echo "Please select your PS4 firmware version:"
 echo "a) 9.00"
