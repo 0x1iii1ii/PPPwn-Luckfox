@@ -15,6 +15,14 @@ and manually copy it to `home/root/` folder of your luckfox using <a href=https:
 - The average PPPwned time is around `1min - 2min` sometimes it load under `1 minute`
 - Using `pppwn` nightly build from xfangfang PPPwn_cpp <be>
 
+## Tested Version
+I only have PS4 v11.00 if you have other versions in the list below please test it and let me know thank you!
+
+- [ ] 9.00
+- [ ] 10.00
+- [ ] 10.01
+- [x] 11.00 by @0x1iii1ii
+      
 ## What it does
 
 The goal here is to setup the Luckfox pico to automatically try and PPPwn the console without any input from you, just wait on the home screen until the process completes.<br>
