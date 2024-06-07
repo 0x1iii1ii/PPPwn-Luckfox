@@ -73,13 +73,13 @@ Luckfox Pico/Plus/Mini  | RV1103
 
 <img src="https://github.com/0x1iii1ii/PPPwn-Luckfox/blob/main/images/image2.jpg" alt="Luckfox Pico Mini" width="600">
 
-5. After done, eject and place the SD card into the Luckfox, power it using USB Type-C, and connect it to the internet by plugging the LAN cable into the router<br>
+5. After done, eject and place the SD card into the Luckfox, power it using USB Type-C and wait about `5 to 10 min` for luckfox to config the network, then connect it to the internet by plugging the LAN cable into the router <br> 
 6. Loggin to ubuntu:
 
 `Login: pico` <br>
 `Password: luckfox` <be>
 
-log in using SSH: connect Luckfox to the internet via LAN cable, using `luckfox.lan` as host name to log in via SSH on <a href=https://putty.org>PuTTY</a>, if it does not work find its IP on your router and try again.
+log in using SSH: connect Luckfox to the internet via LAN cable, find its IP on your router, and log in via SSH on <a href=https://putty.org>PuTTY</a>
 
 7. After you log in, run the following commands
 
