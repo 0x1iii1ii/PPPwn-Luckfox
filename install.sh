@@ -93,9 +93,10 @@ cd /home/pico/PPPwn-Luckfox/
 # Check if the pppwn command was successful
 if [ \$? -eq 0 ]; then
     echo "pppwn execution completed successfully."
-    systemctl stop pppwn.service
-    sleep 20
+    sleep 10
     ifconfig eth0 down
+	sleep 5
+	systemctl halt
 else
     echo "pppwn execution failed. Exiting script."
     exit 1
@@ -125,6 +126,6 @@ sudo mv pppwn.service /etc/systemd/system/
 sudo chmod +x /etc/systemd/system/pppwn.service
 sudo systemctl enable pppwn.service
 
-echo "install completed! Rebooting..."
+echo "install completed! rebooting..."
 
 sudo reboot
