@@ -18,14 +18,14 @@ and manually copy it to `home/root/` folder of your luckfox using <a href=https:
 ## Tested Version
 I only have PS4 v11.00 if you have other versions in the list below please test it and let me know thank you!
 
-- [ ] 9.00
+- [x] 9.00
 - [ ] 10.00
 - [ ] 10.01
-- [x] 11.00 by @0x1iii1ii
+- [x] 11.00
       
 ## What it does
 
-The goal here is to setup the Luckfox pico to automatically try and PPPwn the console without any input from you, just wait on the home screen until the process completes.<br>
+The goal here is to setup the Luckfox pico to automatically try and jailbreak the console, all you need to do is wait until the process completes.<br>
 Once it PPPwned the process will stop. <br>
 
 ## Requirements
@@ -40,14 +40,14 @@ Once it PPPwned the process will stop. <br>
 
 - <b>Luckfox Pico Pro</b><br>
 - <b>Luckfox Pico Max</b><br>
-- <b>Luckfox Pico Plus</b><br>
+- <b>Luckfox Pico Plus</b><be>
 - <b>Luckfox Pico Mini</b><br>
 - <b>Luckfox Pico </b><br>
 
 You can get one from the official site <a href=https://www.luckfox.com>Luckfox</a>  or from <a href=https://www.aliexpress.com/item/1005006083739388.html>Aliexpress</a> at around from 7$ to 15$.
 
 # Special Note for Luckfox Pico/Mini
-For these 2 boards, there's no Ethernet port, to make it work you need to solder the LAN Port (RJ45) cable to it, either female or male is fine, and burn the Ubuntu image with pico plus image and follow the same step as other boards.
+For these 2 boards, there's no Ethernet port, to make it work you need to solder the LAN Port (RJ45) cable to it, either female or male is fine, and burn the Ubuntu image with `pico plus image` and follow the same step as other boards. See the wiring in the `Issues` tab
 
 <br>
 
