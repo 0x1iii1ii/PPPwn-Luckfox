@@ -78,7 +78,7 @@ Luckfox Pico/Plus/Mini  | RV1103
 
 log in using SSH: connect Luckfox to the internet via LAN cable, find its IP on your router, and log in via SSH on <a href=https://putty.org>PuTTY</a>
 
-7. After you log in, run the following commands
+7. After you log in, run the following commands and follow the setup instruction
 
 <br>
 
