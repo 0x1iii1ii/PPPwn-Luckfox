@@ -9,18 +9,15 @@ on the luckfox pico series and SiSTRo for his <a href=https://github.com/GoldHEN
 
 ## Note
 
-- I made some changes to the installation, if you follow the tutorial from YouTube, you can find the old files in `releases section` (only support v11.00)
-and manually copy it to `home/root/` folder of your luckfox using <a href=https://sourceforge.net/projects/winscp/ >WinSCP</a> and run cmd in `old cmd.txt` file
 - Currently support PS4 version: `9.00, 10.00, 10.01, 11.00`
 - The average PPPwned time is around `1min - 2min` sometimes it load under `1 minute`
 - Using `pppwn` nightly build from xfangfang PPPwn_cpp <be>
 
 ## Tested Version
-I only have PS4 v11.00 if you have other versions in the list below please test it and let me know thank you!
 
 - [x] 9.00
 - [ ] 10.00
-- [ ] 10.01
+- [x] 10.01
 - [x] 11.00
       
 ## What it does
