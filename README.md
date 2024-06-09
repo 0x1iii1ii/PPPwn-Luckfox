@@ -9,21 +9,23 @@ on the luckfox pico series and SiSTRo for his <a href=https://github.com/GoldHEN
 
 ## Note
 
-- Currently support PS4 version: `9.00, 10.00, 10.01, 11.00`
+- Currently support PS4 version: `9.00, 9.03, 10.00, 10.01, 10.50, 10.70, 11.00`
 - The average PPPwned time is around `1min - 2min` sometimes it load under `1 minute`
 - Using `pppwn` nightly build from xfangfang PPPwn_cpp <be>
 
 ## Tested Version
 
 - [x] 9.00
+- [ ] 9.03
 - [ ] 10.00
 - [x] 10.01
+- [ ] 10.50
+- [ ] 10.70
 - [x] 11.00
       
 ## What it does
 
-The goal here is to setup the Luckfox pico to automatically try and jailbreak the console, all you need to do is wait until the process completes.<br>
-Once it PPPwned the process will stop. <br>
+The goal here is to setup the Luckfox pico to automatically try and jailbreak the console, all you need to do is wait until the process completes. Once it PPPwned the process will stop. <br>
 
 ## Requirements
 
@@ -44,7 +46,7 @@ Once it PPPwned the process will stop. <br>
 You can get one from the official site <a href=https://www.luckfox.com>Luckfox</a>  or from <a href=https://www.aliexpress.com/item/1005006083739388.html>Aliexpress</a> at around from 7$ to 15$.
 
 # Special Note for Luckfox Pico/Mini
-For these 2 boards, there's no Ethernet port, to make it work you need to solder the LAN Port (RJ45) cable to it, either female or male is fine, and burn the Ubuntu image with `pico plus image` and follow the same step as other boards. See the wiring in the `Issues` tab
+Ignore this if you use Pro/Max/Plus version. For these 2 boards, there's no Ethernet port, to make it work you need to solder the LAN Port (RJ45) cable to it, either female or male is fine, and burn the Ubuntu image with `pico plus image` and follow the same step as other boards. See the wiring in the `Issues` tab
 
 <br>
 
