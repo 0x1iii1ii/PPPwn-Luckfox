@@ -9,7 +9,7 @@ on the luckfox pico series and SiSTRo for his <a href=https://github.com/GoldHEN
 
 ## Note
 
-- Currently support PS4 version: `9.00, 9.03, 10.00, 10.01, 10.50, 10.70, 11.00`
+- Currently support PS4 version: `9.00, 9.03, 9.60, 10.00, 10.01, 10.50, 10.70, 11.00`
 - The average PPPwned time is around `1min - 2min` sometimes it load under `1 minute`
 - Using `pppwn` nightly build from xfangfang PPPwn_cpp <be>
 
@@ -17,6 +17,7 @@ on the luckfox pico series and SiSTRo for his <a href=https://github.com/GoldHEN
 
 - [x] 9.00
 - [ ] 9.03
+- [ ] 9.60
 - [ ] 10.00
 - [x] 10.01
 - [ ] 10.50
@@ -75,8 +76,10 @@ Luckfox Pico/Plus/Mini  | RV1103
 5. After done, eject and place the SD card into the Luckfox, power it using USB Type-C and wait about `5 to 10 min` for luckfox to config the network, then connect it to the internet by plugging the LAN cable into the router <br> 
 6. Loggin to ubuntu:
 
-`Login: pico` <br>
-`Password: luckfox` <be>
+```sh
+Login: pico
+Password: luckfox
+```
 
 log in using SSH: connect Luckfox to the internet via LAN cable, find its IP on your router, and log in via SSH on <a href=https://putty.org>PuTTY</a>
 
