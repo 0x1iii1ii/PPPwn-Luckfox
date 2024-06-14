@@ -5,8 +5,6 @@ Original work by theflow <a href=https://github.com/TheOfficialFloW/PPPwn>PPPwn<
 and thanks to xfangfang <a href=https://github.com/xfangfang/PPPwn_cpp>PPPwn-CPP</a> for an executable re-write of PPPwn in C++ for Cortex-A7 which is compatible with RV1103/RV1106 rockchip
 on the luckfox pico series and SiSTRo for his <a href=https://github.com/GoldHEN/GoldHEN>GoldHen</a>, and lastly <a href=https://github.com/stooged/PI-Pwn>Stooged</a> for his inspiration. <br>
 
-![](https://github.com/0x1iii1ii/PPPwn-Luckfox/blob/main/images/image1.jpg)
-
 ## Note
 
 - Currently support PS4 version: `9.00, 9.03, 9.60, 10.00, 10.01, 10.50, 10.70, 11.00`
@@ -17,8 +15,8 @@ on the luckfox pico series and SiSTRo for his <a href=https://github.com/GoldHEN
 
 - [x] 9.00
 - [ ] 9.03
-- [ ] 9.60
-- [ ] 10.00
+- [x] 9.60
+- [x] 10.00
 - [x] 10.01
 - [ ] 10.50
 - [ ] 10.70
@@ -43,8 +41,6 @@ The goal here is to setup the Luckfox pico to automatically try and jailbreak th
 - <b>Luckfox Pico Plus</b><be>
 - <b>Luckfox Pico Mini</b><br>
 - <b>Luckfox Pico </b><br>
-
-You can get one from the official site <a href=https://www.luckfox.com>Luckfox</a>  or from <a href=https://www.aliexpress.com/item/1005006083739388.html>Aliexpress</a> at around from 7$ to 15$.
 
 # Special Note for Luckfox Pico/Mini
 Ignore this if you use Pro/Max/Plus version. For these 2 boards, there's no Ethernet port, to make it work you need to solder the LAN Port (RJ45) cable to it, either female or male is fine, and burn the Ubuntu image with `pico plus image` and follow the same step as other boards. See the wiring in the `Issues` tab
@@ -115,3 +111,9 @@ For GoldHen you need to place the goldhen.bin file onto the root of a usb drive 
 Once goldhen has been loaded for the first time it will be copied to the consoles internal hdd and the usb is no longer required.<br>
 To update goldhen just repeat the above process and the new version will be copied to the internal hdd<br>
 
+## Upcoming alternative method using NAND flash
+
+- no SD card
+- boot faster
+- execute pppwn faster
+- higher success rate
