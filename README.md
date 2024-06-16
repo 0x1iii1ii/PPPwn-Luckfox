@@ -39,15 +39,8 @@ The goal here is to setup the Luckfox pico to automatically try and jailbreak th
 - <b>Luckfox Pico Pro</b><br>
 - <b>Luckfox Pico Max</b><br>
 - <b>Luckfox Pico Plus</b><be>
-- <b>Luckfox Pico Mini</b><br>
-- <b>Luckfox Pico </b><br>
-
-# Special Note for Luckfox Pico/Mini
-Ignore this if you use Pro/Max/Plus version. For these 2 boards, there's no Ethernet port, to make it work you need to solder the LAN Port (RJ45) cable to it, either female or male is fine, and burn the Ubuntu image with `pico plus image` and follow the same step as other boards. See the wiring in the `Issues` tab
-
-<br>
-
-<img src="https://github.com/0x1iii1ii/PPPwn-Luckfox/blob/main/images/image.jpg" alt="Luckfox Pico Mini" width="300">
+- <b>Luckfox Pico Mini *</b><br>
+- <b>Luckfox Pico *</b><br>
 
 ## Installation Software
 
@@ -67,21 +60,17 @@ Luckfox Pico/Plus/Mini  | RV1103
   d. Import the boot file.（Note: The startup files do not include update.img）<br>
   e. Click "Create SD Card".<br>
 
-<img src="https://github.com/0x1iii1ii/PPPwn-Luckfox/blob/main/images/image2.jpg" alt="Luckfox Pico Mini" width="600">
-
-5. After done, eject and place the SD card into the Luckfox, power it using USB Type-C and wait about `5 to 10 min` for luckfox to config the network, then connect it to the internet by plugging the LAN cable into the router <br> 
+5. After done, eject and place the SD card into the Luckfox, power it using USB Type-C, and wait about `5 to 10 min` for luckfox to config the network, then connect it to the internet by plugging the LAN cable into the router <br> 
 6. Loggin to ubuntu:
+
+      log in using SSH: connect Luckfox to the internet via LAN cable, find its IP on your router, and log in via SSH on <a href=https://putty.org>PuTTY</a>
 
 ```sh
 Login: pico
 Password: luckfox
 ```
 
-log in using SSH: connect Luckfox to the internet via LAN cable, find its IP on your router, and log in via SSH on <a href=https://putty.org>PuTTY</a>
-
 7. After you log in, run the following commands and follow the setup instruction
-
-<br>
 
 ```sh
 git clone https://github.com/0x1iii1ii/PPPwn-Luckfox.git
@@ -90,9 +79,10 @@ chmod +x install.sh
 sudo ./install.sh
 ```
 
-<br>
+Once the Luckfox reboots pppwn will run automatically.<be>
 
-Once the Luckfox reboots pppwn will run automatically.<br>
+## * Special Note for Luckfox Pico/Mini
+Ignore this if you use Pro/Max/Plus version. For these 2 boards, there's no Ethernet port, to make it work you need to solder the LAN Port (RJ45) cable to it, either female or male is fine, and burn the Ubuntu image with `pico plus image` and follow the same step as other boards. See the wiring in the `Issues` tab.
 
 ## Installation Hardware
 
