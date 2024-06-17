@@ -7,19 +7,16 @@ on the luckfox pico series and SiSTRo for his <a href=https://github.com/GoldHEN
 
 ## Note
 
-- Currently support PS4 version: `9.00, 9.03, 9.60, 10.00, 10.01, 10.50, 10.70, 11.00`
+- Currently support PS4 version: `9.00, 9.60, 10.00, 10.01, 11.00`
 - The average PPPwned time is around `1min - 2min` sometimes it load under `1 minute`
 - Using `pppwn` nightly build from xfangfang PPPwn_cpp <be>
 
 ## Tested Version
 
 - [x] 9.00
-- [ ] 9.03
 - [x] 9.60
 - [x] 10.00
 - [x] 10.01
-- [ ] 10.50
-- [ ] 10.70
 - [x] 11.00
       
 ## What it does
