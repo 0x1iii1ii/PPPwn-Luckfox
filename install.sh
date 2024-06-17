@@ -23,27 +23,21 @@ echo ""
 # Display the list of firmware versions
 echo "Please select your PS4 firmware version:"
 echo "a) 9.00"
-echo "b) 9.03"
-echo "c) 9.60"
-echo "d) 10.00"
-echo "e) 10.01"
-echo "f) 10.50"
-echo "g) 10.70"
-echo "h) 11.00"
+echo "b) 9.60"
+echo "c) 10.00"
+echo "d) 10.01"
+echo "e) 11.00"
 echo ""
 # Prompt the user for the selection
-read -p "Enter your choice (a/b/c/d/e/f/g/h): " FW_CHOICE
+read -p "Enter your choice (a/b/c/d/e): " FW_CHOICE
 
 # Set the firmware version based on the user's choice
 declare -A fw_versions=(
     [a]="900"
-    [b]="903"
-	[c]="960"
-    [d]="1000"
-    [e]="1001"
-    [f]="1050"
-    [g]="1070"
-    [h]="1100"
+	[b]="960"
+    [c]="1000"
+    [d]="1001"
+    [e]="1100"
 )
 
 FW_VERSION=${fw_versions[$FW_CHOICE]}
