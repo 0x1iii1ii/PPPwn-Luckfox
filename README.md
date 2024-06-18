@@ -78,6 +78,14 @@ sudo ./install.sh
 
 Once the Luckfox reboots pppwn will run automatically.<be>
 
+## Update to lastest version
+log in to your luckfox, connect it to the internet, paste this cmd, and setup again:
+```sh
+cd PPPwn-Luckfox
+git pull
+sudo ./install.sh
+```
+
 ## * Special Note for Luckfox Pico/Mini
 Ignore this if you use Pro/Max/Plus version. For these 2 boards, there's no Ethernet port, to make it work you need to solder the LAN Port (RJ45) cable to it, either female or male is fine, and burn the Ubuntu image with `pico plus image` and follow the same step as other boards. See the wiring in the `Issues` tab.
 
