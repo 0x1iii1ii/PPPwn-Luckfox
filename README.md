@@ -78,7 +78,8 @@ sudo ./install.sh
 
 Once the Luckfox reboots pppwn will run automatically.<be>
 
-## Update to lastest version
+## Update to the latest version
+Only use this cmd, when you want to update to the latest released version of PPPwn-Luckfox. <br>
 log in to your luckfox, connect it to the internet, paste this cmd, and setup again:
 ```sh
 cd PPPwn-Luckfox
