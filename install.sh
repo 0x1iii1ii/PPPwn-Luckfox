@@ -186,6 +186,7 @@ EOL
 # Make the pppwn and script executable
 chmod +x pppwn_script.sh
 chmod +x pppwn
+chmod +x pppwn_ipv6
 
 # Create the pppwn.service file
 cat <<EOL > pppwn.service
