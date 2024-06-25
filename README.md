@@ -83,8 +83,7 @@ Only use this cmd, when you want to update to the latest released version of PPP
 log in to your luckfox, connect it to the internet, paste this cmd, and setup again:
 ```sh
 cd PPPwn-Luckfox
-git pull
-sudo ./install.sh
+sudo ./update.sh
 ```
 
 ## * Special Note for Luckfox Pico/Mini
