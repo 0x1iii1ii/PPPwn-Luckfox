@@ -107,7 +107,9 @@ For GoldHen you need to place the goldhen.bin file onto the root of a usb drive 
 Once goldhen has been loaded for the first time it will be copied to the consoles internal hdd and the usb is no longer required.<br>
 To update goldhen just repeat the above process and the new version will be copied to the internal hdd<br>
 
-## Upcoming alternative method using NAND flash
+## Alternative method using NAND flash (in July)
+
+Early implementation of Luckfox <a href=https://github.com/0x1iii1ii/PPPwn-Luckfox/issues/25#issue-2373182266> AlpineLinux without an SD card to run PPPwn </a> by @pmgcosta 
 
 - no SD card
 - boot faster
