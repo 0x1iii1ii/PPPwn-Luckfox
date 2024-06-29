@@ -31,7 +31,7 @@ Automatically try and jailbreak the console itself, all you need to do is wait u
 - USB Type-C
 - A USB drive with exFAT32 formatted (only use for the first time to load GoldHEN)
 
-## Installation in NAND Flash
+## Installation in NAND Flash <a name="nandinstallation"></a>
 
 1. If you got Luckfox pico Plus/Pro/Max, you don't need to burn the OS, Luckfox already has pre-installed buildroot right out of the box, so let's move to step 3.
 2. If you got Luckfox pico Mini B you need to use <a href=https://drive.google.com/file/d/1ALo4G7rEaF1GNhUHINoYHT_RGWGddzYw>SocToolKit</a> to burn the buildroot image which can be found in <a href=https://drive.google.com/drive/folders/1sFUWjYpDDisf92q9EwP1Ia7lHgp9PaFS>Firmware</a>, in buildroot sub-folder name `Luckfox_Pico_Plus_Flash`. Follow the official luckfox tutorial on how to <a href=https://wiki.luckfox.com/Luckfox-Pico/Luckfox-Pico-RV1103/Luckfox-Pico-Flash-burn-image>Burning SPI NAND Flash Images</a>.
@@ -54,8 +54,7 @@ Automatically try and jailbreak the console itself, all you need to do is wait u
         <img src="images/3.png" alt="Image 3" style="width: 600px;">
   
    - After filling it out, click OK, enter the login name, and login `root` password `luckfox`.
-7. At this point, you have successfully logged in to Luckfox pico. Download <a href= https://github.com/0x1iii1ii/PPPwn-Luckfox/archive/refs/heads/main.zip>PPPwn-Luckfox</a> from release pages or from GitHub repo, <br>
-   unzip and rename folder to `PPPwn-Luckfox` drag and drop the files in the highlight red rectangle there, it will copy the files to the luckfox. <be>
+7. At this point, you have successfully logged in to Luckfox pico. Download <a href= https://github.com/0x1iii1ii/PPPwn-Luckfox/archive/refs/heads/main.zip>PPPwn-Luckfox</a> from release pages or from GitHub repo, unzip and rename folder to `PPPwn-Luckfox` drag and drop the files in the highlight red rectangle there, it will copy the files to the luckfox. <be>
    
    <img src="images/4.png" alt="Image 4" style="width: 700px;">
    
@@ -86,9 +85,9 @@ Luckfox Pico/Plus/Mini  | RV1103
   d. Import the boot file.（Note: The startup files do not include update.img）<br>
   e. Click "Create SD Card".<br>
 
-5. After done, follow instructions from steps 3, 4, 5, and 6 in `Installation in NAND Flash`. Loggin to Ubuntu using static IP `172.32.0.70` login `pico` password `luckfox`
+5. After done, follow instructions from steps 3, 4, 5, and 6 in [Installation in NAND Flash](#nandinstallation). Loggin to Ubuntu using static IP `172.32.0.70` login `pico` password `luckfox`
 
-6. After you log in, follow step 7 in `Installation in NAND Flash`, run the following commands, and follow the setup instruction
+6. After you log in, follow step 7 in [Installation in NAND Flash](#nandinstallation), run the following commands, and follow the setup instruction
 
 ```sh
 cd PPPwn-Luckfox
