@@ -44,7 +44,7 @@ Automatically try and jailbreak the console itself, all you need to do is wait u
 
       <p float="left">
         <img src="images/1.jpg" width="300" />
-        <img src="images/2.jpg" width="300" /> 
+        <img src="images/2.jpg" width="336" /> 
       </p>
 
 6. MobaXterm Login
