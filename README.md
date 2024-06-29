@@ -8,7 +8,7 @@ on the luckfox pico series and SiSTRo for his <a href=https://github.com/GoldHEN
 ## Note
 
 - Currently support PS4 version: `9.00, 9.60, 10.00, 10.01, 11.00`
-- The average PPPwned time is around `1min - 2min` sometimes it loads in under `1 minute`, it also depends on the speed of your SD card 
+- The average PPPwned time is around `1min - 2min` sometimes it loads under `1 minute`
 - Using `pppwn` nightly build from xfangfang PPPwn_cpp <be>
   
 ## What it does
@@ -36,22 +36,24 @@ Automatically try and jailbreak the console itself, all you need to do is wait u
 1. If you got Luckfox pico Plus/Pro/Max, you don't need to burn the OS, Luckfox already has pre-installed buildroot right out of the box, so let's move to step 3.
 2. If you got Luckfox pico Mini B you need to use <a href=https://drive.google.com/file/d/1ALo4G7rEaF1GNhUHINoYHT_RGWGddzYw>SocToolKit</a> to burn the buildroot image which can be found in <a href=https://drive.google.com/drive/folders/1sFUWjYpDDisf92q9EwP1Ia7lHgp9PaFS>Firmware</a>, in buildroot sub-folder name `Luckfox_Pico_Plus_Flash`. Follow the official luckfox tutorial on how to <a href=https://wiki.luckfox.com/Luckfox-Pico/Luckfox-Pico-RV1103/Luckfox-Pico-Flash-burn-image>Burning SPI NAND Flash Images</a>.
 3. Plug your luckfox to your PC via USB type-c port and wait a few minutes until you hear the device connect sound.
-4. On your PC open `Control Panel -> Network and Internet -> Network and Sharing Center -> Change Adapter Options`. you will find `Remote NDIS based Internet Sharing Device` Right-click and choose Properties.<be>
+4. On your PC open `Control Panel -> Network and Internet -> Network and Sharing Center -> Change Adapter Options`. You will find `Remote NDIS based Internet Sharing Device`. Right-click and choose Properties.<be>
 
-      ![Getting Started](images/0.jpg)
+      ![](images/0.jpg)
 
-5. Double-click on `Internet Protocol Version 4 (TCP/IPv4)`. Set the IPv4 address to `172.32.0.100` and subnet mask to `255.255.0.0` and click OK.<br>
-![Getting Started](images/1.jpg)![Getting Started](images/2.jpg)
+5. Double-click on `Internet Protocol Version 4 (TCP/IPv4)`. Set the IPv4 address to `172.32.0.100` and subnet mask to `255.255.0.0` and click OK.<be>
+
+      ![](images/1.jpg)![](images/2.jpg)
+
 6. MobaXterm Login
    - Download <a href=https://drive.google.com/file/d/1pLikKXgdJNWqmylq8UYwXPDGaEDfxjNG>MobaXterm</a> and unzip to use.
    - Open the MobaXterm remote login software, choose Session->SSH, and enter the static IP address of Luckfox pico as `172.32.0.93`.<br>
    
-        ![Getting Started](images/3.png)
+        ![](images/3.png)
   
    - After filling it out, click OK, enter the login name, and login `root` password `luckfox`.
 7. At this point, you have successfully logged in to Luckfox pico. Download <a href= https://github.com/0x1iii1ii/PPPwn-Luckfox/archive/refs/heads/main.zip>PPPwn-Luckfox</a> from release pages or from GitHub repo, unzip and rename folder to `PPPwn-Luckfox` drag and drop the files in the highlight red rectangle there, it will copy the files to the luckfox <be>
 
-      ![Getting Started](images/4.png)
+      ![](images/4.png)
 
 8.  After finish copy, paste this cmd, and follow instructions.
 
@@ -80,7 +82,7 @@ Luckfox Pico/Plus/Mini  | RV1103
   d. Import the boot file.（Note: The startup files do not include update.img）<br>
   e. Click "Create SD Card".<br>
 
-5. After done, follow instructions from steps 3,4, 5, and 6 in `Installation in NAND Flash` but Loggin to Ubuntu using IP `172.32.0.70` login `root` password `luckfox`
+5. After done, follow instructions from steps 3, 4, 5, and 6 in `Installation in NAND Flash` but Loggin to Ubuntu using IP `172.32.0.70` login `pico` password `luckfox`
 
 6. After you log in, follow step 7 in `Installation in NAND Flash`, run the following commands, and follow the setup instruction
 
