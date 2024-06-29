@@ -12,12 +12,22 @@ echo "|  | |  |  \\_/ ___\\|  |/ /\\   __\\/  _ \\  \\/  / "
 echo "|  |_|  |  /\\  \\___|    <  |  | (  <_> >    <      "
 echo "|____/____/  \\_____>__|_ \\ |__|  \\____/__/\\_ \\  "
 echo ""
-echo "v1.0.3"
+echo "★ SD ★ v1.1.0"
+echo ""
 echo "by: https://github.com/0x1iii1ii/PPPwn-Luckfox"
 echo "credit to:"
 echo "https://github.com/TheOfficialFloW/PPPwn"
 echo "https://github.com/xfangfang/PPPwn_cpp"
 echo ""
+
+# Colors
+Green='\033[0;32m'        # Green
+Yellow='\033[0;33m'       # Yellow
+BGreen='\033[1;32m'       # Bold Green
+BYellow='\033[1;33m'      # Bold Yellow
+BCyan='\033[1;36m'        # Cyan
+NC='\033[0m'              # No Color
+
 # Display the list of firmware versions
 echo "Please select your PS4 firmware version:"
 echo "a) 9.00"
@@ -64,30 +74,8 @@ while true; do
     fi
 done
 
-# Regular Colors
-Black='\033[0;30m'        # Black
-Red='\033[0;31m'          # Red
-Green='\033[0;32m'        # Green
-Yellow='\033[0;33m'       # Yellow
-Blue='\033[0;34m'         # Blue
-Purple='\033[0;35m'       # Purple
-Cyan='\033[0;36m'         # Cyan
-White='\033[0;37m'        # White
-NC='\033[0m'              # No Color
-
-# Bold
-BBlack='\033[1;30m'       # Black
-BRed='\033[1;31m'         # Red
-BGreen='\033[1;32m'       # Green
-BYellow='\033[1;33m'      # Yellow
-BBlue='\033[1;34m'        # Blue
-BPurple='\033[1;35m'      # Purple
-BCyan='\033[1;36m'        # Cyan
-BWhite='\033[1;37m'       # White
-
 echo ""
 echo "Please select the pppwn executable you want to use:"
-echo ""
 echo -e "a) ${BGreen}pppwn${NC} - a normal stable release for some PS4 models"
 echo -e "b) ${BGreen}pppwn_ipv6${NC} - an update IPV6 which compatible for all PS4 models"
 echo ""
@@ -119,7 +107,7 @@ READABLE_HALT_CHOICE=$( [[ "$HALT_CHOICE" == "y" ]] && echo "yes" || echo "no" )
 
 confirm_settings() {
     echo ""
-    echo "You have selected the following settings:"
+    echo -e "${BCyan}You have selected the following settings:${NC}"
     echo -e "PS4 Firmware: ${BGreen}$1${NC}"
     echo -e "PPPwn executable: ${BGreen}$2${NC}"
     echo -e "Shutdown after successful jailbreak: ${BGreen}$3${NC}"
@@ -133,15 +121,14 @@ confirm_settings() {
 
 confirm_settings "$READABLE_FW_VERSION" "$READABLE_PPPWN_EXEC" "$READABLE_HALT_CHOICE"
 
-# Define the paths for the stage1 and stage2 files based on the firmware version
 STAGE1_FILE="stage1/$FW_VERSION/stage1.bin"
 STAGE2_FILE="stage2/$FW_VERSION/stage2.bin"
 
-# Create the execution script with the user inputs
 cat <<EOL > pppwn_script.sh
 #!/bin/bash
 
 # Define variables
+INSTALL_DIR="/home/pico/PPPwn-Luckfox/"
 FW_VERSION=$FW_VERSION
 STAGE1_FILE="$STAGE1_FILE"
 STAGE2_FILE="$STAGE2_FILE"
@@ -150,22 +137,16 @@ PPPWN_EXEC=$PPPWN_EXEC
 
 # Disable eth0
 ifconfig eth0 down
-
 # Wait a second
 sleep 1
-
 # Enable eth0
 ifconfig eth0 up
-
 # Wait a second
 sleep 1
-
-# Change to the directory containing the pppwn executable
-cd /home/pico/PPPwn-Luckfox/
-
+# Change to pppwn directory
+cd \$INSTALL_DIR
 # Execute the pppwn command with the desired options
 \$PPPWN_EXEC --interface eth0 --fw \$FW_VERSION --stage1 "\$STAGE1_FILE" --stage2 "\$STAGE2_FILE" -a -t 5 -nw -wap 2
-
 # Check if the pppwn command was successful
 if [ \$? -eq 0 ]; then
     echo "pppwn execution completed successfully."
@@ -183,12 +164,10 @@ else
 fi
 EOL
 
-# Make the pppwn and script executable
 chmod +x pppwn_script.sh
 chmod +x pppwn
 chmod +x pppwn_ipv6
 
-# Create the pppwn.service file
 cat <<EOL > pppwn.service
 [Unit]
 Description=PPPwn Script Service
@@ -202,11 +181,10 @@ ExecStart=/home/pico/PPPwn-Luckfox/pppwn_script.sh
 WantedBy=multi-user.target
 EOL
 
-# Move and enable the service file
 sudo mv pppwn.service /etc/systemd/system/
 sudo chmod +x /etc/systemd/system/pppwn.service
 sudo systemctl enable pppwn.service
 
-echo "install completed! rebooting..."
+echo "install to SD completed! rebooting..."
 
 sudo reboot
