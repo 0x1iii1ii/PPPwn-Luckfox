@@ -42,20 +42,24 @@ Automatically try and jailbreak the console itself, all you need to do is wait u
 
 5. Double-click on `Internet Protocol Version 4 (TCP/IPv4)`. Set the IPv4 address to `172.32.0.100` and subnet mask to `255.255.0.0` and click OK.<be>
 
-      ![](images/1.jpg)![](images/2.jpg)
+      <p float="left">
+        <img src="images/1.jpg" width="300" />
+        <img src="images/2.jpg" width="300" /> 
+      </p>
 
 6. MobaXterm Login
    - Download <a href=https://drive.google.com/file/d/1pLikKXgdJNWqmylq8UYwXPDGaEDfxjNG>MobaXterm</a> and unzip to use.
    - Open the MobaXterm remote login software, choose Session->SSH, and enter the static IP address of Luckfox pico as `172.32.0.93`.<br>
    
-        ![](images/3.png)
+        <img src="images/3.png" alt="Image 3" style="width: 600px;">
   
    - After filling it out, click OK, enter the login name, and login `root` password `luckfox`.
-7. At this point, you have successfully logged in to Luckfox pico. Download <a href= https://github.com/0x1iii1ii/PPPwn-Luckfox/archive/refs/heads/main.zip>PPPwn-Luckfox</a> from release pages or from GitHub repo, unzip and rename folder to `PPPwn-Luckfox` drag and drop the files in the highlight red rectangle there, it will copy the files to the luckfox <be>
-
-      ![](images/4.png)
-
-8.  After finish copy, paste this cmd, and follow instructions.
+7. At this point, you have successfully logged in to Luckfox pico. Download <a href= https://github.com/0x1iii1ii/PPPwn-Luckfox/archive/refs/heads/main.zip>PPPwn-Luckfox</a> from release pages or from GitHub repo, <br>
+   unzip and rename folder to `PPPwn-Luckfox` drag and drop the files in the highlight red rectangle there, it will copy the files to the luckfox. <be>
+   
+   <img src="images/4.png" alt="Image 4" style="width: 700px;">
+   
+9.  After finish copy, paste this cmd, and follow instructions.
 
 ```sh
 cd PPPwn-Luckfox
@@ -82,7 +86,7 @@ Luckfox Pico/Plus/Mini  | RV1103
   d. Import the boot file.（Note: The startup files do not include update.img）<br>
   e. Click "Create SD Card".<br>
 
-5. After done, follow instructions from steps 3, 4, 5, and 6 in `Installation in NAND Flash` but Loggin to Ubuntu using IP `172.32.0.70` login `pico` password `luckfox`
+5. After done, follow instructions from steps 3, 4, 5, and 6 in `Installation in NAND Flash`. Loggin to Ubuntu using static IP `172.32.0.70` login `pico` password `luckfox`
 
 6. After you log in, follow step 7 in `Installation in NAND Flash`, run the following commands, and follow the setup instruction
 
@@ -121,5 +125,5 @@ Ignore this if you use Pro/Max/Plus version. For these 2 boards, there's no Ethe
 
 For GoldHen you need to place the goldhen.bin file onto the root of a usb drive and plug it into the console.<br>
 Once goldhen has been loaded for the first time it will be copied to the consoles internal hdd and the usb is no longer required.<br>
-To update goldhen just repeat the above process and the new version will be copied to the internal hdd<br>
+To update goldhen just repeat the above process and the new version will be copied to the internal HDD. <br>
 
