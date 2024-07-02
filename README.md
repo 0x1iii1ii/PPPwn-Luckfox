@@ -33,8 +33,8 @@ Automatically try and jailbreak the console itself, all you need to do is wait u
 
 ## Installation in NAND Flash <a name="nandinstallation"></a>
 
-1. If you got Luckfox pico Plus/Pro/Max, you don't need to burn the OS, Luckfox already has pre-installed buildroot right out of the box, so let's move to step 3.
-2. If you got Luckfox pico Mini B you need to use <a href=https://drive.google.com/file/d/1ALo4G7rEaF1GNhUHINoYHT_RGWGddzYw>SocToolKit</a> to burn the buildroot image which can be found in <a href=https://drive.google.com/drive/folders/1sFUWjYpDDisf92q9EwP1Ia7lHgp9PaFS>Firmware</a>, in buildroot sub-folder name `Luckfox_Pico_Plus_Flash`. Follow the official luckfox tutorial on how to <a href=https://wiki.luckfox.com/Luckfox-Pico/Luckfox-Pico-RV1103/Luckfox-Pico-Flash-burn-image>Burning SPI NAND Flash Images</a>.
+1. If you got Luckfox pico Pro/Max, you don't need to burn the OS, Luckfox already has pre-installed buildroot right out of the box, so let's move to step 3.
+2. If you got Luckfox pico Plus/Mini B you need to use <a href=https://drive.google.com/file/d/1ALo4G7rEaF1GNhUHINoYHT_RGWGddzYw>SocToolKit</a> to re-burn the buildroot image again which can be found in <a href=https://drive.google.com/drive/folders/1sFUWjYpDDisf92q9EwP1Ia7lHgp9PaFS>Firmware</a>, in buildroot sub-folder name `Luckfox_Pico_Plus_Flash`. Follow the official luckfox tutorial on how to <a href=https://wiki.luckfox.com/Luckfox-Pico/Luckfox-Pico-RV1103/Luckfox-Pico-Flash-burn-image>Burning SPI NAND Flash Images</a>.
 3. Plug your luckfox to your PC via USB type-c port and wait a few minutes until you hear the device connect sound.
 4. On your PC open `Control Panel -> Network and Internet -> Network and Sharing Center -> Change Adapter Options`. You will find `Remote NDIS based Internet Sharing Device`. Right-click and choose Properties.<be>
 
@@ -73,10 +73,10 @@ Once the Luckfox reboots pppwn will run automatically.<be>
 2. Burn the image onto an SD Card. Download <a href=https://drive.google.com/file/d/1ALo4G7rEaF1GNhUHINoYHT_RGWGddzYw>SocToolKit</a> and unzip the burning tool.
 3. Open the software and select your chip type
 
-Luckfox Models  | Chip Type
-------------- | -------------
-Luckfox Pico Pro/Max  | RV1106
-Luckfox Pico/Plus/Mini  | RV1103 
+      Luckfox Models  | Chip Type
+      ------------- | -------------
+      Luckfox Pico Pro/Max  | RV1106
+      Luckfox Pico/Plus/Mini  | RV1103 
 
 4. Steps to download firmware for Luckfox Pico on Windows: <br>
   a. Choose the SD card tool.<br>
@@ -87,7 +87,7 @@ Luckfox Pico/Plus/Mini  | RV1103
 
 5. After done, follow instructions from steps 3, 4, 5, and 6 in [Installation in NAND Flash](#nandinstallation). Loggin to Ubuntu using static IP `172.32.0.70` login `pico` password `luckfox`
 
-6. After you log in, follow step 7 in [Installation in NAND Flash](#nandinstallation), run the following commands, and follow the setup instruction
+6. After you log in, follow step 7 in [Installation in NAND Flash](#nandinstallation), then run the following commands, and follow the setup instruction
 
 ```sh
 cd PPPwn-Luckfox
@@ -98,16 +98,19 @@ sudo ./install_SD.sh
 Once the Luckfox reboots pppwn will run automatically.<be>
 
 ## Update PPPwn-Luckfox
-Only use this cmd if you're using an SD card with Ubuntu.
-log in to your luckfox, connect it to the internet, paste this cmd, and setup again:
+For SD card with Ubuntu.
+log in to your luckfox, connect it to the internet, then run these cmd:
 ```sh
 cd PPPwn-Luckfox
 sudo ./update.sh
 ```
-For NAND, you need to manually copy to luckfox using MobaXterm.
-
+For NAND, you need to manually copy the update files to luckfox using MobaXterm, then run these cmd.
+```sh
+cd PPPwn-Luckfox
+./install_NAND.sh
+```
 ## * Special Note for Luckfox Pico/Mini with SD card
-Ignore this if you use Pro/Max/Plus version. For these 2 boards, there's no Ethernet port, to make it work you need to solder the LAN Port (RJ45) cable to it, either female or male is fine, and burn the Ubuntu image with `pico plus image` and follow the same step as other boards. See the wiring in the `Issues` tab.
+Ignore this if you use Pro/Max/Plus version. For these 2 boards, there's no Ethernet port, to make it work you need to solder the LAN Port (RJ45) cable to it, either female or male is fine, and burn the Ubuntu image with `pico plus image` and follow the same step as other boards. Same with the NAND method by burn the buildroot of `Luckfox_Pico_Plus_Flash`. See the wiring in the `Issues` tab.
 
 ## Installation Hardware
 
