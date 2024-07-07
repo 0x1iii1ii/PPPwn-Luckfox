@@ -2,8 +2,7 @@
 
 An alternative low-cost Linux board for exploits PS4 on V11.00 or below.<br>
 Original work by theflow <a href=https://github.com/TheOfficialFloW/PPPwn>PPPwn</a> 
-and thanks to xfangfang <a href=https://github.com/xfangfang/PPPwn_cpp>PPPwn-CPP</a> for an executable re-write of PPPwn in C++ for Cortex-A7 which is compatible with RV1103/RV1106 rockchip
-on the luckfox pico series and SiSTRo for his <a href=https://github.com/GoldHEN/GoldHEN>GoldHen</a>, and lastly <a href=https://github.com/stooged/PI-Pwn>Stooged</a> for his inspiration. <br>
+and thanks to xfangfang <a href=https://github.com/xfangfang/PPPwn_cpp>PPPwn-CPP</a> for an executable re-write of PPPwn in C++ and SiSTRo for his <a href=https://github.com/GoldHEN/GoldHEN>GoldHen</a>, and lastly <a href=https://github.com/stooged/PI-Pwn>Stooged</a> for his inspiration. <br>
 
 ## Note
 
@@ -33,28 +32,29 @@ Automatically try and jailbreak the console itself, all you need to do is wait u
 
 ## Installation in NAND Flash <a name="nandinstallation"></a>
 
-1. If you got Luckfox pico Pro/Max, you don't need to burn the OS, Luckfox already has pre-installed buildroot right out of the box, so let's move to step 3.
-2. If you got Luckfox pico Plus/Mini B you need to use <a href=https://drive.google.com/file/d/1ALo4G7rEaF1GNhUHINoYHT_RGWGddzYw>SocToolKit</a> to re-burn the buildroot image again which can be found in <a href=https://drive.google.com/drive/folders/1sFUWjYpDDisf92q9EwP1Ia7lHgp9PaFS>Firmware</a>, in buildroot sub-folder name `Luckfox_Pico_Plus_Flash`. Follow the official luckfox tutorial on how to <a href=https://wiki.luckfox.com/Luckfox-Pico/Luckfox-Pico-RV1103/Luckfox-Pico-Flash-burn-image>Burning SPI NAND Flash Images</a>.
-3. Plug your luckfox to your PC via USB type-c port and wait a few minutes until you hear the device connect sound.
-4. On your PC open `Control Panel -> Network and Internet -> Network and Sharing Center -> Change Adapter Options`. You will find `Remote NDIS based Internet Sharing Device`. Right-click and choose Properties.<be>
+1. If you have a brand new Luckfox Pico Plus/Pro/Max skip to step 4.
+2. If your Luckfox Pico Plus/Pro/Max has been used with SD Card before, you need to use <a href=https://drive.google.com/file/d/1ALo4G7rEaF1GNhUHINoYHT_RGWGddzYw>SocToolKit</a> to re-burn the buildroot image files again which can be found in <a href=https://drive.google.com/drive/folders/1sFUWjYpDDisf92q9EwP1Ia7lHgp9PaFS>Firmware</a> and select buildroot image according to your Luckfox models and proceed to burn it by following the official Luckfox tutorial on how to <a href=https://wiki.luckfox.com/Luckfox-Pico/Luckfox-Pico-RV1103/Luckfox-Pico-Flash-burn-image>Burning SPI NAND Flash Images</a>.
+3. For Luckfox Pico Mini B you need to re-burn the buildroot image `Luckfox_Pico_Plus_Flash`.
+4. Plug your luckfox to your PC via USB type-c port and wait a few minutes until you hear the device connect sound.
+5. On your PC open `Control Panel -> Network and Internet -> Network and Sharing Center -> Change Adapter Options`. You will find `Remote NDIS based Internet Sharing Device`. Right-click and choose Properties.<be>
 
       ![](images/0.jpg)
 
-5. Double-click on `Internet Protocol Version 4 (TCP/IPv4)`. Set the IPv4 address to `172.32.0.100` and subnet mask to `255.255.0.0` and click OK.<be>
+6. Double-click on `Internet Protocol Version 4 (TCP/IPv4)`. Set the IPv4 address to `172.32.0.100` and subnet mask to `255.255.0.0` and click OK.<be>
 
       <p float="left">
         <img src="images/1.jpg" width="300" />
         <img src="images/2.jpg" width="336" /> 
       </p>
 
-6. MobaXterm Login
+7. MobaXterm Login
    - Download <a href=https://drive.google.com/file/d/1pLikKXgdJNWqmylq8UYwXPDGaEDfxjNG>MobaXterm</a> and unzip to use.
    - Open the MobaXterm remote login software, choose Session->SSH, and enter the static IP address of Luckfox pico as `172.32.0.93`.<br>
    
         <img src="images/3.png" alt="Image 3" style="width: 600px;">
   
    - After filling it out, click OK, enter the login name, and login `root` password `luckfox`.
-7. At this point, you have successfully logged in to Luckfox pico. Download <a href= https://github.com/0x1iii1ii/PPPwn-Luckfox/archive/refs/heads/main.zip>PPPwn-Luckfox</a> from release pages or from GitHub repo, unzip and rename folder to `PPPwn-Luckfox` drag and drop the files in the highlight red rectangle there, it will copy the files to the luckfox. <be>
+8. At this point, you have successfully logged in to Luckfox pico. Download <a href= https://github.com/0x1iii1ii/PPPwn-Luckfox/archive/refs/heads/main.zip>PPPwn-Luckfox</a> from release pages or from GitHub repo, unzip and rename folder to `PPPwn-Luckfox` drag and drop the files in the highlight red rectangle there, it will copy the files to the luckfox. <be>
    
    <img src="images/4.png" alt="Image 4" style="width: 700px;">
    
@@ -85,9 +85,9 @@ Once the Luckfox reboots pppwn will run automatically.<be>
   d. Import the boot file.（Note: The startup files do not include update.img）<br>
   e. Click "Create SD Card".<br>
 
-5. After done, follow instructions from steps 3, 4, 5, and 6 in [Installation in NAND Flash](#nandinstallation). Loggin to Ubuntu using static IP `172.32.0.70` login `pico` password `luckfox`
+5. After done, follow instructions from steps 4, 5, and 6 in [Installation in NAND Flash](#nandinstallation), for step 7 log in using static IP `172.32.0.70` login name `pico` and password `luckfox`.
 
-6. After you log in, follow step 7 in [Installation in NAND Flash](#nandinstallation), then run the following commands, and follow the setup instruction
+6. After you logged in, follow step 8 in [Installation in NAND Flash](#nandinstallation), then run the following commands, and follow the setup instruction
 
 ```sh
 cd PPPwn-Luckfox
@@ -99,18 +99,18 @@ Once the Luckfox reboots pppwn will run automatically.<be>
 
 ## Update PPPwn-Luckfox
 For SD card with Ubuntu.
-log in to your luckfox, connect it to the internet, then run these cmd:
+log in to your luckfox, connect it to the internet, then run this cmd:
 ```sh
 cd PPPwn-Luckfox
 sudo ./update.sh
 ```
-For NAND, you need to manually copy the update files to luckfox using MobaXterm, then run these cmd.
+For NAND, you need to manually copy the update files to luckfox using MobaXterm, then run this cmd.
 ```sh
 cd PPPwn-Luckfox
 ./install_NAND.sh
 ```
-## * Special Note for Luckfox Pico/Mini with SD card
-Ignore this if you use Pro/Max/Plus version. For these 2 boards, there's no Ethernet port, to make it work you need to solder the LAN Port (RJ45) cable to it, either female or male is fine, and burn the Ubuntu image with `pico plus image` and follow the same step as other boards. Same with the NAND method by burn the buildroot of `Luckfox_Pico_Plus_Flash`. See the wiring in the `Issues` tab.
+## * Special Note for Luckfox Pico/Mini
+Ignore this if you use Plus/Pro/Max version. For these 2 boards, there's no Ethernet port, to make it work you need to solder the LAN Port (RJ45) cable to it, either female or male is fine, and burn the Ubuntu image with `pico plus image` and follow the same step as other boards. Same with the NAND method by burning the buildroot image `Luckfox_Pico_Plus_Flash`. See the wiring in the `Issues` tab.
 
 ## Installation Hardware
 
