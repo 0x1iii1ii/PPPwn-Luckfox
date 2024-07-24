@@ -32,6 +32,8 @@ Automatically try and jailbreak the console itself, all you need to do is wait u
 
 ## Installation in NAND Flash <a name="nandinstallation"></a>
 
+Before proceeding make sure to disable your anti-virus software or Windows Defender, it is a false positive and completely safe. If you are still concerned please don't proceed any further!
+
 1. If you have a brand new Luckfox Pico Plus/Pro/Max skip to step 4.
 2. If your Luckfox Pico Plus/Pro/Max has been used with SD Card before, you need to use <a href=https://drive.google.com/file/d/1ALo4G7rEaF1GNhUHINoYHT_RGWGddzYw>SocToolKit</a> to re-burn the buildroot image files again which can be found in <a href=https://drive.google.com/drive/folders/1sFUWjYpDDisf92q9EwP1Ia7lHgp9PaFS>Firmware</a> and select buildroot image according to your Luckfox models and proceed to burn it by following the official Luckfox tutorial on how to <a href=https://wiki.luckfox.com/Luckfox-Pico/Luckfox-Pico-RV1103/Luckfox-Pico-Flash-burn-image>Burning SPI NAND Flash Images</a>.
 3. For Luckfox Pico Mini B you need to re-burn the buildroot image `Luckfox_Pico_Plus_Flash`.
