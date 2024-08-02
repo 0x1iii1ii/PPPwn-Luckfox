@@ -6,7 +6,7 @@ and thanks to xfangfang <a href=https://github.com/xfangfang/PPPwn_cpp>PPPwn-CPP
 
 ## Note
 
-- Currently support PS4 version: `9.00, 9.60, 10.00, 10.01, 11.00`
+- Currently support version: `9.00, 9.60, 10.00, 10.01, 11.00`
 - The average PPPwned time is around `1min - 2min` sometimes it loads under `1 minute`
 - Using `pppwn` nightly build from xfangfang PPPwn_cpp <be>
   
@@ -70,6 +70,8 @@ chmod +x install_NAND.sh
 Once the Luckfox reboots pppwn will run automatically.<be>
 
 ## Installation in SD Card
+
+An alternative option of <a href=https://github.com/harsha-0110/PPPwn-Luckfox>PPPwn-Luckfox</a> with more features for SD card install.
 
 1. Download <a href=https://drive.google.com/drive/folders/1sFUWjYpDDisf92q9EwP1Ia7lHgp9PaFS>Ubuntu</a>. After you download, extract one of the zip files according to your Luckfox pico models. <br>
 2. Burn the image onto an SD Card. Download <a href=https://drive.google.com/file/d/1ALo4G7rEaF1GNhUHINoYHT_RGWGddzYw>SocToolKit</a> and unzip the burning tool.
