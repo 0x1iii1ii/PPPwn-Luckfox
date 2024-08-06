@@ -10,9 +10,11 @@ and thanks to xfangfang <a href=https://github.com/xfangfang/PPPwn_cpp>PPPwn-CPP
 - The average PPPwned time is around `1min - 2min` sometimes it loads under `1 minute`
 - Using `pppwn` nightly build from xfangfang PPPwn_cpp <be>
   
-## Web Server Features
+## Web Server Features on NAND
 
-Thanks to [@harsha-0110](https://github.com/harsha-0110) for the webserver, you can access it at `192.168.1.1` on your PS4 browser. It allows you to:
+Thanks to [@harsha-0110](https://github.com/harsha-0110) for the webserver base scripts and PHP.<br>
+
+You can access it at `192.168.1.1` on your PS4 browser. It allows you to:
 
 - Change your PPPwn settings
 - Shutdown your Luckfox device
@@ -116,7 +118,9 @@ cd PPPwn-Luckfox
 
 1. You simply need to connect the LAN cable from Luckfox Pico to the PS4 and power the Luckfox from the PS4 via a USB Type-C cable or other sources.
 
-## On your PS4:<br>
+## On PS4:<br>
+
+Make sure to setup it right or the webserver won't work.
 
 - Go to `Settings` and then `Network`<br>
 - Select `Set Up Internet connection` and choose `Use a LAN Cable`<br>
