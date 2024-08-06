@@ -31,18 +31,18 @@ You can manually edit the configuration file located at `/etc/pppwn/config.json`
 
 ## Requirements
 
-- Luckfox Pico/Pro/Max/Plus/Mini
+- Luckfox Pico Pro/Max/Plus/Mini B
 - Ethernet Cable
 - USB Type-C
 - A USB drive with exFAT32 formatted (only use for the first time to load GoldHEN)
 - PC/Laptop for config the Luckfox
   
 ## Downloads
-Download the custom buildroot image for your Luckfox models below or from the release pages.
+Download the custom buildroot image for your Luckfox models below or from the [release](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases) pages.
    Luckfox Model  | Buildroot Image
    ------------- | -------------
-   Luckfox Pico Pro/Max  | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox)
-   Luckfox Pico Plus/Mini B | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox)
+   Luckfox Pico Pro/Max  | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.0/luckfox_pico_pro_max_image_pppwn.zip)
+   Luckfox Pico Plus/Mini B | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.0/luckfox_pico_plus_image_pppwn.zip)
 
 [SocToolKit](https://drive.google.com/file/d/1ALo4G7rEaF1GNhUHINoYHT_RGWGddzYw) for flashing buildroot image into NAND flash.
 
@@ -70,7 +70,7 @@ Before proceeding make sure to disable your anti-virus software or Windows Defen
         <img src="images/3.png" alt="Image 3" style="width: 600px;">
   
    - After filling it out, click OK, enter the login name, and login `root` password `luckfox`.
-6. At this point, you have successfully logged in to Luckfox pico. Download <a href= https://github.com/0x1iii1ii/PPPwn-Luckfox/archive/refs/heads/main.zip>PPPwn-Luckfox</a> from release pages or from GitHub repo, unzip and rename folder to `PPPwn-Luckfox` drag and drop the files in the highlight red rectangle there, it will copy the files to the luckfox. <be>
+6. At this point, you have successfully logged in to Luckfox pico. Download <a href=https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.0/PPPwn-Luckfox-v1.2.0.zip>PPPwn-Luckfox</a> from release pages or from GitHub repo, unzip and rename folder to `PPPwn-Luckfox` drag and drop the files in the highlight red rectangle there, it will copy the files to the luckfox. <be>
    
    <img src="images/4.png" alt="Image 4" style="width: 700px;">
    
