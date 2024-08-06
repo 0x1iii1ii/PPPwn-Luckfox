@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PPPwn-Luckfox GoldHEN Host - 11.00</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+        }
+        .container {
+            max-width: 1000px;
+            padding: 40px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            font-size: 32px;
+            color: #333;
+        }
+        .button {
+            display: inline-block;
+            margin: 5px;
+            width: 200px;
+            padding: 10px 15px;
+            font-size: 18px;
+            color: #fff;
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background 0.3s, transform 0.2s;
+            cursor: pointer;
+        }
+        .button:hover {
+            background: linear-gradient(135deg, #0056b3, #004099);
+            transform: translateY(-2px);
+        }
+        .button:active {
+            transform: translateY(1px);
+        }
+        .button-group {
+            margin-top: 20px;
+        }
+        .button-group a,
+        .button-group button {
+            display: inline-block;
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 18px;
+            color: #fff;
+            background: #007bff;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .button-group a:hover,
+        .button-group button:hover {
+            background: #0056b3;
+        }
+    </style>
+    <script>
+        const payloadFiles = {
+            app2usb: 'app2usb.bin',
+            appDumper: 'appdumper.bin',
+            backup: 'backup.bin',
+            disableASLR: 'disableaslr.bin',
+            disableUpdates: 'disableupdates.bin',
+            enableBrowser: 'enablebrowser.bin',
+            enableUpdates: 'enableupdates.bin',
+            exitIDU: 'exitidu.bin',
+            ftp: 'ftp.bin',
+            historyBlocker: 'historyblocker.bin',
+            kernelDumper: 'kerneldumper.bin',
+            moduleDumper: 'moduledumper.bin',
+            permanentUART: 'permanentuart.bin',
+            ps4debug: 'ps4debug.bin',
+            restore: 'restore.bin',
+            rifRenamer: 'rifrenamer.bin',
+            toDex: 'todex.bin'
+        };
+
+        function getPayload(payload, onLoadEndCallback) {
+            const req = new XMLHttpRequest();
+            req.open('GET', payload);
+            req.responseType = "arraybuffer";
+            req.onload = event => onLoadEndCallback && onLoadEndCallback(req, event);
+            req.send();
+        }
+
+        function sendPayload(url, data, onLoadEndCallback) {
+            const req = new XMLHttpRequest();
+            req.open("POST", url, true);
+            req.onload = event => onLoadEndCallback && onLoadEndCallback(req, event);
+            req.send(data);
+        }
+
+        function loadPayload(file) {
+            const statusUrl = "http://127.0.0.1:9090/status";
+            const payloadUrl = "http://127.0.0.1:9090";
+            const req = new XMLHttpRequest();
+            req.open("POST", statusUrl);
+            req.onerror = () => alert("Cannot Load Payload Because The BinLoader Server Is Not Running");
+            req.onload = () => {
+                const responseJson = JSON.parse(req.responseText);
+                if (responseJson.status === "ready") {
+                    getPayload(file, req => {
+                        if ((req.status === 200 || req.status === 304) && req.response) {
+                            sendPayload(payloadUrl, req.response, req => {
+                                progress.innerHTML = req.status === 200 ? "Payload Loaded" : 'Cannot send payload';
+                            });
+                        }
+                    });
+                } else {
+                    alert("Cannot Load Payload Because The BinLoader Server Is Busy");
+                }
+            };
+            req.send();
+        }
+
+        function setTemperatureOptions() {
+            const select = document.getElementById("tempC");
+            for (let i = 50; i <= 80; i += 5) {
+                const option = document.createElement("option");
+                option.text = i;
+                option.value = i;
+                select.add(option);
+            }
+            select.value = 60;
+            localStorage.setItem('fanthreshold', select.value);
+        }
+
+        document.addEventListener("DOMContentLoaded", setTemperatureOptions);
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>PPPwn-Luckfox GoldHEN Host - 11.00</h1>
+        <h2 id="progress" style="color: blue;">Status</h2>
+        <div id="all">
+            <button class="button" onmouseover="progress.innerHTML='App2USB for PS4 11.00 fw'" onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.app2usb)">App2USB</button>
+            <button class="button" onmouseover="progress.innerHTML='App Dumper for PS4 11.00 fw'" onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.appDumper)">App Dumper</button>
+            <button class="button" onmouseover="progress.innerHTML='Backup for PS4 11.00 fw'" onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.backup)">Backup</button>
+            <button class="button" onmouseover="progress.innerHTML='Disable ASLR for PS4 11.00 fw'" onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.disableASLR)">Disable ASLR</button>
+            <br/> <br/>
+            <button class="button" onmouseover="progress.innerHTML='Disable Updates for PS4 11.00 fw'" onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.disableUpdates)">Disable Updates</button>
+            <button class="button" onmouseover="progress.innerHTML='Enable Browser for PS4 11.00 fw'" onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.enableBrowser)">Enable Browser</button>
+            <button class="button" onmouseover="progress.innerHTML='Enable Updates for PS4 11.00 fw'" onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.enableUpdates)">Enable Updates</button>
+            <button class="button" onmouseover="progress.innerHTML='Exit IDU for PS4 11.00 fw'" onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.exitIDU)">Exit IDU</button>
+            <br/> <br/>
+            <button class="button" onmouseover="progress.innerHTML='FTP for PS4 11.00 fw'" onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.ftp)">FTP</button>
+            <button class="button" onmouseover="progress.innerHTML='History Blocker for PS4 11.00 fw'" onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.historyBlocker)">History Blocker</button>
+            <button class="button" onmouseover="progress.innerHTML='Kernel Dumper for PS4 11.00 fw'" onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.kernelDumper)">Kernel Dumper</button>
+            <button class="button" onmouseover="progress.innerHTML='Module Dumper for PS4 11.00 fw'" onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.moduleDumper)">Module Dumper</button>
+            <br/> <br/>
+            <button class="button" onmouseover="progress.innerHTML='Permanent UART for PS4 11.00 fw'" onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.permanentUART)">Permanent UART</button>
+            <button class="button" onmouseover="progress.innerHTML='PS4Debug for PS4 11.00 fw'" onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.ps4debug)">PS4Debug</button>
+            <button class="button" onmouseover="progress.innerHTML='DB-Restore for PS4 11.00 fw'" onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.restore)">DB-Restore</button>
+            <button class="button" onmouseover="progress.innerHTML='RIF Renamer for PS4 11.00 fw'" onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.rifRenamer)">RIF Renamer</button>
+            <br/> <br/>
+            <button class="button" onmouseover="progress.innerHTML='ToDex for PS4 11.00 fw'" onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.toDex)">ToDex</button>
+        </div>
+        <div class="button-group">
+            <a href="../index.php" class="button">Back</a>
+        </div>
+    </div>
+</body>
+
+</html>

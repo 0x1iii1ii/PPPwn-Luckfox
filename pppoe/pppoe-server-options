@@ -1,0 +1,13 @@
+# PPP options for the PPPoE Server
+# LOC: GPL
+require-pap
+#require-chap
+auth
+lcp-echo-interval 10
+lcp-echo-failure 2
+ms-dns 8.8.8.8
+ms-dns 8.8.4.4
+netmask 255.255.255.0
+defaultroute
+noipdefault
+usepeerdns

@@ -1,32 +1,41 @@
 #!/bin/sh
 
-echo "______________________________                       "
-echo "\\______   \\______   \\______   \\__  _  ______  "
-echo " |     ___/|     ___/|     ___/\\ \\/ \\/ /    \\ "
-echo " |    |    |    |    |    |     \\     /   |  \\     "
-echo " |____|    |____|    |____|      \\/\\_/|___|  /    "
-echo "                                           \\/       "
-echo " __                 __      _____                    " 
-echo "|  |  __ __   ____ |  | ___/ ____\\_______  ___      "
-echo "|  | |  |  \\_/ ___\\|  |/ /\\   __\\/  _ \\  \\/  / "
-echo "|  |_|  |  /\\  \\___|    <  |  | (  <_> >    <      "
-echo "|____/____/  \\_____>__|_ \\ |__|  \\____/__/\\_ \\  "
+cat << "EOF"
+______________________________                       
+\______   \______   \______   \__  _  ______  
+ |     ___/|     ___/|     ___/\ \/ \/ /    \ 
+ |    |    |    |    |    |     \     /   |  \     
+ |____|    |____|    |____|      \/\_/|___|  /    
+                                           \/       
+ __                 __      _____                    
+|  |  __ __   ____ |  | ___/ ____\_______  ___      
+|  | |  |  \_/ ___\|  |/ /\   __\/  _ \  \/  / 
+|  |_|  |  /\  \___|    <  |  | (  <_> >    <      
+|____/____/  \____>__|___\ |__|  \____/__/\__\  
+EOF
 echo ""
-echo "★ NAND ★ v1.1.0"
+echo "★ NAND ★ v1.2.0"
 echo ""
 echo "by: https://github.com/0x1iii1ii/PPPwn-Luckfox"
 echo "credit to:"
-echo "https://github.com/TheOfficialFloW/PPPwn"
-echo "https://github.com/xfangfang/PPPwn_cpp"
+echo "https://github.com/TheOfficialFloW/PPPwn for pppwn"
+echo "https://github.com/xfangfang/PPPwn_cpp for pppwn cpp"
+echo "https://github.com/harsha-0110/PPPwn-Luckfox for webserver"
 echo ""
 
-# Colors
+# Constants
 Green='\033[0;32m'        # Green
 Yellow='\033[0;33m'       # Yellow
 BGreen='\033[1;32m'       # Bold Green
 BYellow='\033[1;33m'      # Bold Yellow
 BCyan='\033[1;36m'        # Cyan
 NC='\033[0m'              # No Color
+
+CURRENT_DIR=$(pwd)
+WEB_DIR="/var/www/data"
+WEB_CONF="/etc/nginx"
+CONFIG_DIR="/etc/pppwn"
+CONFIG_FILE="$CONFIG_DIR/config.json"
 
 # Display the list of firmware versions
 echo "Please select your PS4 firmware version:"
@@ -37,47 +46,64 @@ echo "d) 10.01"
 echo "e) 11.00"
 
 # Prompt the user for the selection
-read -p "Enter your choice (a/b/c/d/e): " FW_CHOICE
-case $FW_CHOICE in
-    a) FW_VERSION="900"; READABLE_FW_VERSION="9.00" ;;
-    b) FW_VERSION="960"; READABLE_FW_VERSION="9.60" ;;
-    c) FW_VERSION="1000"; READABLE_FW_VERSION="10.00" ;;
-    d) FW_VERSION="1001"; READABLE_FW_VERSION="10.01" ;;
-    e) FW_VERSION="1100"; READABLE_FW_VERSION="11.00" ;;
-    *) echo "Invalid choice. Exiting."; exit 1 ;;
-esac
-echo "You have selected firmware version $FW_VERSION. Is this correct? (y/n)"
-read -p "Enter your choice: " CONFIRMATION
-if [ "$CONFIRMATION" != "y" ]; then
-    echo "Firmware selection not confirmed. Exiting."
-    exit 1
-fi
-echo ""
 while true; do
+    # Firmware selection
+	echo ""
+    read -p "Enter your choice (a/b/c/d/e): " FW_CHOICE
+    case $FW_CHOICE in
+        a) FW_VERSION="900"; READABLE_FW_VERSION="9.00" ;;
+        b) FW_VERSION="960"; READABLE_FW_VERSION="9.60" ;;
+        c) FW_VERSION="1000"; READABLE_FW_VERSION="10.00" ;;
+        d) FW_VERSION="1001"; READABLE_FW_VERSION="10.01" ;;
+        e) FW_VERSION="1100"; READABLE_FW_VERSION="11.00" ;;
+        *) echo "Invalid choice. Please select a valid option." ;;
+    esac
+
+    # Confirmation of firmware version
+    if [ -n "$READABLE_FW_VERSION" ]; then
+        echo "You have selected firmware version $READABLE_FW_VERSION. Is this correct? (y/n)"
+        read -p "Enter your choice: " CONFIRMATION
+        if [ "$CONFIRMATION" = "y" ]; then
+            break
+        else
+            echo "Firmware selection not confirmed. Please select again."
+            FW_CHOICE=""
+            CONFIRMATION=""
+        fi
+    fi
+done
+
+# Proceed with halt choice and pppwn executable choice
+while true; do
+    echo ""
     echo "Do you want your luckfox to shutdown after successfully jailbreak? (y/n)"
-    read -p "Enter your choice: " HALT_CHOICE
-    if [[ "$HALT_CHOICE" == "y" || "$HALT_CHOICE" == "n" ]]; then
+	echo ""
+	echo -e "${BYellow}Note:${NC} if you select \"y\" you won't be able to use ${BCyan}Web Server${NC} features."
+    read -p "Enter your choice: " HALT
+    if [[ "$HALT" == "y" || "$HALT" == "n" ]]; then
+        READABLE_HALT_CHOICE=$( [ "$HALT" = "y" ] && echo "yes" || echo "no" )
+        HALT_CHOICE=$( [ "$HALT" = "y" ] && echo "true" || echo "false" )
         break
     else
         echo "Invalid choice. Please enter 'y' or 'n'."
     fi
 done
-READABLE_HALT_CHOICE=$( [ "$HALT_CHOICE" = "y" ] && echo "yes" || echo "no" )
 
 echo ""
 echo "Please select the pppwn executable you want to use:"
 echo -e "a) ${BGreen}pppwn${NC} - a normal stable release for some PS4 models"
 echo -e "b) ${BGreen}pppwn_ipv6${NC} - an update IPV6 which compatible for all PS4 models"
 echo ""
-echo -e "${BYellow}Note:${NC} if your PS4 won't success with \"pppwn\", Please use \"pppwn_ipv6\" by redo installation again using cmd \"./install.sh\""
-echo ""
-read -p "Enter your choice (a/b): " PPPWN_CHOICE
+echo -e "${BYellow}Note:${NC} if your PS4 doesn't work with \"pppwn\", try \"pppwn_ipv6\" by redo installation again or config from webserver"
 
-case $PPPWN_CHOICE in
-    a) PPPWN_EXEC="./pppwn"; READABLE_PPPWN_EXEC="pppwn" ;;
-    b) PPPWN_EXEC="./pppwn_ipv6"; READABLE_PPPWN_EXEC="pppwn_ipv6" ;;
-    *) echo "Invalid choice. Exiting."; exit 1 ;;
-esac
+while true; do
+    read -p "Enter your choice (a/b): " PPPWN_CHOICE
+    case $PPPWN_CHOICE in
+        a) PPPWN_EXEC="pppwn"; READABLE_PPPWN_EXEC="PPPwn"; break ;;
+        b) PPPWN_EXEC="pppwn_ipv6"; READABLE_PPPWN_EXEC="PPPwn IPV6"; break ;;
+        *) echo "Invalid choice. Please select a valid option." ;;
+    esac
+done
 
 confirm_settings() {
     echo ""
@@ -95,43 +121,64 @@ confirm_settings() {
 
 confirm_settings "$READABLE_FW_VERSION" "$READABLE_PPPWN_EXEC" "$READABLE_HALT_CHOICE"
 
-STAGE1_FILE="stage1/$FW_VERSION/stage1.bin"
-STAGE2_FILE="stage2/$FW_VERSION/stage2.bin"
+# Create configuration directory if it doesn't exist
+if [ ! -d "$CONFIG_DIR" ]; then
+    mkdir -p $CONFIG_DIR
+fi
 
-cat <<EOL > S99pppwn
+# Create the config.json file with the install directory if it doesn't exist
+if [ ! -f "$CONFIG_FILE" ]; then
+    cat > $CONFIG_FILE <<EOL
+{
+    "FW_VERSION": "$FW_VERSION",
+    "TIMEOUT": "5",
+    "WAIT_AFTER_PIN": "3",
+    "GROOM_DELAY": "4",
+    "BUFFER_SIZE": "0",
+    "AUTO_RETRY": true,
+    "NO_WAIT_PADI": true,
+    "REAL_SLEEP": false,
+    "AUTO_START": true,
+	"HALT_CHOICE": $HALT_CHOICE,
+	"PPPWN_EXEC": "$PPPWN_EXEC",
+    "install_dir": "$CURRENT_DIR",
+    "shutdown_flag": false,
+    "execute_flag": false
+}
+EOL
+    chmod 777 $CONFIG_FILE
+fi
+
+# Remove the web directory if it already exists
+if [ -d "$WEB_DIR" ]; then
+    rm -rf $WEB_DIR
+fi
+
+if [ "\$HALT_CHOICE" != "true" ]; then
+
+# Set up the web directory
+mkdir -p $WEB_DIR
+cp -r $CURRENT_DIR/web/* $WEB_DIR/
+cp -r $CURRENT_DIR/config/* $WEB_CONF/
+chown -R www-data:www-data $WEB_DIR
+chmod -R 755 $WEB_DIR
+# Set up pppoe configuration
+cp $CURRENT_DIR/pppoe/pppoe-server-options /etc/ppp/
+cp $CURRENT_DIR/pppoe/pap-secrets /etc/ppp/
+
+fi
+
+cat <<EOL > /etc/init.d/S99pppwn
 #!/bin/sh
 
-INSTALL_DIR="/root/PPPwn-Luckfox/"
-FW_VERSION=$FW_VERSION
-STAGE1_FILE="$STAGE1_FILE"
-STAGE2_FILE="$STAGE2_FILE"
-HALT_CHOICE=$HALT_CHOICE
-PPPWN_EXEC=$PPPWN_EXEC
+PPPWNDIR=$CURRENT_DIR
 
 case \$1 in
     start)
         echo "Starting pppwn"
-        # Disable eth0
-        ifconfig eth0 down
-        # Wait a second
-        sleep 1
-        # Enable eth0
-        ifconfig eth0 up
-        # Wait a second
-        sleep 1
-        # Change to pppwn directory
-        cd \$INSTALL_DIR
-        # Start pppwn and wait for it to finish
-        \$PPPWN_EXEC --interface eth0 --fw \$FW_VERSION --stage1 "\$STAGE1_FILE" --stage2 "\$STAGE2_FILE" -a -t 5 -nw -wap 2
-        # Once pppwn finishes, proceed with the following actions
-		sleep 10
-        ifconfig eth0 down
-        if [ "\$HALT_CHOICE" = "y" ]; then
-            sleep 5
-            halt
-        else
-            echo "System halt skipped."
-        fi
+        # Execution run.sh
+	    \$PPPWNDIR/run.sh
+        \$PPPWNDIR/exec.sh
         ;;
     stop)
         echo "Stopping pppwn"
@@ -143,13 +190,11 @@ case \$1 in
 esac
 
 exit 0
-
 EOL
 
-chmod +x pppwn
-chmod +x pppwn_ipv6
-mv S99pppwn /etc/init.d/
+chmod +x pppwn pppwn_ipv6 run.sh exec.sh web-run.sh
 chmod +x /etc/init.d/S99pppwn
+
 echo "install to NAND completed! rebooting..."
 
 reboot

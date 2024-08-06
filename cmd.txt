@@ -1,0 +1,3 @@
+cd PPPwn-Luckfox
+chmod +x install_NAND.sh
+./install_NAND.sh
