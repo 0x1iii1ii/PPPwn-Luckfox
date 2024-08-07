@@ -73,17 +73,33 @@ while true; do
     fi
 done
 
-# Proceed with halt choice and pppwn executable choice
+# Ask if the user wants to use the web server
 while true; do
     echo ""
-    echo "Do you want your luckfox to shutdown after successfully jailbreak? (y/n)"
-	echo ""
-	echo -e "${BYellow}Note:${NC} if you select \"y\" you won't be able to use ${BCyan}Web Server${NC} features."
-    read -p "Enter your choice: " HALT
-    if [[ "$HALT" == "y" || "$HALT" == "n" ]]; then
-        READABLE_HALT_CHOICE=$( [ "$HALT" = "y" ] && echo "yes" || echo "no" )
-        HALT_CHOICE=$( [ "$HALT" = "y" ] && echo "true" || echo "false" )
-        break
+    echo -e "Do you want to use the ${BGreen}Web Server${NC} features? (y/n)"
+    read -p "Enter your choice: " USE_WEBSERVER
+    if [[ "$USE_WEBSERVER" == "y" || "$USE_WEBSERVER" == "n" ]]; then
+        READABLE_WEBSERVER=$( [ "$USE_WEBSERVER" = "y" ] && echo "yes" || echo "no" )
+        if [[ "$USE_WEBSERVER" == "y" ]]; then
+            HALT_CHOICE="false"
+            READABLE_HALT_CHOICE="no"
+            break
+        else
+            # If they don't want to use the web server, ask if they want to shut down the device
+            while true; do
+                echo ""
+                echo "Do you want your luckfox to shutdown after successfully jailbreak? (y/n)"
+                read -p "Enter your choice: " HALT
+                if [[ "$HALT" == "y" || "$HALT" == "n" ]]; then
+                    READABLE_HALT_CHOICE=$( [ "$HALT" = "y" ] && echo "yes" || echo "no" )
+                    HALT_CHOICE=$( [ "$HALT" = "y" ] && echo "true" || echo "false" )
+                    break
+                else
+                    echo "Invalid choice. Please enter 'y' or 'n'."
+                fi
+            done
+            break
+        fi
     else
         echo "Invalid choice. Please enter 'y' or 'n'."
     fi
@@ -110,6 +126,7 @@ confirm_settings() {
     echo -e "${BCyan}You have selected the following settings:${NC}"
     echo -e "PS4 Firmware: ${BGreen}$1${NC}"
     echo -e "PPPwn executable: ${BGreen}$2${NC}"
+    echo -e "Web Server: ${BGreen}$4${NC}"
     echo -e "Shutdown after jailbreak: ${BGreen}$3${NC}"
     echo ""
     read -p "Are these settings correct? (y/n): " SETTINGS_CONFIRMATION
@@ -119,7 +136,7 @@ confirm_settings() {
     fi
 }
 
-confirm_settings "$READABLE_FW_VERSION" "$READABLE_PPPWN_EXEC" "$READABLE_HALT_CHOICE"
+confirm_settings "$READABLE_FW_VERSION" "$READABLE_PPPWN_EXEC" "$READABLE_HALT_CHOICE" "$READABLE_WEBSERVER"
 
 # Create configuration directory if it doesn't exist
 if [ ! -d "$CONFIG_DIR" ]; then
