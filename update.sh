@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # Check internet connectivity
 echo "Checking internet connection..."
 ping -c 1 google.com > /dev/null 2>&1

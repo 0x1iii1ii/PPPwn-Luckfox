@@ -127,7 +127,7 @@ cd PPPwn-Luckfox
 - Choose `Automatic` for `DNS Settings` and `MTU Settings`<br>
 - Choose `Do Not Use` for `Proxy Server`<br>
 
-For GoldHen you need to place the goldhen.bin file onto the root of a USB drive and plug it into the console.<br>
+For Goldhen you need to place the goldhen.bin file onto the root of a USB drive and plug it into the console.<br>
 Once Goldhen has been loaded for the first time it will be copied to the console's internal HDD and the USB is no longer required.<br>
 To update Goldhen just repeat the above process and the new version will be copied to the internal HDD. <br>
 

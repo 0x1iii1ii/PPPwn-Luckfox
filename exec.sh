@@ -1,5 +1,4 @@
 #!/bin/sh
-
 CONFIG_FILE="/etc/pppwn/config.json"
 
 read_json() {

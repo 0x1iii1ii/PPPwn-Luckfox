@@ -1,5 +1,4 @@
 #!/bin/sh
-
 read_json() {
     local key=$1
     awk -F"[,:}]" '/"'$key'"/{gsub(/"/, "", $2); print $2}' $CONFIG_FILE | tr -d ' '

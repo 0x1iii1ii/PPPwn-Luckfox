@@ -62,7 +62,7 @@
 <body>
 
 <div class="container">
-    <h1>PPPwn-Luckfox Web Dashboard for PS4 v11.00</h1>
+    <h1>PPPwn-Luckfox Web Dashboard for PS4 11.00</h1>
     <h3>by <a href=https://github.com/0x1iii1ii/PPPwn-Luckfox>@0x1iii1ii</a> <a href=https://github.com/harsha-0110/PPPwn-Luckfox>@harsha-0110</a> </h3>
     <form method="post" action="" style="display:inline;">
         <button type="submit" name="run_pppwn" class="button">Run PPPwn</button>
