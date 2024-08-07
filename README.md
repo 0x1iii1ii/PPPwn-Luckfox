@@ -52,7 +52,7 @@ Download the custom buildroot image for your Luckfox models below or from the [r
 
 Before proceeding make sure to disable your anti-virus software or Windows Defender, it is a false positive and completely safe. If you are still concerned please don't proceed any further!
 
-1. Use SocToolKit to burn the buildroot image to your Luckfox and proceed to burn it by following the official Luckfox tutorial on how to <a href=https://wiki.luckfox.com/Luckfox-Pico/Luckfox-Pico-RV1103/Luckfox-Pico-Flash-burn-image>Burning SPI NAND Flash Images</a>.
+1. Use SocToolKit to burn the buildroot image to your Luckfox. Proceed to burn it by following the official Luckfox tutorial <a href=https://wiki.luckfox.com/Luckfox-Pico/Luckfox-Pico-RV1103/Luckfox-Pico-Flash-burn-image>here</a>.
 2. Plug your luckfox to your PC via USB type-c port and wait a few minutes until you hear the device connect sound.
 3. On your PC open `Control Panel -> Network and Internet -> Network and Sharing Center -> Change Adapter Options`. You will find `Remote NDIS based Internet Sharing Device`. Right-click and choose Properties.<be>
 
@@ -72,7 +72,7 @@ Before proceeding make sure to disable your anti-virus software or Windows Defen
         <img src="images/3.png" alt="Image 3" style="width: 600px;">
   
    - After filling it out, click OK, enter the login name, and login `root` password `luckfox`.
-6. At this point, you have successfully logged in to Luckfox pico. Download <a href=https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.0/PPPwn-Luckfox-v1.2.0.zip>PPPwn-Luckfox</a> from release pages or from GitHub repo, unzip and rename folder to `PPPwn-Luckfox` drag and drop the files in the highlight red rectangle there, it will copy the files to the luckfox. <be>
+6. At this point, you have successfully logged in to Luckfox pico. Download <a href=https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.1/PPPwn-Luckfox-v1.2.1.zip>PPPwn-Luckfox</a> from release pages or from GitHub repo, unzip and rename folder to `PPPwn-Luckfox` drag and drop the files in the highlight red rectangle there, it will copy the files to the luckfox. <be>
    
    <img src="images/4.png" alt="Image 4" style="width: 700px;">
    
@@ -99,21 +99,7 @@ cd PPPwn-Luckfox
 chmod +x install_SD.sh
 sudo ./install_SD.sh
 ```
-
 Once the Luckfox reboots pppwn will run automatically.<be>
-
-## Update PPPwn-Luckfox
-For SD card with Ubuntu.
-log in to your luckfox, connect it to the internet, then run this cmd:
-```sh
-cd PPPwn-Luckfox
-sudo ./update.sh
-```
-For NAND, you need to manually copy the update files to luckfox using MobaXterm, then run this cmd.
-```sh
-cd PPPwn-Luckfox
-./install_NAND.sh
-```
 ## Installation Hardware
 
 1. You simply need to connect the LAN cable from Luckfox Pico to the PS4 and power the Luckfox from the PS4 via a USB Type-C cable or other sources.
@@ -129,5 +115,18 @@ cd PPPwn-Luckfox
 
 For Goldhen you need to place the goldhen.bin file onto the root of a USB drive and plug it into the console.<br>
 Once Goldhen has been loaded for the first time it will be copied to the console's internal HDD and the USB is no longer required.<br>
-To update Goldhen just repeat the above process and the new version will be copied to the internal HDD. <br>
+To update Goldhen just repeat the above process and the new version will be copied to the internal HDD. <be>
+
+## Update PPPwn-Luckfox
+For SD card with Ubuntu.
+log in to your luckfox, connect it to the internet, then run this cmd:
+```sh
+cd PPPwn-Luckfox
+sudo ./update.sh
+```
+For NAND, you need to manually copy the update files to luckfox using MobaXterm, then run this cmd.
+```sh
+cd PPPwn-Luckfox
+./install_NAND.sh
+```
 
