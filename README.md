@@ -120,16 +120,14 @@ cd PPPwn-Luckfox
 
 ## On PS4:<br>
 
-Make sure to setup it right or the webserver won't work.
-
 - Go to `Settings` and then `Network`<br>
 - Select `Set Up Internet connection` and choose `Use a LAN Cable`<br>
 - Choose `Custom` setup and choose `PPPoE` for `IP Address Settings`<br>
-- Enter `ppp` for `PPPoE User ID` and `PPPoE Password`<br>
+- Enter `ppp` for both `PPPoE User ID` and `PPPoE Password`<br>
 - Choose `Automatic` for `DNS Settings` and `MTU Settings`<br>
 - Choose `Do Not Use` for `Proxy Server`<br>
 
-For GoldHen you need to place the goldhen.bin file onto the root of a usb drive and plug it into the console.<br>
-Once goldhen has been loaded for the first time it will be copied to the consoles internal hdd and the usb is no longer required.<br>
-To update goldhen just repeat the above process and the new version will be copied to the internal HDD. <br>
+For GoldHen you need to place the goldhen.bin file onto the root of a USB drive and plug it into the console.<br>
+Once Goldhen has been loaded for the first time it will be copied to the console's internal HDD and the USB is no longer required.<br>
+To update Goldhen just repeat the above process and the new version will be copied to the internal HDD. <br>
 
