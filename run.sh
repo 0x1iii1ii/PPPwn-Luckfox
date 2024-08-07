@@ -55,7 +55,7 @@ if [ "$AUTO_START" = "true" ]; then
       sleep 5
       ifconfig eth0 down
       sleep 5
-      halt
+      halt -f
   else
       echo "Starting webserver"
         ifconfig eth0 down
