@@ -1,4 +1,5 @@
 <?php
+
 // Define the file where the configuration will be stored
 $config_file = '/etc/pppwn/config.json';
 
