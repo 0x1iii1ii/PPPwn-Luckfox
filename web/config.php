@@ -207,12 +207,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <div class="checkbox-group">
             <input type="checkbox" id="AUTO_START" name="AUTO_START" <?php if ($config['AUTO_START']) echo 'checked'; ?>>
-            <label for="AUTO_START">Auto Run on Start-Up</label>
+            <label for="AUTO_START">Auto-Run PPPwn on Start-Up</label>
         </div>
 
         <div class="checkbox-group">
             <input type="checkbox" id="HALT_CHOICE" name="HALT_CHOICE" <?php if ($config['HALT_CHOICE']) echo 'checked'; ?>>
-            <label for="HALT_CHOICE">Shutdown After Jailbreak (will be permanent and only take effect after reboot)</label>
+            <label for="HALT_CHOICE">Shutdown After Jailbreak (if you tick it, you won't be able use web server.)</label>
         </div>
 
         <div class="button-group">
