@@ -150,7 +150,7 @@ if [ ! -f "$CONFIG_FILE" ]; then
 {
     "FW_VERSION": "$FW_VERSION",
     "TIMEOUT": "5",
-    "WAIT_AFTER_PIN": "3",
+    "WAIT_AFTER_PIN": "5",
     "GROOM_DELAY": "4",
     "BUFFER_SIZE": "0",
     "AUTO_RETRY": true,
