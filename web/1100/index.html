@@ -88,7 +88,15 @@
             ps4debug: 'ps4debug.bin',
             restore: 'restore.bin',
             rifRenamer: 'rifrenamer.bin',
-            toDex: 'todex.bin'
+            toDex: 'todex.bin',
+            lin1gb: 'payload-1100.bin',
+            lin2gb: 'payload-1100-2gb.bin',
+            lin3gb: 'payload-1100-3gb.bin',
+            lin4gb: 'payload-1100-4gb.bin',
+            linp1gb: 'payload-1100-pro.bin',
+            linp2gb: 'payload-1100-2gb-pro.bin',
+            linp3gb: 'payload-1100-3gb-pro.bin',
+            linp4gb: 'payload-1100-4gb-pro.bin'
         };
 
         function getPayload(payload, onLoadEndCallback) {
@@ -128,6 +136,17 @@
             };
             req.send();
         }
+
+        function showMenu(menu) {
+            all.style.display = "none";
+            Linux.style.display = "none";
+            menu.style.display = "block";
+         }
+
+         function backToMainMenu() {
+            all.style.display = "block";
+            Linux.style.display = "none";
+         }
     </script>
 </head>
 
@@ -157,9 +176,22 @@
             <button class="button" onmouseover="progress.innerHTML='RIF Renamer for PS4 11.00 fw'" onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.rifRenamer)">RIF Renamer</button>
             <br/> <br/>
             <button class="button" onmouseover="progress.innerHTML='ToDex for PS4 11.00 fw'" onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.toDex)">ToDex</button>
+            <button class="button" onmouseover="progress.innerHTML='Linux payloads for 11.00'" onmouseout="progress.innerHTML='Status'" onclick="showMenu(Linux)">Linux Group</button>
+            <br> <br>
+            <button class="button" onclick="window.location.href = '../index.php'" onmouseover="progress.innerHTML='Move back to PPPwn-Dashboard'" onmouseout="progress.innerHTML='Status'">Back</button>
         </div>
-        <div class="button-group">
-            <a href="../index.php" class="button">Back</a>
+        <div id="Linux" style="display: none;">
+            <button class="button" onmouseover="progress.innerHTML='1100 Linux Loader 1GB VRAM'" onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.lin1gb)">1100 Linux 1GB</button>
+            <button class="button" onmouseover="progress.innerHTML='1100 Linux Loader 2GB VRAM'" onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.lin2gb)">1100 Linux 2GB</button>
+            <button class="button" onmouseover="progress.innerHTML='1100 Linux Loader 3GB VRAM'" onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.lin3gb)">1100 Linux 3GB</button>
+            <button class="button" onmouseover="progress.innerHTML='1100 Linux Loader 4GB VRAM'" onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.lin4gb)">1100 Linux 4GB</button>
+            <br><br>
+            <button class="button" onmouseover="progress.innerHTML='1100 Pro Linux Loader1GB VRAM'" onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.linp1gb)">1100 Linux Pro 1GB</button>
+            <button class="button" onmouseover="progress.innerHTML='1100 Pro Linux Loader2GB VRAM'" onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.linp2gb)">1100 Linux Pro 2GB</button>
+            <button class="button" onmouseover="progress.innerHTML='1100 Pro Linux Loader3GB VRAM'" onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.linp3gb)">1100 Linux Pro 3GB</button>
+            <button class="button" onmouseover="progress.innerHTML='1100 Pro Linux Loader4GB VRAM'" onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.linp4gb)">1100 Linux Pro 4GB</button>
+            <br><br>
+            <button class="button" onmouseover="progress.innerHTML='Move back to main menu'" onmouseout="progress.innerHTML='Status'" onclick="backToMainMenu()">Back</button>
         </div>
     </div>
 </body>
