@@ -38,21 +38,19 @@ You can manually edit the configuration file located at `/etc/pppwn/config.json`
 - USB Type-C
 - A USB drive with exFAT32 formatted (only use for the first time to load GoldHEN)
 - PC/Laptop for config the Luckfox
-  
-## Downloads
+
+
+## Installation in NAND Flash <a name="nandinstallation"></a>
+
+Before proceeding make sure to disable your anti-virus software, it is a false positive and completely safe. If you are still concerned please don't proceed any further!
+
 Download the custom buildroot image for your Luckfox models below or from the [release](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases) pages.
    Luckfox Model  | Buildroot Image
    ------------- | -------------
    Luckfox Pico Pro/Max  | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.0/luckfox_pico_pro_max_image_pppwn.zip)
    Luckfox Pico Plus/Mini B | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.0/luckfox_pico_plus_image_pppwn.zip)
 
-[SocToolKit](https://drive.google.com/file/d/1ALo4G7rEaF1GNhUHINoYHT_RGWGddzYw) for flashing buildroot image into NAND flash.
-
-## Installation in NAND Flash <a name="nandinstallation"></a>
-
-Before proceeding make sure to disable your anti-virus software or Windows Defender, it is a false positive and completely safe. If you are still concerned please don't proceed any further!
-
-1. Use SocToolKit to burn the buildroot image to your Luckfox. Proceed to burn it by following the official Luckfox tutorial <a href=https://wiki.luckfox.com/Luckfox-Pico/Luckfox-Pico-RV1103/Luckfox-Pico-Flash-burn-image>here</a>.
+1. Use [SocToolKit](https://drive.google.com/file/d/1ALo4G7rEaF1GNhUHINoYHT_RGWGddzYw) to burn the buildroot image you downloaded above to your Luckfox. Proceed to burn it by following the official Luckfox tutorial <a href=https://wiki.luckfox.com/Luckfox-Pico/Luckfox-Pico-RV1103/Luckfox-Pico-Flash-burn-image>here</a>.
 2. Plug your luckfox to your PC via USB type-c port and wait a few minutes until you hear the device connect sound.
 3. On your PC open `Control Panel -> Network and Internet -> Network and Sharing Center -> Change Adapter Options`. You will find `Remote NDIS based Internet Sharing Device`. Right-click and choose Properties.<be>
 
