@@ -87,7 +87,7 @@ Once the Luckfox reboots pppwn will run automatically.<be>
 
 An alternative option of <a href=https://github.com/harsha-0110/PPPwn-Luckfox>PPPwn-Luckfox</a> with more features for SD card install.
 
-1. Download <a href=https://drive.google.com/drive/folders/1sFUWjYpDDisf92q9EwP1Ia7lHgp9PaFS>Ubuntu</a>. After you download, extract one of the zip files according to your Luckfox pico models. <br>
+1. Download <a href=https://drive.google.com/drive/folders/1sFUWjYpDDisf92q9EwP1Ia7lHgp9PaFS>Ubuntu</a>. After you download, extract one of the zip files according to your Luckfox pico models (for Pico/Mini A use `Pico_Plus_Ubuntu` image for it to support LAN). <br>
 2. Download <a href=https://drive.google.com/file/d/1ALo4G7rEaF1GNhUHINoYHT_RGWGddzYw>SocToolKit</a> and unzip the burning tool. Burn the image onto an SD Card by following the official tutorial [here](https://wiki.luckfox.com/Luckfox-Pico/Luckfox-Pico-RV1103/Luckfox-Pico-SD-Card-burn-image).<br>
 5. After done, follow instructions from steps 2, 3, and 4 in [Installation in NAND Flash](#nandinstallation), for step 5 log in using static IP `172.32.0.70` login name `pico` and password `luckfox`.
 6. After you logged in, follow step 6 in [Installation in NAND Flash](#nandinstallation), then run the following commands, and follow the setup instruction
