@@ -10,7 +10,7 @@ and thanks to xfangfang <a href=https://github.com/xfangfang/PPPwn_cpp>PPPwn-CPP
 - The average PPPwned time is around `1min - 2min` sometimes it loads under `1 minute`
 - Using `pppwn` nightly build from xfangfang PPPwn_cpp <be>
   
-## Web Server Features on NAND
+## Web Server Features
 
 Thanks to [@harsha-0110](https://github.com/harsha-0110) for the webserver base scripts and PHP.<br>
 
@@ -26,31 +26,46 @@ You can manually edit the configuration file located at `/etc/pppwn/config.json`
 
 ## Support Boards
 
+- <b>Luckfox Pico</b><br>
 - <b>Luckfox Pico Pro</b><br>
 - <b>Luckfox Pico Max</b><br>
 - <b>Luckfox Pico Plus</b><be>
-- <b>Luckfox Pico Mini B</b><br>
+- <b>Luckfox Pico Mini A/B</b><br>
 
 ## Requirements
 
-- Luckfox Pico Pro/Max/Plus/Mini B
+- One of Luckfox Pico models above
+- SD Card 4GB or above (for Luckfox Pico/Mini A)
 - Ethernet Cable
 - USB Type-C
 - A USB drive with exFAT32 formatted (only use for the first time to load GoldHEN)
 - PC/Laptop for config the Luckfox
 
 
-## Installation in NAND Flash <a name="nandinstallation"></a>
+## Installation
 
 Before proceeding make sure to disable your anti-virus software, it is a false positive and completely safe. If you are still concerned please don't proceed any further!
 
-Download the custom buildroot image for your Luckfox models below or from the [release](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases) pages.
+Download one of the custom buildroot image for your respective Luckfox models below or from the [release](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases) pages.
+
+- NAND Flash boot
+
    Luckfox Model  | Buildroot Image
    ------------- | -------------
    Luckfox Pico Pro/Max  | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.0/luckfox_pico_pro_max_image_pppwn.zip)
    Luckfox Pico Plus/Mini B | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.0/luckfox_pico_plus_image_pppwn.zip)
 
-1. Use [SocToolKit](https://drive.google.com/file/d/1ALo4G7rEaF1GNhUHINoYHT_RGWGddzYw) to burn the buildroot image you downloaded above to your Luckfox. Proceed to burn it by following the official Luckfox tutorial <a href=https://wiki.luckfox.com/Luckfox-Pico/Luckfox-Pico-RV1103/Luckfox-Pico-Flash-burn-image>here</a>.
+
+- SD Card boot
+
+   Luckfox Model  | Buildroot Image
+   ------------- | -------------
+   Luckfox Pico/Mini A | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.0/luckfox_pico_plus_image_pppwn.zip)
+
+
+1. Use [SocToolKit](https://drive.google.com/file/d/1ALo4G7rEaF1GNhUHINoYHT_RGWGddzYw) to burn the buildroot image you downloaded above to your Luckfox. 
+   - If you're using luckfox with `NAND Flash`, proceed to burn the OS by following the official Luckfox tutorial <a href=https://wiki.luckfox.com/Luckfox-Pico/Luckfox-Pico-RV1103/Luckfox-Pico-Flash-burn-image>here</a>.
+   - If you're using luckfox with `SD Card`, proceed to burn the OS by following the official Luckfox tutorial <a href=https://wiki.luckfox.com/Luckfox-Pico/Luckfox-Pico-RV1103/Luckfox-Pico-SD-Card-burn-image>here</a>.
 2. Plug your luckfox to your PC via USB type-c port and wait a few minutes until you hear the device connect sound.
 3. On your PC open `Control Panel -> Network and Internet -> Network and Sharing Center -> Change Adapter Options`. You will find `Remote NDIS based Internet Sharing Device`. Right-click and choose Properties.<be>
 
@@ -78,26 +93,11 @@ Download the custom buildroot image for your Luckfox models below or from the [r
 
 ```sh
 cd PPPwn-Luckfox
-chmod +x install_NAND.sh
-./install_NAND.sh
+chmod +x install.sh
+./install.sh
 ```
 Once the Luckfox reboots pppwn will run automatically.<be>
 
-## Installation in SD Card
-
-An alternative option of <a href=https://github.com/harsha-0110/PPPwn-Luckfox>PPPwn-Luckfox</a> with more features for SD card install.
-
-1. Download <a href=https://drive.google.com/drive/folders/1sFUWjYpDDisf92q9EwP1Ia7lHgp9PaFS>Ubuntu</a>. After you download, extract one of the zip files according to your Luckfox pico models (for Pico/Mini A use `Pico_Plus_Ubuntu` image for it to support LAN). <br>
-2. Download <a href=https://drive.google.com/file/d/1ALo4G7rEaF1GNhUHINoYHT_RGWGddzYw>SocToolKit</a> and unzip the burning tool. Burn the image onto an SD Card by following the official tutorial [here](https://wiki.luckfox.com/Luckfox-Pico/Luckfox-Pico-RV1103/Luckfox-Pico-SD-Card-burn-image).<br>
-5. After done, follow instructions from steps 2, 3, and 4 in [Installation in NAND Flash](#nandinstallation), for step 5 log in using static IP `172.32.0.70` login name `pico` and password `luckfox`.
-6. After you logged in, follow step 6 in [Installation in NAND Flash](#nandinstallation), then run the following commands, and follow the setup instruction
-
-```sh
-cd PPPwn-Luckfox
-chmod +x install_SD.sh
-sudo ./install_SD.sh
-```
-Once the Luckfox reboots pppwn will run automatically.<be>
 ## Installation Hardware
 
 1. You simply need to connect the LAN cable from Luckfox Pico to the PS4 and power the Luckfox from the PS4 via a USB Type-C cable or other sources.
@@ -114,17 +114,3 @@ Once the Luckfox reboots pppwn will run automatically.<be>
 For Goldhen you need to place the goldhen.bin file onto the root of a USB drive and plug it into the console.<br>
 Once Goldhen has been loaded for the first time it will be copied to the console's internal HDD and the USB is no longer required.<br>
 To update Goldhen just repeat the above process and the new version will be copied to the internal HDD. <be>
-
-## Update PPPwn-Luckfox
-For SD card with Ubuntu.
-log in to your luckfox, connect it to the internet, then run this cmd:
-```sh
-cd PPPwn-Luckfox
-sudo ./update.sh
-```
-For NAND, you need to manually copy the update files to luckfox using MobaXterm, then run this cmd.
-```sh
-cd PPPwn-Luckfox
-./install_NAND.sh
-```
-

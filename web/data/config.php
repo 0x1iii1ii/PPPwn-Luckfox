@@ -213,7 +213,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <div class="checkbox-group">
             <input type="checkbox" id="HALT_CHOICE" name="HALT_CHOICE" <?php if ($config['HALT_CHOICE']) echo 'checked'; ?>>
-            <label for="HALT_CHOICE">Shutdown After Jailbreak (if you tick it, you won't be able use web server.)</label>
+            <label for="HALT_CHOICE">Shutdown After Jailbreak (if you tick it, you won't be able to use web server.)</label>
         </div>
 
         <div class="button-group">

@@ -1,7 +1,8 @@
 #!/bin/sh
+
 read_json() {
-    local key=$1
-    awk -F"[,:}]" '/"'$key'"/{gsub(/"/, "", $2); print $2}' $CONFIG_FILE | tr -d ' '
+  local key=$1
+  awk -F"[,:}]" '/"'$key'"/{gsub(/"/, "", $2); print $2}' $CONFIG_FILE | tr -d ' '
 }
 
 # Define the path to the configuration file
@@ -38,41 +39,26 @@ CMD="$DIR/$PPPWN_EXEC --interface eth0 --fw $FW_VERSION --stage1 $STAGE1_FILE --
 echo "Executing PPPwn command: $CMD"
 
 if [ "$AUTO_START" = "true" ]; then
-  echo "Auto Start is enabled, starting PPPwn..."
-  # stop nginx server
-  /etc/init.d/S50nginx stop
-  /etc/init.d/S49php-fpm stop
-	# stop pppoe server
-	killall pppoe-server
-  sleep 5
+  # stop pppoe server
+  killall pppoe-server
+  sleep 1
   ifconfig eth0 down
   sleep 1
   ifconfig eth0 up
   sleep 1
-	$CMD
+  $CMD
   # Handle halt choice
   if [ "$HALT_CHOICE" = "true" ]; then
-      sleep 5
-      ifconfig eth0 down
-      sleep 5
-      halt -f
+    sleep 5
+    halt -f
   else
-      echo "Starting webserver"
-        ifconfig eth0 down
-        sleep 1
-        ifconfig eth0 up
-        sleep 5
-        # start nginx server
-        /etc/init.d/S50nginx start
-        /etc/init.d/S49php-fpm start
-        sleep 5
-        # Start pppoe server
-        pppoe-server -I eth0 -T 60 -N 1 -C isp -S isp -L 192.168.1.1 -R 192.168.1.2 &
+    ifconfig eth0 down
+    sleep 1
+    ifconfig eth0 up
+    sleep 1
+    pppoe-server -I eth0 -T 60 -N 1 -C isp -S isp -L 192.168.1.1 -R 192.168.1.2 &
   fi
 else
-	echo "Auto Start is disabled, skipping PPPwn..."
-      # Start pppoe server
-      pppoe-server -I eth0 -T 60 -N 1 -C isp -S isp -L 192.168.1.1 -R 192.168.1.2 &
+  echo "Auto Start is disabled, skipping PPPwn..."
+  pppoe-server -I eth0 -T 60 -N 1 -C isp -S isp -L 192.168.1.1 -R 192.168.1.2 &
 fi
-
-

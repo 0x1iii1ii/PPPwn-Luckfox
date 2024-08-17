@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>PPPwn-Luckfox GoldHEN Host - 9.00</title>
+   <style>
+      body {
+         font-family: Arial, sans-serif;
+         margin: 0;
+         padding: 20px;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         height: 100vh;
+         background-color: black;
+      }
+
+      .container {
+         max-width: 1000px;
+         padding: 40px;
+         background-color: #fff;
+         border-radius: 12px;
+         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+         text-align: center;
+      }
+
+      h1 {
+         font-size: 32px;
+         color: #333;
+      }
+
+      .button {
+         display: inline-block;
+         margin: 5px;
+         width: 200px;
+         padding: 10px 15px;
+         font-size: 18px;
+         color: #fff;
+         background: linear-gradient(135deg, #007bff, #0056b3);
+         border: none;
+         border-radius: 8px;
+         text-decoration: none;
+         transition: background 0.3s, transform 0.2s;
+         cursor: pointer;
+      }
+
+      .button:hover {
+         background: linear-gradient(135deg, #0056b3, #004099);
+         transform: translateY(-2px);
+      }
+
+      .button:active {
+         transform: translateY(1px);
+      }
+   </style>
+   <script>
+      const payloadFiles = {
+         ps4debug: "ps4debug.bin",
+         permanentuart: "permanentuart.bin",
+         app2usb: "app2usb.bin",
+         backupdb: "backupdb.bin",
+         pkgb: "pkg-backup.bin",
+         dumperG: "DumperG.bin",
+         dumperU: "DumperU.bin",
+         dumperMGU: "DumperMGU.bin",
+         dumperSGU: "DumperSGU.bin",
+         kernelDumper: "kerneldumper.bin",
+         moduleDumper: "mdumper.bin",
+         restoredb: "restoredb.bin",
+         disableASLR: "disableaslr.bin",
+         disableUpdates: "disableupdates.bin",
+         enableUpdates: "enableupdates.bin",
+         enableBrowser: "enablebrowser.bin",
+         exitIDU: "exitidu.bin",
+         ftp: "ftp.bin",
+         historyBlocker: "historyblocker.bin",
+         rifRenamer: "rifrenamer.bin",
+         orbis: "Orbis-Toolbox-900.bin",
+         toDexEnable: "todex-enable.bin",
+         toDexDisable: "todex-disable.bin",
+         webRTE: "WebRTE.bin",
+      };
+
+      function getPayload(payload, onLoadEndCallback) {
+         const req = new XMLHttpRequest();
+         req.open("GET", payload);
+         req.responseType = "arraybuffer";
+         req.onload = (event) => onLoadEndCallback && onLoadEndCallback(req, event);
+         req.send();
+      }
+
+      function sendPayload(url, data, onLoadEndCallback) {
+         const req = new XMLHttpRequest();
+         req.open("POST", url, true);
+         req.onload = (event) => onLoadEndCallback && onLoadEndCallback(req, event);
+         req.send(data);
+      }
+
+      function loadPayload(file) {
+         const statusUrl = "http://127.0.0.1:9090/status";
+         const payloadUrl = "http://127.0.0.1:9090";
+         const req = new XMLHttpRequest();
+         req.open("POST", statusUrl);
+         req.onerror = () => alert("Cannot Load Payload Because The BinLoader Server Is Not Running");
+         req.onload = () => {
+            const responseJson = JSON.parse(req.responseText);
+            if (responseJson.status === "ready") {
+               getPayload(file, (req) => {
+                  if ((req.status === 200 || req.status === 304) && req.response) {
+                     sendPayload(payloadUrl, req.response, (req) => {
+                        progress.innerHTML = req.status === 200 ? "Payload Loaded" : "Cannot send payload";
+                     });
+                  }
+               });
+            } else {
+               alert("Cannot Load Payload Because The BinLoader Server Is Busy");
+            }
+         };
+         req.send();
+      }
+
+      function loadFanControl() {
+         progress.innerHTML = "Fan Control loading... please wait";
+         loadPayload(`fan${tempC.value}.bin`);
+      }
+
+      function showMenu(menu) {
+         all.style.display = "none";
+         Dumpers.style.display = "none";
+         Tools.style.display = "none";
+         menu.style.display = "block";
+      }
+
+      function backToMainMenu() {
+         all.style.display = "block";
+         Dumpers.style.display = "none";
+         Tools.style.display = "none";
+      }
+
+      function setTemperatureOptions() {
+         const select = document.getElementById("tempC");
+         for (let i = 50; i <= 80; i += 5) {
+            const option = document.createElement("option");
+            option.text = i;
+            option.value = i;
+            select.add(option);
+         }
+         select.value = 60;
+         localStorage.setItem("fanthreshold", select.value);
+      }
+
+      document.addEventListener("DOMContentLoaded", setTemperatureOptions);
+   </script>
+</head>
+
+<body>
+   <div class="container">
+      <h1>PPPwn-Luckfox GoldHEN Host - 9.00</h1>
+      <h2 id="progress" style="color: blue;">Status</h2>
+      <div id="all">
+         <button class="button" onmouseover="progress.innerHTML='WebRTE for PS4 9.00 fw'"
+            onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.webRTE)">
+            WebRTE
+         </button>
+         <button class="button" onmouseover="progress.innerHTML='ps4debug for PS4 9.00 fw'"
+            onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.ps4debug)">
+            PS4Debug
+         </button>
+         <button class="button" onmouseover="progress.innerHTML='Orbis Toolbox Loader Alfa 1190 for PS4 9.00 fw'"
+            onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.orbis)">
+            Orbis Toolbox
+         </button>
+         <button class="button" onmouseover="progress.innerHTML='A full access FTP server for the PS4'"
+            onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.ftp)">
+            FTP
+         </button>
+         <br />
+         <br />
+         <button class="button" onmouseover="progress.innerHTML='Move installed games to an external USB drive'"
+            onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.app2usb)">
+            App2USB
+         </button>
+         <button class="button" onmouseover="progress.innerHTML='Unlocks some debug features available on testkit'"
+            onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.toDexEnable)">
+            ToDex Enable
+         </button>
+         <button class="button" onmouseover="progress.innerHTML='Disable ToDEX'"
+            onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.toDexDisable)">
+            ToDex Disable
+         </button>
+         <button class="button" onmouseover="progress.innerHTML='Creates dummy files in the PS4 update folder'"
+            onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.disableUpdates)">
+            Disable Updates
+         </button>
+         <br />
+         <br />
+         <button class="button" onmouseover="progress.innerHTML='Removes the dummy files in the PS4 update folder'"
+            onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.enableUpdates)">
+            Enable Updates
+         </button>
+         <button class="button"
+            onmouseover="progress.innerHTML='Disable the auto opening of the last page used in the PS4 WebBrowser'"
+            onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.historyBlocker)">
+            History Blocker
+         </button>
+         <button class="button" onmouseover="progress.innerHTML='Enable Browser'"
+            onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.enableBrowser)">
+            Enable Browser
+         </button>
+         <br />
+         <br />
+         <button class="button" onmouseover="progress.innerHTML='All Dumper payloads'"
+            onmouseout="progress.innerHTML='Status'" onclick="showMenu(Dumpers)">
+            Dumper Group
+         </button>
+         <button class="button" onmouseover="progress.innerHTML='PS4 Tools payloads'"
+            onmouseout="progress.innerHTML='Status'" onclick="showMenu(Tools)">
+            PS4 Tools
+         </button>
+         <br />
+         <br />
+         <button class="button" onclick="window.location.href = '../'"
+            onmouseover="progress.innerHTML='Move back to PPPwn-Dashboard'"
+            onmouseout="progress.innerHTML='Status'">Back</button>
+      </div>
+      <div id="Dumpers" style="display: none;">
+         <button class="button" onmouseover="progress.innerHTML='Original Payload by xvortex PS4 9.00 fw'"
+            onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.dumperU)">
+            Dumper U
+         </button>
+         <button class="button"
+            onmouseover="progress.innerHTML='Original Payload by xvortex + Modular Dumper by Storm21 PS4 9.00 fw'"
+            onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.dumperMGU)">
+            Dumper MGU
+         </button>
+         <button class="button" onmouseover="progress.innerHTML='PS4 System File Dumper by Ludvikus1 PS4 9.00 fw'"
+            onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.dumperSGU)">
+            Dumper SGU
+         </button>
+         <br />
+         <br />
+         <button class="button" onmouseover="progress.innerHTML='PS4 Kernel Dumper by zecoxao PS4 9.00 fw'"
+            onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.kernelDumper)">
+            Kernel Dumper
+         </button>
+         <button class="button" onmouseover="progress.innerHTML='PS4 Module Dumper by Golden PS4 9.00 fw'"
+            onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.moduleDumper)">
+            Module Dumper
+         </button>
+         <br />
+         <br />
+         <button class="button" onmouseover="progress.innerHTML='Move back to main menu'"
+            onmouseout="progress.innerHTML='Status'" onclick="backToMainMenu()">
+            Back
+         </button>
+      </div>
+      <div id="Tools" style="display: none;">
+         <button class="button"
+            onmouseover="progress.innerHTML='Disable Address Space Layout Randomization by pearlxcore PS4 9.00 fw'"
+            onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.disableASLR)">
+            Disable ASLR
+         </button>
+         <button class="button" onmouseover="progress.innerHTML='Enable UART for PS4 9.00 fw'"
+            onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.permanentuart)">
+            Permanent UART
+         </button>
+         <button class="button" onmouseover="progress.innerHTML='Exit IDU mode on PS4 9.00 fw'"
+            onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.exitIDU)">
+            Exit IDU
+         </button>
+         <button class="button" onmouseover="progress.innerHTML='RIF Renamer by pearlxcore PS4 9.00 fw'"
+            onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.rifRenamer)">
+            RIF Renamer
+         </button>
+         <br />
+         <br />
+         <button class="button" onmouseover="progress.innerHTML='Move back to main menu'"
+            onmouseout="progress.innerHTML='Status'" onclick="backToMainMenu()">
+            Back
+         </button>
+      </div>
+   </div>
+</body>
+
+</html>

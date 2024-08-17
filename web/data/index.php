@@ -70,7 +70,8 @@
     </form>
     <br>
     <a href="config.php" class="button">Config</a>
-    <a href="./1100/index.html" class="button">Inject Payloads</a>
+    <a href="./900/index.html" class="button">9.00 Payloads</a>
+    <a href="./1100/index.html" class="button">11.00 Payloads</a>
     <?php
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $config_file = '/etc/pppwn/config.json';
