@@ -17,8 +17,8 @@ check_input() {
                 sleep 1
                 awk -v OFS=: '{gsub("\"shutdown_flag\": true", "\"shutdown_flag\": false")}1' "$CONFIG_FILE" >/tmp/tmp.$$.json && mv /tmp/tmp.$$.json "$CONFIG_FILE"
                 chmod 777 "$CONFIG_FILE"
-                sleep 5
-                halt -f
+                sleep 1
+                halt
             fi
             if [ "$EXECUTE_FLAG" = "true" ]; then
                 sh "$PPPWNDIR/web-run.sh"

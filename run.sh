@@ -39,9 +39,6 @@ CMD="$DIR/$PPPWN_EXEC --interface eth0 --fw $FW_VERSION --stage1 $STAGE1_FILE --
 echo "Executing PPPwn command: $CMD"
 
 if [ "$AUTO_START" = "true" ]; then
-  # stop pppoe server
-  killall pppoe-server
-  sleep 1
   ifconfig eth0 down
   sleep 1
   ifconfig eth0 up
@@ -49,8 +46,8 @@ if [ "$AUTO_START" = "true" ]; then
   $CMD
   # Handle halt choice
   if [ "$HALT_CHOICE" = "true" ]; then
-    sleep 5
-    halt -f
+    sleep 1
+    halt
   else
     ifconfig eth0 down
     sleep 1
