@@ -54,6 +54,13 @@
       .button:active {
          transform: translateY(1px);
       }
+
+      #tempC {
+         font-size: 22px;
+         text-align: center;
+         border-radius: 8px;
+         border: 3px solid #007bff;
+      }
    </style>
    <script>
       const payloadFiles = {
@@ -274,6 +281,12 @@
             onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.rifRenamer)">
             RIF Renamer
          </button>
+         <br />
+         <br />
+         <button class="button" onmouseover="progress.innerHTML='Set the temperature at the PS4 fan starts'"
+            onmouseout="progress.innerHTML='Status'" onclick="loadFanControl()"> Fan
+            Control </button>
+         <select id="tempC"></select>
          <br />
          <br />
          <button class="button" onmouseover="progress.innerHTML='Move back to main menu'"
