@@ -16,7 +16,7 @@
             background-color: black;
         }
         .container {
-            max-width: 600px;
+            max-width: 800px;
             padding: 40px;
             background-color: #fff;
             border-radius: 12px;
@@ -62,11 +62,13 @@
 <body>
 
 <div class="container">
-    <h1>PPPwn-Luckfox Web Dashboard for PS4 11.00</h1>
-    <h3>by <a href=https://github.com/0x1iii1ii/PPPwn-Luckfox>@0x1iii1ii</a> <a href=https://github.com/harsha-0110/PPPwn-Luckfox>@harsha-0110</a> </h3>
+    <h1>PPPwn-Luckfox Web Dashboard for PS4 9.00 & 11.00</h1>
+    <h4>by <a href=https://github.com/0x1iii1ii/PPPwn-Luckfox>@0x1iii1ii</a> <a href=https://github.com/harsha-0110/PPPwn-Luckfox>@harsha-0110</a>  </h4>
+    <h4>credits to <a href=https://github.com/Scene-Collective>@everyone</a> for the payloads!</h4>
     <form method="post" action="" style="display:inline;">
         <button type="submit" name="run_pppwn" class="button">Run PPPwn</button>
         <button type="submit" name="shutdown" class="button">Shutdown Luckfox</button>
+        <button type="submit" name="eth0" class="button">Disable Eth0</button>
     </form>
     <br>
     <a href="config.php" class="button">Config</a>
@@ -86,6 +88,11 @@
                     $config_data['execute_flag'] = true; // Set the execute flag
                     file_put_contents($config_file, json_encode($config_data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
                     echo "<div class='output'><h2>Output:</h2><p>The PPPwn will execute shortly.</p></div>";
+                }
+                if (isset($_POST['eth0'])) {
+                    $config_data['eth0_flag'] = true; // Set the execute flag
+                    file_put_contents($config_file, json_encode($config_data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+                    echo "<div class='output'><h2>Output:</h2><p>Ethernet0 will be down shortly.</p></div>";
                 }
             } else {
                 echo "<div class='output'><h2>Error:</h2><p>Configuration file not found.</p></div>";

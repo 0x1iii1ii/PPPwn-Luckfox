@@ -64,8 +64,8 @@ Download one of the custom buildroot image for your respective Luckfox models be
 
 
 1. Use [SocToolKit](https://drive.google.com/file/d/1ALo4G7rEaF1GNhUHINoYHT_RGWGddzYw) to burn the buildroot image you downloaded above to your Luckfox. 
-   - If you're using luckfox with `NAND Flash`, proceed to burn the OS by following the official Luckfox tutorial <a href=https://wiki.luckfox.com/Luckfox-Pico/Luckfox-Pico-RV1103/Luckfox-Pico-Flash-burn-image>here</a>.
-   - If you're using luckfox with `SD Card`, proceed to burn the OS by following the official Luckfox tutorial <a href=https://wiki.luckfox.com/Luckfox-Pico/Luckfox-Pico-RV1103/Luckfox-Pico-SD-Card-burn-image>here</a>.
+   - If you're using luckfox with `NAND Flash`, proceed to burn the OS by following the official tutorial <a href=https://wiki.luckfox.com/Luckfox-Pico/Luckfox-Pico-RV1103/Luckfox-Pico-Flash-burn-image>here</a>.
+   - If you're using luckfox with `SD Card`, proceed to burn the OS by following the official tutorial <a href=https://wiki.luckfox.com/Luckfox-Pico/Luckfox-Pico-RV1103/Luckfox-Pico-SD-Card-burn-image>here</a>.
 2. Plug your luckfox to your PC via USB type-c port and wait a few minutes until you hear the device connect sound.
 3. On your PC open `Control Panel -> Network and Internet -> Network and Sharing Center -> Change Adapter Options`. You will find `Remote NDIS based Internet Sharing Device`. Right-click and choose Properties.<be>
 

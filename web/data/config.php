@@ -133,7 +133,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         .button-group {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
+            gap: 20px;
         }
         .button-group a,
         .button-group button {
@@ -217,7 +218,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
 
         <div class="button-group">
-            <a href="index.php">Back</a>
+            <button type="button" onclick="window.location.href = '../'">Back</button>
             <input type="submit" value="Update Configuration">
         </div>
     </form>

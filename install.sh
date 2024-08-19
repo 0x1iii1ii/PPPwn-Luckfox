@@ -15,7 +15,7 @@ ______________________________
 EOF
 
 echo ""
-echo "★ NAND ★ v1.2.2"
+echo "★ v1.2.2 ★"
 echo ""
 echo "by: https://github.com/0x1iii1ii/PPPwn-Luckfox"
 echo "credit to:"
@@ -184,7 +184,8 @@ if [ ! -f "$CONFIG_FILE" ]; then
 	"PPPWN_EXEC": "$PPPWN_EXEC",
     "install_dir": "$CURRENT_DIR",
     "shutdown_flag": false,
-    "execute_flag": false
+    "execute_flag": false,
+    "eth0_flag": false
 }
 EOL
     chmod 777 $CONFIG_FILE
@@ -235,6 +236,6 @@ EOL
 
 chmod +x pppwn pppwn_ipv6 run.sh exec.sh web-run.sh
 chmod +x /etc/init.d/S99pppwn
-echo "install to NAND completed! rebooting..."
+echo "install completed! rebooting..."
 
 reboot
