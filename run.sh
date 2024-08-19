@@ -46,8 +46,7 @@ if [ "$AUTO_START" = "true" ]; then
   $CMD
   # Handle halt choice
   if [ "$HALT_CHOICE" = "true" ]; then
-    ifconfig eth0 down
-    sleep 30
+    sleep 1
     halt
   else
     ifconfig eth0 down

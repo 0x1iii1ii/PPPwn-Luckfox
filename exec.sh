@@ -23,8 +23,7 @@ perform_action() {
         shutdown)
             killall pppoe-server
             update_flag "shutdown_flag"
-            ifconfig eth0 down
-            sleep 30
+            sleep 1
             halt
             ;;
         eth0_down)
