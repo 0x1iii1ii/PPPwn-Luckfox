@@ -14,28 +14,36 @@ update_flag() {
             sub("\"" flag_name "\": true", "\"" flag_name "\": false")
         }
         print
-    }' "$CONFIG_FILE" > /tmp/tmp.$$.json && mv /tmp/tmp.$$.json "$CONFIG_FILE"
+    }' "$CONFIG_FILE" >/tmp/tmp.$$.json && mv /tmp/tmp.$$.json "$CONFIG_FILE"
     chmod 777 "$CONFIG_FILE"
 }
 
 perform_action() {
     case $1 in
-        shutdown)
-            killall pppoe-server
-            update_flag "shutdown_flag"
-            sleep 1
-            halt
-            ;;
-        eth0_down)
-            killall pppoe-server
-            update_flag "eth0_flag"
-            sleep 1
-            ifconfig eth0 down
-            ;;
-        execute)
-            sh "$PPPWNDIR/web-run.sh"
-            update_flag "execute_flag"
-            ;;
+    shutdown)
+        killall nginx
+        killall php-fpm
+        sleep 1
+        killall pppoe-server
+        update_flag "shutdown_flag"
+        sleep 1
+        ifconfig eth0 down
+        sleep 5
+        halt
+        ;;
+    eth0_down)
+        killall nginx
+        killall php-fpm
+        sleep 1
+        killall pppoe-server
+        update_flag "eth0_flag"
+        sleep 1
+        ifconfig eth0 down
+        ;;
+    execute)
+        sh "$PPPWNDIR/web-run.sh"
+        update_flag "execute_flag"
+        ;;
     esac
 }
 

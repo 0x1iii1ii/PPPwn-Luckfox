@@ -39,6 +39,9 @@ CMD="$DIR/$PPPWN_EXEC --interface eth0 --fw $FW_VERSION --stage1 $STAGE1_FILE --
 echo "Executing PPPwn command: $CMD"
 
 if [ "$AUTO_START" = "true" ]; then
+  killall nginx
+  killall php-fpm
+  sleep 1
   ifconfig eth0 down
   sleep 1
   ifconfig eth0 up
@@ -52,6 +55,9 @@ if [ "$AUTO_START" = "true" ]; then
     ifconfig eth0 down
     sleep 1
     ifconfig eth0 up
+    sleep 1
+    /etc/init.d/S50nginx start
+    /etc/init.d/S49php-fpm start
     sleep 1
     pppoe-server -I eth0 -T 60 -N 1 -C isp -S isp -L 192.168.1.1 -R 192.168.1.2 &
   fi
