@@ -52,15 +52,15 @@ Download one of the custom buildroot image for your respective Luckfox models be
 
    Luckfox Model  | Buildroot Image
    ------------- | -------------
-   Luckfox Pico Pro/Max  | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.2/buildroot_pro_max_image_pppwn_NAND.zip)
-   Luckfox Pico Plus/Mini B | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.2/buildroot_plus_image_pppwn_NAND.zip)
+   Luckfox Pico Pro/Max  | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.2/luckfox_pro_max_image_web_NAND.zip)
+   Luckfox Pico Plus/Mini B | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.2/luckfox_pico_plus_image_web_NAND.zip)
 
 
 - SD Card boot
 
    Luckfox Model  | Buildroot Image
    ------------- | -------------
-   Luckfox Pico/Mini A | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.2/buildroot_plus_image_pppwn_SD.zip)
+   Luckfox Pico/Mini A | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.2/luckfox_pico_plus_image_web_SD.zip)
 
 
 1. Use [SocToolKit](https://drive.google.com/file/d/1ALo4G7rEaF1GNhUHINoYHT_RGWGddzYw) to burn the buildroot image you downloaded above to your Luckfox. 

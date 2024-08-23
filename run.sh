@@ -36,30 +36,29 @@ CMD="$DIR/$PPPWN_EXEC --interface eth0 --fw $FW_VERSION --stage1 $STAGE1_FILE --
 [ "$NO_WAIT_PADI" == "true" ] && CMD="$CMD --no-wait-padi"
 [ "$REAL_SLEEP" == "true" ] && CMD="$CMD --real-sleep"
 
-echo "Executing PPPwn command: $CMD"
-
-if [ "$AUTO_START" = "true" ]; then
-  killall nginx
-  killall php-fpm
-  sleep 1
+reseteth() {
   ifconfig eth0 down
   sleep 1
   ifconfig eth0 up
   sleep 1
+}
+
+if [ "$AUTO_START" = "true" ]; then
+  /etc/init.d/S50nginx stop
+  /etc/init.d/S49php-fpm stop
+  sleep 1
+  reseteth
   $CMD
   # Handle halt choice
   if [ "$HALT_CHOICE" = "true" ]; then
     sleep 1
     halt
   else
-    ifconfig eth0 down
-    sleep 1
-    ifconfig eth0 up
-    sleep 1
+    reseteth
+    pppoe-server -I eth0 -T 60 -N 1 -C isp -S isp -L 192.168.1.1 -R 192.168.1.2 &
+    sleep 5
     /etc/init.d/S50nginx start
     /etc/init.d/S49php-fpm start
-    sleep 1
-    pppoe-server -I eth0 -T 60 -N 1 -C isp -S isp -L 192.168.1.1 -R 192.168.1.2 &
   fi
 else
   echo "Auto Start is disabled, skipping PPPwn..."

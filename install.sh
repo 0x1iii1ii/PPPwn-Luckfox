@@ -77,7 +77,7 @@ while true; do
 
     # Confirmation of firmware version
     if [ -n "$READABLE_FW_VERSION" ]; then
-        echo "You have selected firmware version $READABLE_FW_VERSION. Is this correct? (y/n)"
+        echo -e "You have selected firmware version ${BGreen}$READABLE_FW_VERSION${NC}. Is this correct? (y/n)"
         read -p "Enter your choice: " CONFIRMATION
         if [ "$CONFIRMATION" = "y" ]; then
             break
@@ -196,7 +196,7 @@ if [ -d "$WEB_DIR" ]; then
     rm -rf $WEB_DIR
 fi
 
-if [ "\$HALT_CHOICE" != "true" ]; then
+if [ "$HALT_CHOICE" != "true" ]; then
 
     # Set up the web directory
     mkdir -p $WEB_DIR

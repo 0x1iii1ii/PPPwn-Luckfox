@@ -18,13 +18,17 @@ update_flag() {
     chmod 777 "$CONFIG_FILE"
 }
 
+killweb() {
+    killall nginx
+    killall php-fpm
+    sleep 1
+    killall pppoe-server
+}
+
 perform_action() {
     case $1 in
     shutdown)
-        killall nginx
-        killall php-fpm
-        sleep 1
-        killall pppoe-server
+        killweb
         update_flag "shutdown_flag"
         sleep 1
         ifconfig eth0 down
@@ -32,10 +36,7 @@ perform_action() {
         halt
         ;;
     eth0_down)
-        killall nginx
-        killall php-fpm
-        sleep 1
-        killall pppoe-server
+        killweb
         update_flag "eth0_flag"
         sleep 1
         ifconfig eth0 down
