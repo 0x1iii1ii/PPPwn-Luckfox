@@ -20,7 +20,7 @@ You can access it at `192.168.1.1` on your PS4 browser. It allows you to:
 - Shutdown your Luckfox device
 - Execute PPPwn
 - Inject payloads (make sure to enable BinLoader in GoldHEN)
-- Turned on/off auto-run on boot (on by default)
+- Set on/off auto-run PPPwn on boot (off by default)
   
 You can manually edit the configuration file located at `/etc/pppwn/config.json`.
 
