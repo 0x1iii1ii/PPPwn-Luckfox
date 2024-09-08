@@ -21,6 +21,7 @@ AUTO_START=$(read_json 'AUTO_START')
 HALT_CHOICE=$(read_json 'HALT_CHOICE')
 PPPWN_EXEC=$(read_json 'PPPWN_EXEC')
 DIR=$(read_json 'install_dir')
+LOG_FILE=$(read_json 'log_file')
 
 STAGE1_FILE="$DIR/stage1/${FW_VERSION}/stage1.bin"
 STAGE2_FILE="$DIR/stage2/${FW_VERSION}/stage2.bin"
@@ -46,11 +47,15 @@ reseteth() {
 killall nginx
 killall php-fpm
 killall pppoe-server
+> $LOG_FILE
 sleep 1
 reseteth
-$CMD
-reseteth
-pppoe-server -I eth0 -T 60 -N 1 -C isp -S isp -L 192.168.1.1 -R 192.168.1.2 &
-sleep 5
-/etc/init.d/S50nginx start
-/etc/init.d/S49php-fpm start
+$CMD >> $LOG_FILE 2>&1
+if grep -q "\[+\] Done!" $LOG_FILE; then
+    sleep 5
+    reseteth
+    pppoe-server -I eth0 -T 60 -N 1 -C isp -S isp -L 192.168.1.1 -R 192.168.1.2 &
+    sleep 5
+    /etc/init.d/S50nginx start
+    /etc/init.d/S49php-fpm start
+fi

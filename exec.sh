@@ -31,8 +31,6 @@ perform_action() {
         killweb
         update_flag "shutdown_flag"
         sleep 1
-        ifconfig eth0 down
-        sleep 5
         halt
         ;;
     eth0_down)

@@ -33,6 +33,7 @@ BCyan='\033[1;36m'   # Cyan
 NC='\033[0m'         # No Color
 
 CURRENT_DIR=$(pwd)
+LOG_DIR="/var/log/pppwn.log"
 WEB_DIR="/var/www/data"
 WEB_CONF="/etc/nginx"
 CONFIG_DIR="/etc/pppwn"
@@ -183,6 +184,7 @@ if [ ! -f "$CONFIG_FILE" ]; then
 	"HALT_CHOICE": $HALT_CHOICE,
 	"PPPWN_EXEC": "$PPPWN_EXEC",
     "install_dir": "$CURRENT_DIR",
+    "log_file": "$LOG_DIR",
     "shutdown_flag": false,
     "execute_flag": false,
     "eth0_flag": false
@@ -236,6 +238,6 @@ EOL
 
 chmod +x pppwn pppwn_ipv6 run.sh exec.sh web-run.sh
 chmod +x /etc/init.d/S99pppwn
-echo "install completed! rebooting..."
+echo -e "${BGreen}install completed!${NC}"
 
 reboot
