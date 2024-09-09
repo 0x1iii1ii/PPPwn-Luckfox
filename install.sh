@@ -15,7 +15,7 @@ ______________________________
 EOF
 
 echo ""
-echo "★ v1.2.2 ★"
+echo "★ v1.2.3 ★"
 echo ""
 echo "by: https://github.com/0x1iii1ii/PPPwn-Luckfox"
 echo "credit to:"
@@ -178,7 +178,7 @@ if [ ! -f "$CONFIG_FILE" ]; then
     "GROOM_DELAY": "4",
     "BUFFER_SIZE": "0",
     "AUTO_RETRY": true,
-    "NO_WAIT_PADI": true,
+    "NO_WAIT_PADI": false,
     "REAL_SLEEP": false,
     "AUTO_START": true,
 	"HALT_CHOICE": $HALT_CHOICE,

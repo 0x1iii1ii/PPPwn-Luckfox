@@ -41,16 +41,16 @@ reseteth() {
     ifconfig eth0 down
     sleep 1
     ifconfig eth0 up
-    sleep 1
+    sleep 3
 }
 
 killall nginx
 killall php-fpm
 killall pppoe-server
-> $LOG_FILE
+>$LOG_FILE
 sleep 1
 reseteth
-$CMD >> $LOG_FILE 2>&1
+$CMD >>$LOG_FILE 2>&1
 if grep -q "\[+\] Done!" $LOG_FILE; then
     sleep 5
     reseteth

@@ -41,16 +41,16 @@ reseteth() {
   ifconfig eth0 down
   sleep 1
   ifconfig eth0 up
-  sleep 1
+  sleep 3
 }
 
 if [ "$AUTO_START" = "true" ]; then
   /etc/init.d/S50nginx stop
   /etc/init.d/S49php-fpm stop
-  > $LOG_FILE
+  >$LOG_FILE
   sleep 1
   reseteth
-  $CMD >> $LOG_FILE 2>&1
+  $CMD >>$LOG_FILE 2>&1
   if grep -q "\[+\] Done!" $LOG_FILE; then
     echo "PPPwned"
     if [ "$HALT_CHOICE" = "true" ]; then
