@@ -47,15 +47,11 @@ reseteth() {
 killall nginx
 killall php-fpm
 killall pppoe-server
->$LOG_FILE
+> $LOG_FILE
 sleep 1
 reseteth
-$CMD >>$LOG_FILE 2>&1
-if grep -q "\[+\] Done!" $LOG_FILE; then
-    sleep 5
-    reseteth
-    pppoe-server -I eth0 -T 60 -N 1 -C isp -S isp -L 192.168.1.1 -R 192.168.1.2 &
-    sleep 5
-    /etc/init.d/S50nginx start
-    /etc/init.d/S49php-fpm start
-fi
+$CMD
+pppoe-server -I eth0 -T 60 -N 1 -C isp -S isp -L 192.168.1.1 -R 192.168.1.2 &
+sleep 5
+/etc/init.d/S50nginx start
+/etc/init.d/S49php-fpm start

@@ -38,14 +38,19 @@ WEB_DIR="/var/www/data"
 WEB_CONF="/etc/nginx"
 CONFIG_DIR="/etc/pppwn"
 CONFIG_FILE="$CONFIG_DIR/config.json"
+LOG_DIR="/var/log/pppwn.log"
 
 # Display the list of firmware versions
 echo "Please select your PS4 firmware version:"
 echo "a) 9.00"
-echo "b) 9.60"
-echo "c) 10.00"
-echo "d) 10.01"
-echo "e) 11.00"
+echo "b) 9.03"
+echo "c) 9.60"
+echo "d) 10.00"
+echo "e) 10.01"
+echo "f) 10.50"
+echo "g) 10.70"
+echo "h) 10.71"
+echo "i) 11.00"
 
 # Prompt the user for the selection
 while true; do
@@ -58,18 +63,34 @@ while true; do
         READABLE_FW_VERSION="9.00"
         ;;
     b)
+        FW_VERSION="903"
+        READABLE_FW_VERSION="9.03"
+        ;;        
+    c)
         FW_VERSION="960"
         READABLE_FW_VERSION="9.60"
         ;;
-    c)
+    d)
         FW_VERSION="1000"
         READABLE_FW_VERSION="10.00"
         ;;
-    d)
+    e)
         FW_VERSION="1001"
         READABLE_FW_VERSION="10.01"
         ;;
-    e)
+    f)
+        FW_VERSION="1050"
+        READABLE_FW_VERSION="10.50"
+        ;;
+    g)
+        FW_VERSION="1051"
+        READABLE_FW_VERSION="10.70"
+        ;;
+    h)
+        FW_VERSION="1070"
+        READABLE_FW_VERSION="10.71"
+        ;;                    
+    i)
         FW_VERSION="1100"
         READABLE_FW_VERSION="11.00"
         ;;
@@ -184,7 +205,7 @@ if [ ! -f "$CONFIG_FILE" ]; then
 	"HALT_CHOICE": $HALT_CHOICE,
 	"PPPWN_EXEC": "$PPPWN_EXEC",
     "install_dir": "$CURRENT_DIR",
-    "log_file": "$LOG_DIR",
+    "log_file": "$LOG_DIR",    
     "shutdown_flag": false,
     "execute_flag": false,
     "eth0_flag": false
@@ -239,5 +260,4 @@ EOL
 chmod +x pppwn pppwn_ipv6 run.sh exec.sh web-run.sh
 chmod +x /etc/init.d/S99pppwn
 echo -e "${BGreen}install completed!${NC}"
-
 reboot
