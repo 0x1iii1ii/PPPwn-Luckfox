@@ -6,9 +6,9 @@ and thanks to xfangfang <a href=https://github.com/xfangfang/PPPwn_cpp>PPPwn-CPP
 
 ## Note
 
-- Currently support version: `9.00, 9.60, 10.00, 10.01, 11.00`
+- Currently support version: `9.00, 9.03, 9.60, 10.00, 10.01, 10.50, 10.70, 10.71, 11.00`
 - The average PPPwned time is around `1min - 2min` sometimes it loads under `1 minute`
-- Using `pppwn` C++ nightly build from xfangfang PPPwn_cpp <be>
+- Using `pppwn` nightly build from xfangfang PPPwn_cpp <be>
   
 ## Web Server Features
 
@@ -19,9 +19,8 @@ You can access it at `192.168.1.1` on your PS4 browser. It allows you to:
 - Change your PPPwn settings
 - Shutdown your Luckfox device
 - Execute PPPwn
-- Inject payloads for 9.00 & 11.00 (make sure to enable BinLoader in GoldHEN)
-- Set on/off auto-run PPPwn on boot (on by default)
-- Disable Eth0 (to free LAN port)
+- Inject payloads (make sure to enable BinLoader in GoldHEN)
+- Turned on/off auto-run on boot (on by default)
   
 You can manually edit the configuration file located at `/etc/pppwn/config.json`.
 
@@ -44,6 +43,8 @@ You can manually edit the configuration file located at `/etc/pppwn/config.json`
 
 
 ## Installation
+
+Before proceeding make sure to disable your anti-virus software, it is a false positive and completely safe. If you are still concerned please don't proceed any further!
 
 Download one of the custom buildroot image for your respective Luckfox models below or from the [release](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases) pages.
 
@@ -84,7 +85,7 @@ Download one of the custom buildroot image for your respective Luckfox models be
         <img src="images/3.png" alt="Image 3" style="width: 600px;">
   
    - After filling it out, click OK, enter the login name, and login `root` password `luckfox`.
-6. At this point, you have successfully logged in to Luckfox pico. Download <a href=https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.3_1.1.1/PPPwn-Luckfox-v1.2.3.zip>PPPwn-Luckfox</a> from release pages or from GitHub repo, unzip and rename folder to `PPPwn-Luckfox` drag and drop the files in the highlight red rectangle there, it will copy the files to the luckfox. <be>
+6. At this point, you have successfully logged in to Luckfox pico. Download <a href=https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.2/PPPwn-Luckfox-v1.2.2.zip>PPPwn-Luckfox</a> from release pages or from GitHub repo, unzip and rename folder to `PPPwn-Luckfox` drag and drop the files in the highlight red rectangle there, it will copy the files to the luckfox. <be>
    
    <img src="images/4.png" alt="Image 4" style="width: 700px;">
    

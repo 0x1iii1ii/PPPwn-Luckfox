@@ -47,12 +47,11 @@ reseteth() {
 if [ "$AUTO_START" = "true" ]; then
   /etc/init.d/S50nginx stop
   /etc/init.d/S49php-fpm stop
-  >$LOG_FILE
+  > $LOG_FILE
   sleep 1
   reseteth
-  $CMD >>$LOG_FILE 2>&1
-  if grep -q "\[+\] Done!" $LOG_FILE; then
-    echo "PPPwned"
+  $CMD
+  echo "PPPwned"
     if [ "$HALT_CHOICE" = "true" ]; then
       sleep 1
       halt
@@ -62,7 +61,6 @@ if [ "$AUTO_START" = "true" ]; then
       sleep 5
       /etc/init.d/S50nginx start
       /etc/init.d/S49php-fpm start
-    fi
   fi
 else
   echo "Auto Start is disabled, skipping PPPwn..."
