@@ -165,13 +165,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php endif; ?>
 
     <form method="POST">
-        <label for="FW_VERSION">PS4 Firmware and Goldhen:</label>
+        <label for="FW_VERSION">PS4 Firmware and GoldHEN:</label>
         <select id="FW_VERSION" name="FW_VERSION" required>
-            <option value="900" <?php if ($config['FW_VERSION'] == '900') echo 'selected'; ?>>9.00 - Goldhen</option>
-            <option value="960" <?php if ($config['FW_VERSION'] == '960') echo 'selected'; ?>>9.60 - Goldhen</option>
-            <option value="1000" <?php if ($config['FW_VERSION'] == '1000') echo 'selected'; ?>>10.00 - Goldhen</option>
-            <option value="1001" <?php if ($config['FW_VERSION'] == '1001') echo 'selected'; ?>>10.01 - Goldhen</option>
-            <option value="1100" <?php if ($config['FW_VERSION'] == '1100') echo 'selected'; ?>>11.00 - Goldhen</option>
+            <option value="900" <?php if ($config['FW_VERSION'] == '900') echo 'selected'; ?>>9.00 - GoldHEN</option>
+            <option value="960" <?php if ($config['FW_VERSION'] == '960') echo 'selected'; ?>>9.60 - GoldHEN</option>
+            <option value="1000" <?php if ($config['FW_VERSION'] == '1000') echo 'selected'; ?>>10.00 - GoldHEN</option>
+            <option value="1001" <?php if ($config['FW_VERSION'] == '1001') echo 'selected'; ?>>10.01 - GoldHEN</option>
+            <option value="1050" <?php if ($config['FW_VERSION'] == '1050') echo 'selected'; ?>>10.50 - GoldHEN</option>
+            <option value="1070" <?php if ($config['FW_VERSION'] == '1070') echo 'selected'; ?>>10.70 - GoldHEN</option>
+            <option value="1071" <?php if ($config['FW_VERSION'] == '1071') echo 'selected'; ?>>10.71 - GoldHEN</option>
+            <option value="1100" <?php if ($config['FW_VERSION'] == '1100') echo 'selected'; ?>>11.00 - GoldHEN</option>
         </select>
 
         <label for="PPPWN_EXEC">PPPwn Executable:</label>
@@ -214,7 +217,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <div class="checkbox-group">
             <input type="checkbox" id="HALT_CHOICE" name="HALT_CHOICE" <?php if ($config['HALT_CHOICE']) echo 'checked'; ?>>
-            <label for="HALT_CHOICE">Shutdown After Jailbreak (if you tick it, you won't be able to use web server.)</label>
+            <label for="HALT_CHOICE">Shutdown After Jailbreak</label>
         </div>
 
         <div class="button-group">

@@ -1,3 +1,0 @@
-cd PPPwn-Luckfox
-chmod +x install.sh
-./install.sh

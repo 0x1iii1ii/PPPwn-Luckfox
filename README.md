@@ -6,7 +6,7 @@ and thanks to xfangfang <a href=https://github.com/xfangfang/PPPwn_cpp>PPPwn-CPP
 
 ## Note
 
-- Currently support version: `9.00, 9.60, 10.00, 10.01, 11.00`
+- Currently support version: `9.00, 9.60, 10.00, 10.01, 10.50, 10.70, 10.71, 11.00`
 - The average PPPwned time is around `1min - 2min` sometimes it loads under `1 minute`
 - Using `pppwn` C++ nightly build from xfangfang PPPwn_cpp <be>
   
@@ -30,6 +30,7 @@ You can manually edit the configuration file located at `/etc/pppwn/config.json`
 - <b>Luckfox Pico</b><br>
 - <b>Luckfox Pico Pro</b><br>
 - <b>Luckfox Pico Max</b><br>
+- <b>Luckfox Pico Ultra/Ultra W</b><br>
 - <b>Luckfox Pico Plus</b><be>
 - <b>Luckfox Pico Mini A/B</b><br>
 
@@ -84,7 +85,7 @@ Download one of the custom buildroot image for your respective Luckfox models be
         <img src="images/3.png" alt="Image 3" style="width: 600px;">
   
    - After filling it out, click OK, enter the login name, and login `root` password `luckfox`.
-6. At this point, you have successfully logged in to Luckfox pico. Download <a href=https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.3_1.1.1/PPPwn-Luckfox-v1.2.3.zip>PPPwn-Luckfox</a> from release pages or from GitHub repo, unzip and rename folder to `PPPwn-Luckfox` drag and drop the files in the highlight red rectangle there, it will copy the files to the luckfox. <be>
+6. At this point, you have successfully logged in to Luckfox pico. Download <a href=https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.4_1.1.2/PPPwn-Luckfox-v1.2.4.zip>PPPwn-Luckfox</a> from release pages or from GitHub repo, unzip and rename folder to `PPPwn-Luckfox` drag and drop the files in the highlight red rectangle there, it will copy the files to the luckfox. <be>
    
    <img src="images/4.png" alt="Image 4" style="width: 700px;">
    
