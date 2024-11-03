@@ -9,18 +9,20 @@ and thanks to xfangfang <a href=https://github.com/xfangfang/PPPwn_cpp>PPPwn-CPP
 - Currently support version: `9.00, 9.60, 10.00, 10.01, 10.50, 10.70, 10.71, 11.00`
 - The average PPPwned time is around `1min - 2min` sometimes it loads under `1 minute`
 - Using `pppwn` C++ nightly build from xfangfang PPPwn_cpp <be>
-  
+- The problem where the PS4 does not shutdown properly (white blinking light) and sometimes crashes when trying to shutdown are still present in the current version resulting in an HDD check, please use it at your own responsibility!
+
+## Contributing
+Feel free to submit pull requests for improvements and bug fixes.
+
 ## Web Server Features
-
 Thanks to [@harsha-0110](https://github.com/harsha-0110) for the webserver base scripts and PHP.<br>
-
 You can access it at `192.168.1.1` on your PS4 browser. It allows you to:
 
 - Change your PPPwn settings
 - Shutdown your Luckfox device
 - Execute PPPwn
 - Inject payloads for 9.00 & 11.00 (make sure to enable BinLoader in GoldHEN)
-- Set on/off auto-run PPPwn on boot (on by default)
+- Set on/off auto-run PPPwn on boot (off by default)
 - Disable Eth0 (to free LAN port)
   
 You can manually edit the configuration file located at `/etc/pppwn/config.json`.
@@ -46,8 +48,8 @@ You can manually edit the configuration file located at `/etc/pppwn/config.json`
 
 ## Installation
 
-Download one of the custom buildroot image for your respective Luckfox models below or from the [release](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases) pages.
-
+Download one of the custom buildroot image for your respective Luckfox models below or from the [release](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases) pages.<br>
+*If you use the pre-build image, you only need to follow step 1: flash the image, and you're done with the installation setup!
 - NAND Flash boot
 
    Luckfox Model  | Buildroot Image
