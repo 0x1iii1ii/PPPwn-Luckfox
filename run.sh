@@ -23,10 +23,9 @@ PPPWN_EXEC=$(read_json 'PPPWN_EXEC')
 DIR=$(read_json 'install_dir')
 LOG_FILE=$(read_json 'log_file')
 EN_NET=$(read_json 'en_inet')
-
+#append
 STAGE1_FILE="$DIR/stage1/${FW_VERSION}/stage1.bin"
 STAGE2_FILE="$DIR/stage2/${FW_VERSION}/stage2.bin"
-
 CMD="$DIR/$PPPWN_EXEC --interface eth0 --fw $FW_VERSION --stage1 $STAGE1_FILE --stage2 $STAGE2_FILE"
 
 # Append optional parameters
@@ -37,67 +36,48 @@ CMD="$DIR/$PPPWN_EXEC --interface eth0 --fw $FW_VERSION --stage1 $STAGE1_FILE --
 [ "$AUTO_RETRY" == "true" ] && CMD="$CMD --auto-retry"
 [ "$NO_WAIT_PADI" == "true" ] && CMD="$CMD --no-wait-padi"
 [ "$REAL_SLEEP" == "true" ] && CMD="$CMD --real-sleep"
-
-start_internet() {
-  echo "Bringing up wlan0..."
-  ifconfig wlan0 up
-  wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant.conf
-  udhcpc -i wlan0
-  echo "Setting up bridge between eth0 and wlan0..."
-  brctl addbr br0
-  brctl addif br0 eth0
-  brctl addif br0 wlan0
-  ifconfig br0 up
-  udhcpc -i br0
-}
-
-kill_net() {
-  ifconfig eth0 down
-  ifconfig wlan0 down
-  ifconfig br0 down
-  brctl delbr br0
-}
-
+#funct
 reseteth() {
   ifconfig eth0 down
   sleep 1
   ifconfig eth0 up
   sleep 3
 }
-
+#gold
+echo "checking goldhen"
+pppoe-server -I eth0 -T 60 -N 1 -C isp -S isp -L 192.168.1.1 -R 192.168.1.2 &
+sleep 2
+while ! ping -c 1 192.168.1.2 >/dev/null 2>&1; do
+    sleep 2
+done
+sleep 5
+if nmap -n -p 3232 192.168.1.2 | grep -q '3232/tcp open'; then
+    echo "Goldhen found aborting pppwn"
+    GOLDHEN_ACTIVE=y
+fi
+#exec
 if [ "$AUTO_START" = "true" ]; then
-  /etc/init.d/S50nginx stop
-  /etc/init.d/S49php-fpm stop
-  >$LOG_FILE
-  sleep 1
-  reseteth
-  $CMD >>$LOG_FILE 2>&1
-  if grep -q "\[+\] Done!" $LOG_FILE; then
-    echo "PPPwned"
-    if [ "$HALT_CHOICE" = "true" ]; then
-      sleep 1
-      halt
-    else
-      reseteth
-      if [ "$EN_NET" == "true" ]; then
-        pppoe-server -I br0 -T 60 -N 10 -C isp -S isp -L 0.0.0.0 -R 0.0.0.0 &
-        sleep 5
-        start_internet
+  if [ "$GOLDHEN_ACTIVE" = "n" ]; then
+    /etc/init.d/S50nginx stop
+    /etc/init.d/S49php-fpm stop
+    >$LOG_FILE
+    sleep 1
+    reseteth
+    $CMD >>$LOG_FILE 2>&1
+    if grep -q "\[+\] Done!" $LOG_FILE; then
+      echo "PPPwned"
+      if [ "$HALT_CHOICE" = "true" ]; then
+        sleep 1
+        halt
       else
+        reseteth
         pppoe-server -I eth0 -T 60 -N 1 -C isp -S isp -L 192.168.1.1 -R 192.168.1.2 &
+        sleep 5
+        /etc/init.d/S50nginx start
+        /etc/init.d/S49php-fpm start
       fi
-      sleep 5
-      /etc/init.d/S50nginx start
-      /etc/init.d/S49php-fpm start
     fi
   fi
 else
   echo "Auto Start is disabled, skipping PPPwn..."
-  if [ "$EN_NET" == "true" ]; then
-    pppoe-server -I br0 -T 60 -N 10 -C isp -S isp -L 0.0.0.0 -R 0.0.0.0 &
-    sleep 5
-    start_internet
-  else
-    pppoe-server -I eth0 -T 60 -N 1 -C isp -S isp -L 192.168.1.1 -R 192.168.1.2 &
-  fi
 fi

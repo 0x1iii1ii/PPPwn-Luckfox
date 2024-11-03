@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PPPwn-Luckfox Dashboard</title>
+    <title>PPPwn-Luckfox Web Dashboard</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -63,6 +63,7 @@
 
 <div class="container">
     <h1>PPPwn-Luckfox Web Dashboard for PS4 9.00 & 11.00</h1>
+    <h2> ★ v1.2.5 ★ </h2>
     <h4>by <a href=https://github.com/0x1iii1ii/PPPwn-Luckfox>@0x1iii1ii</a> <a href=https://github.com/harsha-0110/PPPwn-Luckfox>@harsha-0110</a>  </h4>
     <h4>credits to <a href=https://github.com/Scene-Collective>@everyone</a> for the payloads!</h4>
     <form method="post" action="" style="display:inline;">

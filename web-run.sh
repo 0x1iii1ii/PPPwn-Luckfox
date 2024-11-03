@@ -53,13 +53,14 @@ reseteth
 $CMD >>$LOG_FILE 2>&1
 if grep -q "\[+\] Done!" $LOG_FILE; then
     if [ "$HALT_CHOICE" = "true" ]; then
-      sleep 1
-      halt
+        sleep 1
+        halt
     else
-    sleep 5
-    reseteth
-    pppoe-server -I eth0 -T 60 -N 1 -C isp -S isp -L 192.168.1.1 -R 192.168.1.2 &
-    sleep 5
-    /etc/init.d/S50nginx start
-    /etc/init.d/S49php-fpm start
+        sleep 5
+        reseteth
+        pppoe-server -I eth0 -T 60 -N 1 -C isp -S isp -L 192.168.1.1 -R 192.168.1.2 &
+        sleep 5
+        /etc/init.d/S50nginx start
+        /etc/init.d/S49php-fpm start
+    fi
 fi
