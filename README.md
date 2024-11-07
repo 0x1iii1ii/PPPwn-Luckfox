@@ -22,7 +22,7 @@ You can access it at `192.168.1.1` on your PS4 browser. It allows you to:
 - Shutdown your Luckfox device
 - Execute PPPwn
 - Inject payloads for 9.00 & 11.00 (make sure to enable BinLoader in GoldHEN)
-- Set on/off auto-run PPPwn on boot (off by default)
+- Set on/off auto-run PPPwn on boot (ON by default)
 - Disable Eth0 (to free LAN port)
   
 You can manually edit the configuration file located at `/etc/pppwn/config.json`.
@@ -49,7 +49,11 @@ You can manually edit the configuration file located at `/etc/pppwn/config.json`
 ## Installation
 
 Download one of the custom buildroot image for your respective Luckfox models below or from the [release](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases) pages.<br>
-*If you use the pre-build image, you only need to follow step 1: flash the image, and you're done with the installation setup!
+```
+*If you use the pre-build image, you only need to follow step 1: flash the image, and you're done with the installation step.
+After you flash the pre-build pppwn image, you need to run the exploit manually from the web, and config the "auto-run PPPwn" to "ON"
+if you want it to auto jailbreak at the start, also make sure to set PPPoE username/password to "ppp" for the web to run properly.
+```
 - NAND Flash boot
 
    Luckfox Model  | Buildroot Image
