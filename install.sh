@@ -172,7 +172,7 @@ if [ ! -f "$CONFIG_FILE" ]; then
     "AUTO_RETRY": true,
     "NO_WAIT_PADI": false,
     "REAL_SLEEP": false,
-    "AUTO_START": false,
+    "AUTO_START": true,
 	"HALT_CHOICE": $HALT_CHOICE,
 	"PPPWN_EXEC": "$PPPWN_EXEC",
     "install_dir": "$CURRENT_DIR",
