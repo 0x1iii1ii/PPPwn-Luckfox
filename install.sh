@@ -40,6 +40,7 @@ WEB_DIR="/var/www/data"
 WEB_CONF="/etc/nginx"
 CONFIG_DIR="/etc/pppwn"
 CONFIG_FILE="$CONFIG_DIR/config.json"
+BACKUP_FILE="$CONFIG_DIR/config_bak.json"
 
 # Display the list of firmware versions
 echo "Please select your PS4 firmware version:"
@@ -121,9 +122,9 @@ echo ""
 while true; do
     read -p "Enter your choice (a/b): " PPPWN_CHOICE
     case $PPPWN_CHOICE in
-    a) PPPWN_EXEC="pppwn"; READABLE_PPPWN_EXEC="PPPwn"
+    a) PPPWN_EXEC="false"; READABLE_PPPWN_EXEC="PPPwn"
         break ;;
-    b) PPPWN_EXEC="pppwn_ipv6"; READABLE_PPPWN_EXEC="PPPwn IPV6"
+    b) PPPWN_EXEC="true"; READABLE_PPPWN_EXEC="PPPwn IPV6"
         break ;;
     *) echo "Invalid choice. Please select a valid option." ;;
     esac
@@ -174,7 +175,7 @@ if [ ! -f "$CONFIG_FILE" ]; then
     "REAL_SLEEP": false,
     "AUTO_START": true,
 	"HALT_CHOICE": $HALT_CHOICE,
-	"PPPWN_EXEC": "$PPPWN_EXEC",
+	"PPPWN_IPV6": $PPPWN_EXEC,
     "install_dir": "$CURRENT_DIR",
     "log_file": "$LOG_DIR",
     "shutdown_flag": false,
@@ -183,6 +184,12 @@ if [ ! -f "$CONFIG_FILE" ]; then
 }
 EOL
     chmod 777 $CONFIG_FILE
+fi
+
+# Create or update the config_bak.json as a backup
+if [ ! -f "$BACKUP_FILE" ]; then
+    cp "$CONFIG_FILE" "$BACKUP_FILE"
+    chmod 777 $BACKUP_FILE
 fi
 
 if [ "$HALT_CHOICE" != "true" ]; then
@@ -223,7 +230,7 @@ esac
 exit 0
 EOL
 
-chmod +x pppwn pppwn_ipv6 run.sh exec.sh web-run.sh
+chmod +x pppwn run.sh exec.sh web-run.sh
 chmod +x /etc/init.d/S99pppwn
 echo -e "${BGreen}install completed!${NC}"
 

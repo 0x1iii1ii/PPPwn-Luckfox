@@ -29,84 +29,57 @@ You can manually edit the configuration file located at `/etc/pppwn/config.json`
 
 ## Support Boards
 
-- <b>Luckfox Pico</b><br>
 - <b>Luckfox Pico Pro</b><br>
 - <b>Luckfox Pico Max</b><br>
-- <b>Luckfox Pico Ultra/Ultra W</b><br>
 - <b>Luckfox Pico Plus</b><be>
-- <b>Luckfox Pico Mini A/B</b><br>
+- <b>Luckfox Pico Mini B</b><br>
 
 ## Requirements
 
 - One of Luckfox Pico models above
-- SD Card 4GB or above (for Luckfox Pico/Mini A)
 - Ethernet Cable
 - USB Type-C
-- A USB drive with exFAT32 formatted (only use for the first time to load GoldHEN)
+- A USB drive with exFAT formatted (only use for the first time to load GoldHEN)
 - PC/Laptop for config the Luckfox
 
 
 ## Installation
 
-Download one of the custom buildroot image for your respective Luckfox models below or from the [release](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases) pages.<br>
-```
-*If you use the pre-build image, you only need to follow step 1: flash the image, and you're done with the installation step.
-After you flash the pre-build pppwn image, you need to run the exploit manually from the web, and config the "auto-run PPPwn" to "ON"
-if you want it to auto jailbreak at the start, also make sure to set PPPoE username/password to "ppp" for the web to run properly.
-```
-- NAND Flash boot
-
-   Luckfox Model  | Buildroot Image
-   ------------- | -------------
-   Luckfox Pico Pro/Max  | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.2/luckfox_pro_max_image_web_NAND.zip)
-   Luckfox Pico Plus/Mini B | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.2/luckfox_pico_plus_image_web_NAND.zip)
+Download one of the pre-build image for your respective Luckfox models and your PS4 version below or from the [release](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases) pages.<br>
 
 
-- SD Card boot
+| **Luckfox Models**             | **PS4 FW** | **Pre-build Image** 
+| ----------------------------- | ---------- | ------------------- | 
+| **Luckfox Pico Pro/Max**      | 9.00       | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.5/pppwn_luckfox_v1.2.5_pro_max_image_FW_9.00.7z)        | 
+|                               | 9.60       | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.5/pppwn_luckfox_v1.2.5_pro_max_image_FW_9.60.7z)        |
+|                               | 10.00      | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.5/pppwn_luckfox_v1.2.5_pro_max_image_FW_10.00.7z)        |
+|                               | 10.50      | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.5/pppwn_luckfox_v1.2.5_pro_max_image_FW_10.50.7z)        |
+|                               | 10.70      | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.5/pppwn_luckfox_v1.2.5_pro_max_image_FW_10.70.7z)        |
+|                               | 11.00      | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.5/pppwn_luckfox_v1.2.5_pro_max_image_FW_11.00.7z)        |
+|                               | 9.00-11.00 (web server) | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.5/pppwn_luckfox_v1.2.5_pro_max_image_web_FW_9.00-11.00.7z)        |
+| **Luckfox Pico Plus/Mini B**  | 9.00       | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.5/pppwn_luckfox_v1.2.5_pico_plus_image_FW_9.00.7z)        |
+|                               | 9.60       | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.5/pppwn_luckfox_v1.2.5_pico_plus_image_FW_9.60.7z)        |
+|                               | 10.00      | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.5/pppwn_luckfox_v1.2.5_pico_plus_image_FW_10.00.7z)        |
+|                               | 10.50      | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.5/pppwn_luckfox_v1.2.5_pico_plus_image_FW_10.50.7z)        |
+|                               | 10.70      | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.5/pppwn_luckfox_v1.2.5_pico_plus_image_FW_10.70.7z)        |
+|                               | 11.00      | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.5/pppwn_luckfox_v1.2.5_pico_plus_image_FW_11.00.7z)        |
+|                               | 9.00-11.00 (web server) | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.5/pppwn_luckfox_v1.2.5_pico_plus_image_web_FW_9.00-11.00.7z)        |
 
-   Luckfox Model  | Buildroot Image
-   ------------- | -------------
-   Luckfox Pico/Mini A | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.2/luckfox_pico_plus_image_web_SD.zip)
+Use [SocToolKit](https://drive.google.com/file/d/1ALo4G7rEaF1GNhUHINoYHT_RGWGddzYw) to burn the buildroot image you downloaded above to your Luckfox. Proceed to burn the OS by following the official tutorial <a href=https://wiki.luckfox.com/Luckfox-Pico/Luckfox-Pico-RV1103/Luckfox-Pico-Flash-burn-image>here</a>.<be>
 
-
-1. Use [SocToolKit](https://drive.google.com/file/d/1ALo4G7rEaF1GNhUHINoYHT_RGWGddzYw) to burn the buildroot image you downloaded above to your Luckfox. 
-   - If you're using luckfox with `NAND Flash`, proceed to burn the OS by following the official tutorial <a href=https://wiki.luckfox.com/Luckfox-Pico/Luckfox-Pico-RV1103/Luckfox-Pico-Flash-burn-image>here</a>.
-   - If you're using luckfox with `SD Card`, proceed to burn the OS by following the official tutorial <a href=https://wiki.luckfox.com/Luckfox-Pico/Luckfox-Pico-RV1103/Luckfox-Pico-SD-Card-burn-image>here</a>.
-2. Plug your luckfox to your PC via USB type-c port and wait a few minutes until you hear the device connect sound.
-3. On your PC open `Control Panel -> Network and Internet -> Network and Sharing Center -> Change Adapter Options`. You will find `Remote NDIS based Internet Sharing Device`. Right-click and choose Properties.<be>
-
-      ![](images/0.jpg)
-
-4. Double-click on `Internet Protocol Version 4 (TCP/IPv4)`. Set the IPv4 address to `172.32.0.100` and subnet mask to `255.255.0.0` and click OK.<be>
-
-      <p float="left">
-        <img src="images/1.jpg" width="300" />
-        <img src="images/2.jpg" width="336" /> 
-      </p>
-
-5. MobaXterm Login
-   - Download <a href=https://drive.google.com/file/d/1pLikKXgdJNWqmylq8UYwXPDGaEDfxjNG>MobaXterm</a> and unzip to use.
-   - Open the MobaXterm remote login software, choose Session->SSH, and enter the static IP address of Luckfox pico as `172.32.0.93`.<br>
-   
-        <img src="images/3.png" alt="Image 3" style="width: 600px;">
-  
-   - After filling it out, click OK, enter the login name, and login `root` password `luckfox`.
-6. At this point, you have successfully logged in to Luckfox pico. Download <a href=https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.4_1.1.2/PPPwn-Luckfox-v1.2.4.zip>PPPwn-Luckfox</a> from release pages or from GitHub repo, unzip and rename folder to `PPPwn-Luckfox` drag and drop the files in the highlight red rectangle there, it will copy the files to the luckfox. <be>
-   
-   <img src="images/4.png" alt="Image 4" style="width: 700px;">
-   
-7.  After finish copy, paste this cmd, and follow the instructions.
-
-```sh
-cd PPPwn-Luckfox
-chmod +x install.sh
-./install.sh
-```
 Once the Luckfox reboots pppwn will run automatically.<be>
+
+```
+If you use the pre-build image with web server, you need to open the web config, select your PS4 
+version and pppwn type then run the exploit manually from the web
+The auto-run PPPwn on boot changed to OFF by default,so if you want your luckfox to auto jailbreak at 
+boot go to the config page again and tick the auto-run PPPwn to ON
+
+```
 
 ## Installation Hardware
 
-1. You simply need to connect the LAN cable from Luckfox Pico to the PS4 and power the Luckfox from the PS4 via a USB Type-C cable or other sources.
+You simply need to connect the LAN cable from Luckfox Pico to the PS4 and power the Luckfox from the PS4 via a USB Type-C cable or other sources.
 
 ## On PS4:<br>
 
@@ -116,7 +89,9 @@ Once the Luckfox reboots pppwn will run automatically.<be>
 - Enter `ppp` for both `PPPoE User ID` and `PPPoE Password`<br>
 - Choose `Automatic` for `DNS Settings` and `MTU Settings`<br>
 - Choose `Do Not Use` for `Proxy Server`<br>
+  
+## GoldHEN:<br>
 
-For Goldhen you need to place the goldhen.bin file onto the root of a USB drive and plug it into the console.<br>
-Once Goldhen has been loaded for the first time it will be copied to the console's internal HDD and the USB is no longer required.<br>
-To update Goldhen just repeat the above process and the new version will be copied to the internal HDD. <be>
+- For GoldHEN you need to place the goldhen.bin file onto the root of a USB drive and plug it into the console.<br>
+- Once GoldHEN has been loaded for the first time it will be copied to the console's internal HDD and the USB is no longer required.<br>
+- To update GoldHEN just repeat the above process and the new version will be copied to the internal HDD. <be>

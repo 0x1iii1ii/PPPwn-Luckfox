@@ -3,18 +3,12 @@ CONFIG_FILE="/etc/pppwn/config.json"
 
 read_json() {
     local key=$1
-    awk -F"[,:}]" -v key="\"$1\"" '$0 ~ key {gsub(/"/, "", $2); gsub(/[ \t]/, "", $2); print $2}' "$CONFIG_FILE"
+    jq -r ".$key" "$CONFIG_FILE"
 }
 
 update_flag() {
     local flag_name=$1
-    awk -v flag_name="$flag_name" '
-    {
-        if ($0 ~ "\"" flag_name "\": true") {
-            sub("\"" flag_name "\": true", "\"" flag_name "\": false")
-        }
-        print
-    }' "$CONFIG_FILE" >/tmp/tmp.$$.json && mv /tmp/tmp.$$.json "$CONFIG_FILE"
+    jq ".$flag_name = false" "$CONFIG_FILE" > /tmp/tmp.$$.json && mv /tmp/tmp.$$.json "$CONFIG_FILE"
     chmod 777 "$CONFIG_FILE"
 }
 

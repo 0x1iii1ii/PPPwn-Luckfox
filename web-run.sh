@@ -19,14 +19,14 @@ NO_WAIT_PADI=$(read_json 'NO_WAIT_PADI')
 REAL_SLEEP=$(read_json 'REAL_SLEEP')
 AUTO_START=$(read_json 'AUTO_START')
 HALT_CHOICE=$(read_json 'HALT_CHOICE')
-PPPWN_EXEC=$(read_json 'PPPWN_EXEC')
+PPPWN_IPV6=$(read_json 'PPPWN_IPV6')
 DIR=$(read_json 'install_dir')
 LOG_FILE=$(read_json 'log_file')
 
 STAGE1_FILE="$DIR/stage1/${FW_VERSION}/stage1.bin"
 STAGE2_FILE="$DIR/stage2/${FW_VERSION}/stage2.bin"
 
-CMD="$DIR/$PPPWN_EXEC --interface eth0 --fw $FW_VERSION --stage1 $STAGE1_FILE --stage2 $STAGE2_FILE"
+CMD="$DIR/pppwn --interface eth0 --fw $FW_VERSION --stage1 $STAGE1_FILE --stage2 $STAGE2_FILE"
 
 # Append optional parameters
 [ "$TIMEOUT" != "null" ] && CMD="$CMD --timeout $TIMEOUT"
@@ -36,6 +36,7 @@ CMD="$DIR/$PPPWN_EXEC --interface eth0 --fw $FW_VERSION --stage1 $STAGE1_FILE --
 [ "$AUTO_RETRY" == "true" ] && CMD="$CMD --auto-retry"
 [ "$NO_WAIT_PADI" == "true" ] && CMD="$CMD --no-wait-padi"
 [ "$REAL_SLEEP" == "true" ] && CMD="$CMD --real-sleep"
+[ "$PPPWN_IPV6" != "true" ] && CMD="$CMD --old-ipv6"
 
 reseteth() {
     ifconfig eth0 down

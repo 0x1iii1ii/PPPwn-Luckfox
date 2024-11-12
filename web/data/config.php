@@ -2,6 +2,7 @@
 
 // Define the file where the configuration will be stored
 $config_file = '/etc/pppwn/config.json';
+$backup_file = '/etc/pppwn/config_bak.json';
 
 // Function to load configuration from the file
 function load_config($file) {
@@ -21,11 +22,26 @@ function save_config($file, $config) {
 // Load current configuration
 $config = load_config($config_file);
 
+// Check if the restore button was pressed
+if (isset($_GET['restore']) && $_GET['restore'] === 'true') {
+    if (file_exists($backup_file)) {
+        // Replace config.json with config_bak.json content
+        copy($backup_file, $config_file);
+        $message = "Configuration restored from backup.";
+        // Reload the page to reflect changes
+        header("Location: " . $_SERVER['PHP_SELF']);
+        exit();
+    } else {
+        $message = "Backup file not found.";
+    }
+}
+    
 // Handle form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['FW_VERSION']) && isset($_POST['PPPWN_EXEC']) && isset($_POST['TIMEOUT']) && isset($_POST['WAIT_AFTER_PIN']) && isset($_POST['GROOM_DELAY']) && isset($_POST['BUFFER_SIZE'])) {
+    // Handle the normal form submission for updating configuration
+    if (isset($_POST['FW_VERSION']) && isset($_POST['TIMEOUT']) && isset($_POST['WAIT_AFTER_PIN']) && isset($_POST['GROOM_DELAY']) && isset($_POST['BUFFER_SIZE'])) {
         $config['FW_VERSION'] = $_POST['FW_VERSION'];
-        $config['PPPWN_EXEC'] = $_POST['PPPWN_EXEC'];
+        $config['PPPWN_IPV6'] = $_POST['PPPWN_IPV6'];
         $config['TIMEOUT'] = $_POST['TIMEOUT'];
         $config['WAIT_AFTER_PIN'] = $_POST['WAIT_AFTER_PIN'];
         $config['GROOM_DELAY'] = $_POST['GROOM_DELAY'];
@@ -163,7 +179,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php if (isset($message)): ?>
         <div class="message"><?php echo $message; ?></div>
     <?php endif; ?>
-
+    <!-- Configuration Update Form -->
     <form method="POST">
         <label for="FW_VERSION">PS4 Firmware and GoldHEN:</label>
         <select id="FW_VERSION" name="FW_VERSION" required>
@@ -177,12 +193,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <option value="1100" <?php if ($config['FW_VERSION'] == '1100') echo 'selected'; ?>>11.00 - GoldHEN</option>
         </select>
 
-        <label for="PPPWN_EXEC">PPPwn Executable:</label>
-        <select id="PPPWN_EXEC" name="PPPWN_EXEC">
-            <option value="pppwn" <?php if ($config['PPPWN_EXEC'] == 'pppwn') echo 'selected'; ?>>pppwn</option>
-            <option value="pppwn_ipv6" <?php if ($config['PPPWN_EXEC'] == 'pppwn_ipv6') echo 'selected'; ?>>pppwn ipv6</option>
-        </select>
-
         <label for="TIMEOUT">Timeout in seconds:</label>
         <input type="number" id="TIMEOUT" name="TIMEOUT" value="<?php echo htmlspecialchars($config['TIMEOUT']); ?>" required>
 
@@ -194,6 +204,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <label for="BUFFER_SIZE">Buffer Size in bytes:</label>
         <input type="number" id="BUFFER_SIZE" name="BUFFER_SIZE" value="<?php echo htmlspecialchars($config['BUFFER_SIZE']); ?>" required>
+
+        <div class="checkbox-group">
+            <input type="checkbox" id="PPPWN_IPV6" name="PPPWN_IPV6" <?php if ($config['PPPWN_IPV6']) echo 'checked'; ?>>
+            <label for="PPPWN_IPV6">PPPwn IPV6</label>
+        </div>
 
         <div class="checkbox-group">
             <input type="checkbox" id="AUTO_RETRY" name="AUTO_RETRY" <?php if ($config['AUTO_RETRY']) echo 'checked'; ?>>
@@ -223,6 +238,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="button-group">
             <button type="button" onclick="window.location.href = '../'">Back</button>
             <input type="submit" value="Update Configuration">
+            <button type="button" onclick="window.location.href = '?restore=true'">Restore Default Setting</button>
         </div>
     </form>
 </div>
