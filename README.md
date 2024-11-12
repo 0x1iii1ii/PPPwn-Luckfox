@@ -53,19 +53,23 @@ Download one of the pre-build image for your respective Luckfox models and your 
 | **Luckfox Pico Pro/Max**      | 9.00       | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.5/pppwn_luckfox_v1.2.5_pro_max_image_FW_9.00.7z)        | 
 |                               | 9.60       | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.5/pppwn_luckfox_v1.2.5_pro_max_image_FW_9.60.7z)        |
 |                               | 10.00      | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.5/pppwn_luckfox_v1.2.5_pro_max_image_FW_10.00.7z)        |
+|                               | 10.01      | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.5/pppwn_luckfox_v1.2.5_pro_max_image_FW_10.01.7z)        |
 |                               | 10.50      | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.5/pppwn_luckfox_v1.2.5_pro_max_image_FW_10.50.7z)        |
 |                               | 10.70      | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.5/pppwn_luckfox_v1.2.5_pro_max_image_FW_10.70.7z)        |
+|                               | 10.71      | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.5/pppwn_luckfox_v1.2.5_pro_max_image_FW_10.71.7z)        |
 |                               | 11.00      | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.5/pppwn_luckfox_v1.2.5_pro_max_image_FW_11.00.7z)        |
 |                               | 9.00-11.00 (web server) | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.5/pppwn_luckfox_v1.2.5_pro_max_image_web_FW_9.00-11.00.7z)        |
 | **Luckfox Pico Plus/Mini B**  | 9.00       | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.5/pppwn_luckfox_v1.2.5_pico_plus_image_FW_9.00.7z)        |
 |                               | 9.60       | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.5/pppwn_luckfox_v1.2.5_pico_plus_image_FW_9.60.7z)        |
 |                               | 10.00      | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.5/pppwn_luckfox_v1.2.5_pico_plus_image_FW_10.00.7z)        |
+|                               | 10.01      | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.5/pppwn_luckfox_v1.2.5_pico_plus_image_FW_10.01.7z)        |
 |                               | 10.50      | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.5/pppwn_luckfox_v1.2.5_pico_plus_image_FW_10.50.7z)        |
 |                               | 10.70      | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.5/pppwn_luckfox_v1.2.5_pico_plus_image_FW_10.70.7z)        |
+|                               | 10.71      | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.5/pppwn_luckfox_v1.2.5_pico_plus_image_FW_10.71.7z)        |
 |                               | 11.00      | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.5/pppwn_luckfox_v1.2.5_pico_plus_image_FW_11.00.7z)        |
 |                               | 9.00-11.00 (web server) | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.5/pppwn_luckfox_v1.2.5_pico_plus_image_web_FW_9.00-11.00.7z)        |
 
-Use [SocToolKit](https://drive.google.com/file/d/1ALo4G7rEaF1GNhUHINoYHT_RGWGddzYw) to burn the buildroot image you downloaded above to your Luckfox. Proceed to burn the OS by following the official tutorial <a href=https://wiki.luckfox.com/Luckfox-Pico/Luckfox-Pico-RV1103/Luckfox-Pico-Flash-burn-image>here</a>.<be>
+Use [SocToolKit](https://drive.google.com/file/d/1ALo4G7rEaF1GNhUHINoYHT_RGWGddzYw) to burn the pre-build image you downloaded above to your Luckfox. Proceed to burn by following the official tutorial <a href=https://wiki.luckfox.com/Luckfox-Pico/Luckfox-Pico-RV1103/Luckfox-Pico-Flash-burn-image>here</a>.<be>
 
 Once the Luckfox reboots pppwn will run automatically.<be>
 
@@ -74,7 +78,6 @@ If you use the pre-build image with web server, you need to open the web config,
 version and pppwn type then run the exploit manually from the web
 The auto-run PPPwn on boot changed to OFF by default,so if you want your luckfox to auto jailbreak at 
 boot go to the config page again and tick the auto-run PPPwn to ON
-
 ```
 
 ## Installation Hardware
