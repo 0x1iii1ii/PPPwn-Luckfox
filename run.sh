@@ -23,6 +23,7 @@ PPPWN_IPV6=$(read_json 'PPPWN_IPV6')
 DIR=$(read_json 'install_dir')
 LOG_FILE=$(read_json 'log_file')
 EN_NET=$(read_json 'en_inet')
+GOLDHEN_ACTIVE=n
 #append
 STAGE1_FILE="$DIR/stage1/${FW_VERSION}/stage1.bin"
 STAGE2_FILE="$DIR/stage2/${FW_VERSION}/stage2.bin"
@@ -61,6 +62,7 @@ if [ "$AUTO_START" = "true" ]; then
   if [ "$GOLDHEN_ACTIVE" = "n" ]; then
     /etc/init.d/S50nginx stop
     /etc/init.d/S49php-fpm stop
+    killall pppoe-server
     >$LOG_FILE
     sleep 1
     reseteth

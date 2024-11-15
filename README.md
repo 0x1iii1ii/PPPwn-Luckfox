@@ -67,7 +67,7 @@ Download one of the pre-build image for your respective Luckfox models and your 
 
 Use [SocToolKit](https://drive.google.com/file/d/1ALo4G7rEaF1GNhUHINoYHT_RGWGddzYw) to burn the buildroot image you downloaded above to your Luckfox. Proceed to burn the OS by following the official tutorial <a href=https://wiki.luckfox.com/Luckfox-Pico/Luckfox-Pico-RV1103/Luckfox-Pico-Flash-burn-image>here</a>.<be>
 
-Once the Luckfox reboots pppwn will run automatically.<be>
+Once you flashed the image, pppwn will run automatically.<be>
 
 ```
 If you use the pre-build image with web server, you need to open the web config, select your PS4 
