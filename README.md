@@ -51,27 +51,27 @@ Download one of the pre-build image for your respective Luckfox models and your 
 
 | **Luckfox Models**             | **PS4 FW** | **Pre-build Image** 
 | ----------------------------- | ---------- | ------------------- | 
-| **Luckfox Pico Pro/Max**      | 9.00       | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.6/pppwn_luckfox_v1.2.5_pro_max_image_FW_9.00.7z)        |
-|                               | 9.03       | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.6/pppwn_luckfox_v1.2.5_pro_max_image_FW_9.03.7z)        | 
-|                               | 9.60       | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.6/pppwn_luckfox_v1.2.5_pro_max_image_FW_9.60.7z)        |
-|                               | 10.00      | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.6/pppwn_luckfox_v1.2.5_pro_max_image_FW_10.00.7z)        |
-|                               | 10.01      | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.6/pppwn_luckfox_v1.2.5_pro_max_image_FW_10.01.7z)        |
-|                               | 10.50      | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.6/pppwn_luckfox_v1.2.5_pro_max_image_FW_10.50.7z)        |
-|                               | 10.70      | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.6/pppwn_luckfox_v1.2.5_pro_max_image_FW_10.70.7z)        |
-|                               | 10.71      | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.6/pppwn_luckfox_v1.2.5_pro_max_image_FW_10.71.7z)        |
-|                               | 11.00      | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.6/pppwn_luckfox_v1.2.5_pro_max_image_FW_11.00.7z)        |
-|                               | 9.00-11.00 (web server) | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.6/pppwn_luckfox_v1.2.5_pro_max_image_web_FW_9.00-11.00.7z)        |
-| **Luckfox Pico Plus/Mini B**  | 9.00       | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.6/pppwn_luckfox_v1.2.5_pico_plus_image_FW_9.00.7z)        |
-|                               | 9.03       | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.6/pppwn_luckfox_v1.2.5_pico_plus_image_FW_9.03.7z)        |
-|                               | 9.60       | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.6/pppwn_luckfox_v1.2.5_pico_plus_image_FW_9.60.7z)        |
-|                               | 10.00      | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.6/pppwn_luckfox_v1.2.5_pico_plus_image_FW_10.00.7z)        |
-|                               | 10.01      | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.6/pppwn_luckfox_v1.2.5_pico_plus_image_FW_10.01.7z)        |
-|                               | 10.50      | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.6/pppwn_luckfox_v1.2.5_pico_plus_image_FW_10.50.7z)        |
-|                               | 10.70      | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.6/pppwn_luckfox_v1.2.5_pico_plus_image_FW_10.70.7z)        |
-|                               | 10.71      | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.6/pppwn_luckfox_v1.2.5_pico_plus_image_FW_10.71.7z)        |
-|                               | 11.00      | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.6/pppwn_luckfox_v1.2.5_pico_plus_image_FW_11.00.7z)        |
-|                               | 9.00-11.00 (web server) | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.6/pppwn_luckfox_v1.2.5_pico_plus_image_web_FW_9.00-11.00.7z)        |
-| **Luckfox Pico/Mini A**  | 9.00 - 11.00 (web server)      | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.6/pppwn_luckfox_v1.2.5_pico_plus_image_web_FW_9.00-11.00_SD.7z)        |
+| **Luckfox Pico Pro/Max**      | 9.00       | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.6/pppwn_luckfox_v1.2.6_pro_max_image_FW_9.00.7z)        |
+|                               | 9.03       | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.6/pppwn_luckfox_v1.2.6_pro_max_image_FW_9.03.7z)        | 
+|                               | 9.60       | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.6/pppwn_luckfox_v1.2.6_pro_max_image_FW_9.60.7z)        |
+|                               | 10.00      | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.6/pppwn_luckfox_v1.2.6_pro_max_image_FW_10.00.7z)        |
+|                               | 10.01      | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.6/pppwn_luckfox_v1.2.6_pro_max_image_FW_10.01.7z)        |
+|                               | 10.50      | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.6/pppwn_luckfox_v1.2.6_pro_max_image_FW_10.50.7z)        |
+|                               | 10.70      | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.6/pppwn_luckfox_v1.2.6_pro_max_image_FW_10.70.7z)        |
+|                               | 10.71      | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.6/pppwn_luckfox_v1.2.6_pro_max_image_FW_10.71.7z)        |
+|                               | 11.00      | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.6/pppwn_luckfox_v1.2.6_pro_max_image_FW_11.00.7z)        |
+|                               | 9.00-11.00 (web server) | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.6/pppwn_luckfox_v1.2.6_pro_max_image_web_FW_9.00-11.00.7z)        |
+| **Luckfox Pico Plus/Mini B**  | 9.00       | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.6/pppwn_luckfox_v1.2.6_pico_plus_image_FW_9.00.7z)        |
+|                               | 9.03       | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.6/pppwn_luckfox_v1.2.6_pico_plus_image_FW_9.03.7z)        |
+|                               | 9.60       | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.6/pppwn_luckfox_v1.2.6_pico_plus_image_FW_9.60.7z)        |
+|                               | 10.00      | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.6/pppwn_luckfox_v1.2.6_pico_plus_image_FW_10.00.7z)        |
+|                               | 10.01      | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.6/pppwn_luckfox_v1.2.6_pico_plus_image_FW_10.01.7z)        |
+|                               | 10.50      | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.6/pppwn_luckfox_v1.2.6_pico_plus_image_FW_10.50.7z)        |
+|                               | 10.70      | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.6/pppwn_luckfox_v1.2.6_pico_plus_image_FW_10.70.7z)        |
+|                               | 10.71      | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.6/pppwn_luckfox_v1.2.6_pico_plus_image_FW_10.71.7z)        |
+|                               | 11.00      | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.6/pppwn_luckfox_v1.2.6_pico_plus_image_FW_11.00.7z)        |
+|                               | 9.00-11.00 (web server) | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.6/pppwn_luckfox_v1.2.6_pico_plus_image_web_FW_9.00-11.00.7z)        |
+| **Luckfox Pico/Mini A**  | 9.00 - 11.00 (web server)      | [download](https://github.com/0x1iii1ii/PPPwn-Luckfox/releases/download/1.2.6/pppwn_luckfox_v1.2.6_pico_plus_image_web_FW_9.00-11.00_SD.7z)        |
 
 
 Following the official tutorial <a href=https://wiki.luckfox.com/Luckfox-Pico/Luckfox-Pico-RV1103/Luckfox-Pico-Flash-burn-image>here</a> to learn how to burn the pre-build image that you downloaded above to your Luckfox. <be>
