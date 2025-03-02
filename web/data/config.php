@@ -1,5 +1,4 @@
 <?php
-
 // Define the file where the configuration will be stored
 $config_file = '/etc/pppwn/config.json';
 $backup_file = '/etc/pppwn/config_bak.json';
@@ -41,7 +40,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Handle the normal form submission for updating configuration
     if (isset($_POST['FW_VERSION']) && isset($_POST['TIMEOUT']) && isset($_POST['WAIT_AFTER_PIN']) && isset($_POST['GROOM_DELAY']) && isset($_POST['BUFFER_SIZE'])) {
         $config['FW_VERSION'] = $_POST['FW_VERSION'];
-        $config['PPPWN_IPV6'] = $_POST['PPPWN_IPV6'];
+        $config['PPPWN_EXEC'] = $_POST['PPPWN_EXEC'];
+        $config['GOLD_CHECK'] = isset($_POST['GOLD_CHECK']);
         $config['TIMEOUT'] = $_POST['TIMEOUT'];
         $config['WAIT_AFTER_PIN'] = $_POST['WAIT_AFTER_PIN'];
         $config['GROOM_DELAY'] = $_POST['GROOM_DELAY'];
@@ -67,181 +67,211 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>PPPwn Configuration</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
-            padding: 20px;
+            padding: 0;
             background-color: black;
+            min-height: 100vh;
         }
+
         .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 30px;
+            min-height: 100vh;
+            padding: 40px;
             background-color: #fff;
-            border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
+
         h1 {
             font-size: 32px;
             margin-bottom: 20px;
-            text-align: center;
             color: #333;
         }
+
         .message {
             margin-bottom: 20px;
             padding: 15px;
-            background-color: #d4edda;
-            border: 1px solid #c3e6cb;
-            color: #155724;
+            background-color: #e9ecef;
+            border: 1px solid #ced4da;
             border-radius: 8px;
             font-size: 16px;
+            color: #333;
         }
+
         form {
             display: flex;
             flex-direction: column;
             gap: 20px;
+            width: 100%;
+            max-width: 800px;
         }
+
         label {
             font-size: 18px;
             font-weight: bold;
             color: #555;
+            text-align: left;
         }
+
         input[type="text"],
         input[type="number"],
         select {
             padding: 15px;
-            border: 1px solid #ccc;
+            border: 1px solid #ced4da;
             border-radius: 8px;
             font-size: 18px;
-            transition: border-color 0.3s, box-shadow 0.3s;
+            width: 100%;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
         }
+
         input[type="text"]:focus,
         input[type="number"]:focus,
         select:focus {
             border-color: #007bff;
-            box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
+            outline: none;
         }
+
         input[type="checkbox"] {
             transform: scale(1.5);
             margin-right: 10px;
         }
+
         .checkbox-group {
             display: flex;
             align-items: center;
+            justify-content: flex-start;
         }
+
         .checkbox-group label {
-            margin: 0;
-            font-size: 18px;
             font-weight: normal;
+            margin: 0;
         }
-        input[type="submit"] {
-            padding: 15px;
-            border: none;
-            border-radius: 8px;
-            background: linear-gradient(135deg, #007bff, #0056b3);
-            color: #fff;
-            font-size: 18px;
-            cursor: pointer;
-            align-self: center;
-            transition: background 0.3s;
-        }
-        input[type="submit"]:hover {
-            background: linear-gradient(135deg, #0056b3, #004099);
-        }
+
         .button-group {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
         }
-        .button-group a,
-        .button-group button {
-            padding: 15px;
+
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 18px;
+            color: #fff;
+            background-color: #007bff;
             border: none;
             border-radius: 8px;
-            background: #007bff;
-            color: #fff;
-            font-size: 18px;
             text-decoration: none;
+            transition: background-color 0.3s, transform 0.2s;
             cursor: pointer;
-            transition: background 0.3s;
         }
-        .button-group a:hover,
-        .button-group button:hover {
-            background: #0056b3;
+
+        .button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        .button:active {
+            transform: translateY(1px);
+        }
+
+        .flag {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            width: 50px;
+            height: auto;
+            z-index: 1000;
         }
     </style>
 </head>
 <body>
+    <div class="container">
+        <h1>PPPwn-Luckfox Configuration v1.2.6</h1>
 
-<div class="container">
-    <h1>PPPwn-Luckfox Configuration</h1>
+        <!-- Display any messages -->
+        <?php if (isset($message)): ?>
+            <div class="message"><?php echo $message; ?></div>
+        <?php endif; ?>
 
-    <!-- Display any messages -->
-    <?php if (isset($message)): ?>
-        <div class="message"><?php echo $message; ?></div>
-    <?php endif; ?>
-    <!-- Configuration Update Form -->
-    <form method="POST">
-        <label for="FW_VERSION">PS4 Firmware and GoldHEN:</label>
-        <select id="FW_VERSION" name="FW_VERSION" required>
-            <option value="900" <?php if ($config['FW_VERSION'] == '900') echo 'selected'; ?>>9.00 - GoldHEN</option>
-            <option value="960" <?php if ($config['FW_VERSION'] == '960') echo 'selected'; ?>>9.60 - GoldHEN</option>
-            <option value="1000" <?php if ($config['FW_VERSION'] == '1000') echo 'selected'; ?>>10.00 - GoldHEN</option>
-            <option value="1001" <?php if ($config['FW_VERSION'] == '1001') echo 'selected'; ?>>10.01 - GoldHEN</option>
-            <option value="1050" <?php if ($config['FW_VERSION'] == '1050') echo 'selected'; ?>>10.50 - GoldHEN</option>
-            <option value="1070" <?php if ($config['FW_VERSION'] == '1070') echo 'selected'; ?>>10.70 - GoldHEN</option>
-            <option value="1071" <?php if ($config['FW_VERSION'] == '1071') echo 'selected'; ?>>10.71 - GoldHEN</option>
-            <option value="1100" <?php if ($config['FW_VERSION'] == '1100') echo 'selected'; ?>>11.00 - GoldHEN</option>
-        </select>
+        <!-- Configuration Update Form -->
+        <form method="POST">
+            <label for="FW_VERSION">PS4 Firmware and GoldHEN:</label>
+            <select id="FW_VERSION" name="FW_VERSION" required>
+                <option value="900" <?php if ($config['FW_VERSION'] == '900') echo 'selected'; ?>>9.00 - GoldHEN</option>
+                <option value="903" <?php if ($config['FW_VERSION'] == '903') echo 'selected'; ?>>9.03 - GoldHEN</option>
+                <option value="960" <?php if ($config['FW_VERSION'] == '960') echo 'selected'; ?>>9.60 - GoldHEN</option>
+                <option value="1000" <?php if ($config['FW_VERSION'] == '1000') echo 'selected'; ?>>10.00 - GoldHEN</option>
+                <option value="1001" <?php if ($config['FW_VERSION'] == '1001') echo 'selected'; ?>>10.01 - GoldHEN</option>
+                <option value="1050" <?php if ($config['FW_VERSION'] == '1050') echo 'selected'; ?>>10.50 - GoldHEN</option>
+                <option value="1070" <?php if ($config['FW_VERSION'] == '1070') echo 'selected'; ?>>10.70 - GoldHEN</option>
+                <option value="1071" <?php if ($config['FW_VERSION'] == '1071') echo 'selected'; ?>>10.71 - GoldHEN</option>
+                <option value="1100" <?php if ($config['FW_VERSION'] == '1100') echo 'selected'; ?>>11.00 - GoldHEN</option>
+            </select>
 
-        <label for="TIMEOUT">Timeout in seconds:</label>
-        <input type="number" id="TIMEOUT" name="TIMEOUT" value="<?php echo htmlspecialchars($config['TIMEOUT']); ?>" required>
+            <label for="PPPWN_EXEC">PPPwn Executable:</label>
+            <select id="PPPWN_EXEC" name="PPPWN_EXEC">
+                <option value="pppwn1" <?php if ($config['PPPWN_EXEC'] == 'pppwn1') echo 'selected'; ?>>pppwn1 - original build by xfanfang</option>
+                <option value="pppwn2" <?php if ($config['PPPWN_EXEC'] == 'pppwn2') echo 'selected'; ?>>pppwn2 - custom build by 0x1iii1ii</option>
+                <option value="pppwn3" <?php if ($config['PPPWN_EXEC'] == 'pppwn3') echo 'selected'; ?>>pppwn3 - custom build by nn9dev</option>
+            </select>
 
-        <label for="WAIT_AFTER_PIN">Wait After Pin in seconds:</label>
-        <input type="number" id="WAIT_AFTER_PIN" name="WAIT_AFTER_PIN" value="<?php echo htmlspecialchars($config['WAIT_AFTER_PIN']); ?>" required>
+            <label for="TIMEOUT">Timeout in seconds:</label>
+            <input type="number" id="TIMEOUT" name="TIMEOUT" value="<?php echo htmlspecialchars($config['TIMEOUT']); ?>" required>
 
-        <label for="GROOM_DELAY">Groom Delay:</label>
-        <input type="number" id="GROOM_DELAY" name="GROOM_DELAY" value="<?php echo htmlspecialchars($config['GROOM_DELAY']); ?>" required>
+            <label for="WAIT_AFTER_PIN">Wait After Pin in seconds:</label>
+            <input type="number" id="WAIT_AFTER_PIN" name="WAIT_AFTER_PIN" value="<?php echo htmlspecialchars($config['WAIT_AFTER_PIN']); ?>" required>
 
-        <label for="BUFFER_SIZE">Buffer Size in bytes:</label>
-        <input type="number" id="BUFFER_SIZE" name="BUFFER_SIZE" value="<?php echo htmlspecialchars($config['BUFFER_SIZE']); ?>" required>
+            <label for="GROOM_DELAY">Groom Delay:</label>
+            <input type="number" id="GROOM_DELAY" name="GROOM_DELAY" value="<?php echo htmlspecialchars($config['GROOM_DELAY']); ?>" required>
 
-        <div class="checkbox-group">
-            <input type="checkbox" id="PPPWN_IPV6" name="PPPWN_IPV6" <?php if ($config['PPPWN_IPV6']) echo 'checked'; ?>>
-            <label for="PPPWN_IPV6">PPPwn IPV6</label>
-        </div>
+            <label for="BUFFER_SIZE">Buffer Size in bytes:</label>
+            <input type="number" id="BUFFER_SIZE" name="BUFFER_SIZE" value="<?php echo htmlspecialchars($config['BUFFER_SIZE']); ?>" required>
 
-        <div class="checkbox-group">
-            <input type="checkbox" id="AUTO_RETRY" name="AUTO_RETRY" <?php if ($config['AUTO_RETRY']) echo 'checked'; ?>>
-            <label for="AUTO_RETRY">Auto Retry</label>
-        </div>
+            <div class="checkbox-group">
+                <input type="checkbox" id="GOLD_CHECK" name="GOLD_CHECK" <?php if ($config['GOLD_CHECK']) echo 'checked'; ?>>
+                <label for="GOLD_CHECK">GoldHEN Detection (only work if Auto-Run PPPwn enable)</label>
+            </div>
 
-        <div class="checkbox-group">
-            <input type="checkbox" id="NO_WAIT_PADI" name="NO_WAIT_PADI" <?php if ($config['NO_WAIT_PADI']) echo 'checked'; ?>>
-            <label for="NO_WAIT_PADI">No Wait PADI</label>
-        </div>
+            <div class="checkbox-group">
+                <input type="checkbox" id="AUTO_RETRY" name="AUTO_RETRY" <?php if ($config['AUTO_RETRY']) echo 'checked'; ?>>
+                <label for="AUTO_RETRY">Auto Retry</label>
+            </div>
 
-        <div class="checkbox-group">
-            <input type="checkbox" id="REAL_SLEEP" name="REAL_SLEEP" <?php if ($config['REAL_SLEEP']) echo 'checked'; ?>>
-            <label for="REAL_SLEEP">Real Sleep</label>
-        </div>
+            <div class="checkbox-group">
+                <input type="checkbox" id="NO_WAIT_PADI" name="NO_WAIT_PADI" <?php if ($config['NO_WAIT_PADI']) echo 'checked'; ?>>
+                <label for="NO_WAIT_PADI">No Wait PADI</label>
+            </div>
 
-        <div class="checkbox-group">
-            <input type="checkbox" id="AUTO_START" name="AUTO_START" <?php if ($config['AUTO_START']) echo 'checked'; ?>>
-            <label for="AUTO_START">Auto-Run PPPwn on Start-Up</label>
-        </div>
+            <div class="checkbox-group">
+                <input type="checkbox" id="REAL_SLEEP" name="REAL_SLEEP" <?php if ($config['REAL_SLEEP']) echo 'checked'; ?>>
+                <label for="REAL_SLEEP">Real Sleep</label>
+            </div>
 
-        <div class="checkbox-group">
-            <input type="checkbox" id="HALT_CHOICE" name="HALT_CHOICE" <?php if ($config['HALT_CHOICE']) echo 'checked'; ?>>
-            <label for="HALT_CHOICE">Shutdown After Jailbreak</label>
-        </div>
+            <div class="checkbox-group">
+                <input type="checkbox" id="AUTO_START" name="AUTO_START" <?php if ($config['AUTO_START']) echo 'checked'; ?>>
+                <label for="AUTO_START">Auto-Run PPPwn on Start-Up</label>
+            </div>
 
-        <div class="button-group">
-            <button type="button" onclick="window.location.href = '../'">Back</button>
-            <input type="submit" value="Update Configuration">
-            <button type="button" onclick="window.location.href = '?restore=true'">Restore Default Setting</button>
-        </div>
-    </form>
-</div>
+            <div class="checkbox-group">
+                <input type="checkbox" id="HALT_CHOICE" name="HALT_CHOICE" <?php if ($config['HALT_CHOICE']) echo 'checked'; ?>>
+                <label for="HALT_CHOICE">Shutdown After Jailbreak</label>
+            </div>
 
+            <div class="button-group">
+                <a href="../" class="button">Back</a>
+                <input type="submit" value="Update Configuration" class="button">
+                <a href="?restore=true" class="button">Restore Default Setting</a>
+            </div>
+        </form>
+    </div>
+    <img src="flag.png" alt="your flag" class="flag">
 </body>
 </html>

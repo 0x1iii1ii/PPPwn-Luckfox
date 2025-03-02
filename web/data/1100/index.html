@@ -6,68 +6,75 @@
     <title>PPPwn-Luckfox GoldHEN Host - 11.00</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            padding: 0;
             background-color: black;
+            min-height: 100vh;
         }
+
         .container {
-            max-width: 1000px;
+            min-height: 100vh;
             padding: 40px;
             background-color: #fff;
-            border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
+
         h1 {
             font-size: 32px;
+            margin-bottom: 20px;
             color: #333;
         }
+
+        h2#progress {
+            font-size: 22px;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
         .button {
             display: inline-block;
-            margin: 5px;
-            width: 200px;
-            padding: 10px 15px;
+            padding: 15px 30px;
             font-size: 18px;
             color: #fff;
-            background: linear-gradient(135deg, #007bff, #0056b3);
+            background-color: #007bff;
             border: none;
             border-radius: 8px;
             text-decoration: none;
-            transition: background 0.3s, transform 0.2s;
+            transition: background-color 0.3s, transform 0.2s;
             cursor: pointer;
+            margin: 5px;
+            width: 200px;
         }
+
         .button:hover {
-            background: linear-gradient(135deg, #0056b3, #004099);
+            background-color: #0056b3;
             transform: translateY(-2px);
         }
+
         .button:active {
             transform: translateY(1px);
         }
-        .button-group {
-            margin-top: 20px;
+
+        .flag {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            width: 50px;
+            height: auto;
+            z-index: 1000;
         }
-        .button-group a,
-        .button-group button {
-            display: inline-block;
-            margin: 5px;
-            padding: 10px 20px;
-            font-size: 18px;
-            color: #fff;
-            background: #007bff;
-            border: none;
-            border-radius: 8px;
-            text-decoration: none;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        .button-group a:hover,
-        .button-group button:hover {
-            background: #0056b3;
+
+        #all, #Linux {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
         }
     </style>
     <script>
@@ -140,44 +147,38 @@
         function showMenu(menu) {
             all.style.display = "none";
             Linux.style.display = "none";
-            menu.style.display = "block";
-         }
+            menu.style.display = "flex";
+        }
 
-         function backToMainMenu() {
-            all.style.display = "block";
+        function backToMainMenu() {
+            all.style.display = "flex";
             Linux.style.display = "none";
-         }
+        }
     </script>
 </head>
-
 <body>
     <div class="container">
         <h1>PPPwn-Luckfox GoldHEN Host - 11.00</h1>
-        <h2 id="progress" style="color: blue;">Status</h2>
+        <h2 id="progress">Status</h2>
         <div id="all">
             <button class="button" onmouseover="progress.innerHTML='App2USB for PS4 11.00 fw'" onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.app2usb)">App2USB</button>
             <button class="button" onmouseover="progress.innerHTML='App Dumper for PS4 11.00 fw'" onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.appDumper)">App Dumper</button>
             <button class="button" onmouseover="progress.innerHTML='Backup for PS4 11.00 fw'" onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.backup)">Backup</button>
             <button class="button" onmouseover="progress.innerHTML='Disable ASLR for PS4 11.00 fw'" onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.disableASLR)">Disable ASLR</button>
-            <br/> <br/>
             <button class="button" onmouseover="progress.innerHTML='Disable Updates for PS4 11.00 fw'" onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.disableUpdates)">Disable Updates</button>
             <button class="button" onmouseover="progress.innerHTML='Enable Browser for PS4 11.00 fw'" onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.enableBrowser)">Enable Browser</button>
             <button class="button" onmouseover="progress.innerHTML='Enable Updates for PS4 11.00 fw'" onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.enableUpdates)">Enable Updates</button>
             <button class="button" onmouseover="progress.innerHTML='Exit IDU for PS4 11.00 fw'" onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.exitIDU)">Exit IDU</button>
-            <br/> <br/>
             <button class="button" onmouseover="progress.innerHTML='FTP for PS4 11.00 fw'" onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.ftp)">FTP</button>
             <button class="button" onmouseover="progress.innerHTML='History Blocker for PS4 11.00 fw'" onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.historyBlocker)">History Blocker</button>
             <button class="button" onmouseover="progress.innerHTML='Kernel Dumper for PS4 11.00 fw'" onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.kernelDumper)">Kernel Dumper</button>
             <button class="button" onmouseover="progress.innerHTML='Module Dumper for PS4 11.00 fw'" onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.moduleDumper)">Module Dumper</button>
-            <br/> <br/>
             <button class="button" onmouseover="progress.innerHTML='Permanent UART for PS4 11.00 fw'" onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.permanentUART)">Permanent UART</button>
             <button class="button" onmouseover="progress.innerHTML='PS4Debug for PS4 11.00 fw'" onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.ps4debug)">PS4Debug</button>
             <button class="button" onmouseover="progress.innerHTML='DB-Restore for PS4 11.00 fw'" onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.restore)">DB-Restore</button>
             <button class="button" onmouseover="progress.innerHTML='RIF Renamer for PS4 11.00 fw'" onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.rifRenamer)">RIF Renamer</button>
-            <br/> <br/>
             <button class="button" onmouseover="progress.innerHTML='ToDex for PS4 11.00 fw'" onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.toDex)">ToDex</button>
             <button class="button" onmouseover="progress.innerHTML='Linux payloads for 11.00'" onmouseout="progress.innerHTML='Status'" onclick="showMenu(Linux)">Linux Group</button>
-            <br> <br>
             <button class="button" onclick="window.location.href = '../index.php'" onmouseover="progress.innerHTML='Move back to PPPwn-Dashboard'" onmouseout="progress.innerHTML='Status'">Back</button>
         </div>
         <div id="Linux" style="display: none;">
@@ -185,15 +186,13 @@
             <button class="button" onmouseover="progress.innerHTML='1100 Linux Loader 2GB VRAM'" onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.lin2gb)">1100 Linux 2GB</button>
             <button class="button" onmouseover="progress.innerHTML='1100 Linux Loader 3GB VRAM'" onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.lin3gb)">1100 Linux 3GB</button>
             <button class="button" onmouseover="progress.innerHTML='1100 Linux Loader 4GB VRAM'" onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.lin4gb)">1100 Linux 4GB</button>
-            <br><br>
             <button class="button" onmouseover="progress.innerHTML='1100 Pro Linux Loader 1GB VRAM'" onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.linp1gb)">1100 Linux Pro 1GB</button>
             <button class="button" onmouseover="progress.innerHTML='1100 Pro Linux Loader 2GB VRAM'" onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.linp2gb)">1100 Linux Pro 2GB</button>
             <button class="button" onmouseover="progress.innerHTML='1100 Pro Linux Loader 3GB VRAM'" onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.linp3gb)">1100 Linux Pro 3GB</button>
             <button class="button" onmouseover="progress.innerHTML='1100 Pro Linux Loader 4GB VRAM'" onmouseout="progress.innerHTML='Status'" onclick="loadPayload(payloadFiles.linp4gb)">1100 Linux Pro 4GB</button>
-            <br><br>
             <button class="button" onmouseover="progress.innerHTML='Move back to main menu'" onmouseout="progress.innerHTML='Status'" onclick="backToMainMenu()">Back</button>
         </div>
     </div>
+    <img src="../flag.png" alt="your flag" class="flag">
 </body>
-
 </html>

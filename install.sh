@@ -15,7 +15,7 @@ ______________________________
 EOF
 
 echo ""
-echo "★ v1.2.5 ★"
+echo "★ v1.2.6 ★"
 echo ""
 echo "by: https://github.com/0x1iii1ii/PPPwn-Luckfox"
 echo "credit to:"
@@ -59,13 +59,14 @@ while true; do
     read -p "Enter your choice (a/b/c/d/e/f/g/h): " FW_CHOICE
     case $FW_CHOICE in
         a) FW_VERSION="900"; READABLE_FW_VERSION="9.00" ;;
-        b) FW_VERSION="960"; READABLE_FW_VERSION="9.60" ;;
-        c) FW_VERSION="1000"; READABLE_FW_VERSION="10.00" ;;
-        d) FW_VERSION="1001"; READABLE_FW_VERSION="10.01" ;;
-        e) FW_VERSION="1050"; READABLE_FW_VERSION="10.50" ;;
-        f) FW_VERSION="1070"; READABLE_FW_VERSION="10.70" ;;
-        g) FW_VERSION="1071"; READABLE_FW_VERSION="10.71" ;;
-        h) FW_VERSION="1100"; READABLE_FW_VERSION="11.00" ;;
+        b) FW_VERSION="903"; READABLE_FW_VERSION="9.03" ;;
+        c) FW_VERSION="960"; READABLE_FW_VERSION="9.60" ;;
+        d) FW_VERSION="1000"; READABLE_FW_VERSION="10.00" ;;
+        e) FW_VERSION="1001"; READABLE_FW_VERSION="10.01" ;;
+        f) FW_VERSION="1050"; READABLE_FW_VERSION="10.50" ;;
+        g) FW_VERSION="1070"; READABLE_FW_VERSION="10.70" ;;
+        h) FW_VERSION="1071"; READABLE_FW_VERSION="10.71" ;;
+        i) FW_VERSION="1100"; READABLE_FW_VERSION="11.00" ;;
         *) echo "Invalid choice. Please select a valid option." ;;
     esac
     # Confirmation of firmware version
@@ -175,7 +176,8 @@ if [ ! -f "$CONFIG_FILE" ]; then
     "REAL_SLEEP": false,
     "AUTO_START": true,
 	"HALT_CHOICE": $HALT_CHOICE,
-	"PPPWN_IPV6": $PPPWN_EXEC,
+    "GOLD_CHECK": false,
+    "PPPWN_EXEC": "pppwn1",
     "install_dir": "$CURRENT_DIR",
     "log_file": "$LOG_DIR",
     "shutdown_flag": false,
