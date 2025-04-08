@@ -103,3 +103,4 @@ You simply need to connect the LAN cable from Luckfox Pico to the PS4 and power 
 - For GoldHEN you need to place the goldhen.bin file onto the root of a USB drive and plug it into the console.<br>
 - Once GoldHEN has been loaded for the first time it will be copied to the console's internal HDD and the USB is no longer required.<br>
 - To update GoldHEN just repeat the above process and the new version will be copied to the internal HDD. <be>
+- The included goldhen.bin included in the usb drive folder is the most recent publicly released version(2.4b18), if you want newer versions you can download them from [SiSTRo's kofi](https://ko-fi.com/sistro/shop).
