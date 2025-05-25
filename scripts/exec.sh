@@ -1,5 +1,4 @@
 #!/bin/sh
-CONFIG_FILE="/etc/pppwn/config.json"
 
 read_json() {
     local key=$1
@@ -34,7 +33,7 @@ perform_action() {
         ifconfig eth0 down
         ;;
     execute)
-        sh "$PPPWNDIR/web-run.sh"
+        sh "$SCRIPT_DIR/web-run.sh"
         update_flag "execute_flag"
         ;;
     esac
@@ -45,7 +44,6 @@ check_input() {
         SHUTDOWN_FLAG=$(read_json 'shutdown_flag')
         ETH0_FLAG=$(read_json 'eth0_flag')
         EXECUTE_FLAG=$(read_json 'execute_flag')
-        PPPWNDIR=$(read_json 'install_dir')
 
         [ "$SHUTDOWN_FLAG" = "true" ] && perform_action shutdown
         [ "$ETH0_FLAG" = "true" ] && perform_action eth0_down

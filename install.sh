@@ -15,7 +15,7 @@ ______________________________
 EOF
 
 echo ""
-echo "★ v1.2.6 ★"
+echo "★ v1.2.7 ★"
 echo ""
 echo "by: https://github.com/0x1iii1ii/PPPwn-Luckfox"
 echo "credit to:"
@@ -35,6 +35,8 @@ NC='\033[0m'         # No Color
 
 LF_MODEL=$(cat /proc/device-tree/model)
 CURRENT_DIR=$(pwd)
+PPPWN_DIR="$CURRENT_DIR/pppwn"
+SCRIPT_DIR="$CURRENT_DIR/scripts"
 LOG_DIR="/var/log/pppwn.log"
 WEB_DIR="/var/www/data"
 WEB_CONF="/etc/nginx"
@@ -45,18 +47,19 @@ BACKUP_FILE="$CONFIG_DIR/config_bak.json"
 # Display the list of firmware versions
 echo "Please select your PS4 firmware version:"
 echo "a) 9.00"
-echo "b) 9.60"
-echo "c) 10.00"
-echo "d) 10.01"
-echo "e) 10.50"
-echo "f) 10.70"
-echo "g) 10.71"
-echo "h) 11.00"
+echo "b) 9.03"
+echo "c) 9.60"
+echo "d) 10.00"
+echo "e) 10.01"
+echo "f) 10.50"
+echo "g) 10.70"
+echo "h) 10.71"
+echo "i) 11.00"
 
 # Prompt the user for the selection
 while true; do
     echo ""
-    read -p "Enter your choice (a/b/c/d/e/f/g/h): " FW_CHOICE
+    read -p "Enter your choice (a/b/c/d/e/f/g/h/i): " FW_CHOICE
     case $FW_CHOICE in
         a) FW_VERSION="900"; READABLE_FW_VERSION="9.00" ;;
         b) FW_VERSION="903"; READABLE_FW_VERSION="9.03" ;;
@@ -172,10 +175,11 @@ if [ ! -f "$CONFIG_FILE" ]; then
     "GROOM_DELAY": "4",
     "BUFFER_SIZE": "0",
     "AUTO_RETRY": true,
-    "NO_WAIT_PADI": false,
+    "NO_WAIT_PADI": true,
     "REAL_SLEEP": false,
-    "AUTO_START": true,
+    "AUTO_START": false,
 	"HALT_CHOICE": $HALT_CHOICE,
+    "PPPWN_IPV6": $PPPWN_EXEC,
     "GOLD_CHECK": false,
     "PPPWN_EXEC": "pppwn1",
     "install_dir": "$CURRENT_DIR",
@@ -211,14 +215,12 @@ fi
 cat <<EOL >/etc/init.d/S99pppwn
 #!/bin/sh
 
-PPPWNDIR=$CURRENT_DIR
-
 case \$1 in
     start)
         echo "Starting pppwn"
         # Execution run.sh
-	    \$PPPWNDIR/run.sh
-        \$PPPWNDIR/exec.sh
+	    . $SCRIPT_DIR/run.sh
+        . $SCRIPT_DIR/exec.sh
         ;;
     stop)
         echo "Stopping pppwn"
@@ -232,7 +234,12 @@ esac
 exit 0
 EOL
 
-chmod +x pppwn run.sh exec.sh web-run.sh
+cd "$SCRIPT_DIR" || exit 1
+chmod +x load_config.sh run.sh exec.sh web-run.sh
+
+cd "$PPPWN_DIR" || exit 1
+chmod +x pppwn1 pppwn2 pppwn3
+
 chmod +x /etc/init.d/S99pppwn
 echo -e "${BGreen}install completed!${NC}"
 
