@@ -40,7 +40,9 @@ if (isset($_GET['restore']) && $_GET['restore'] === 'true') {
 // Handle form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Handle the normal form submission for updating configuration
-    if (isset($_POST['FW_VERSION']) && isset($_POST['TIMEOUT']) && isset($_POST['WAIT_AFTER_PIN']) && isset($_POST['GROOM_DELAY']) && isset($_POST['BUFFER_SIZE'])) {
+    if (isset($_POST['FW_VERSION']) && isset($_POST['TIMEOUT']) &&
+        isset($_POST['WAIT_AFTER_PIN']) && isset($_POST['GROOM_DELAY']) && isset($_POST['BUFFER_SIZE']) &&
+        isset($_POST['SPRAY_NUM']) && isset($_POST['PIN_NUM']) && isset($_POST['CORRUPT_NUM'])) {
         $config['FW_VERSION'] = $_POST['FW_VERSION'];
         $config['PPPWN_EXEC'] = $_POST['PPPWN_EXEC'];
         $config['TIMEOUT'] = $_POST['TIMEOUT'];
@@ -54,6 +56,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $config['REAL_SLEEP'] = isset($_POST['REAL_SLEEP']);
         $config['AUTO_START'] = isset($_POST['AUTO_START']);
         $config['HALT_CHOICE'] = isset($_POST['HALT_CHOICE']);
+        // nn9dev PPPwn options
+        $config['SPRAY_NUM'] = $_POST['SPRAY_NUM'];
+        $config['PIN_NUM'] = $_POST['PIN_NUM'];
+        $config['CORRUPT_NUM'] = $_POST['CORRUPT_NUM'];
+
         save_config($config_file, $config);
         $message = "Configuration updated successfully.";
     } else {
@@ -147,6 +154,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <label><input type="checkbox" id="AUTO_RETRY" name="AUTO_RETRY" <?php if ($config['AUTO_RETRY']) echo 'checked'; ?>> Auto Retry</label>
                         <label><input type="checkbox" id="NO_WAIT_PADI" name="NO_WAIT_PADI" <?php if ($config['NO_WAIT_PADI']) echo 'checked'; ?>> No Wait PADI</label>
                         <label><input type="checkbox" id="REAL_SLEEP" name="REAL_SLEEP" <?php if ($config['REAL_SLEEP']) echo 'checked'; ?>> Real Sleep</label>
+
+                        <p>nn9dev PPPwn options (Only works with nn9dev PPPwn):</p>
+
+                        <label for="SPRAY_NUM">Spray Number:</label>
+                        <input type="number" id="SPRAY_NUM" name="SPRAY_NUM" value="<?php echo htmlspecialchars($config['SPRAY_NUM']); ?>" required>
+
+                        <label for="PIN_NUM">Pin Number:</label>
+                        <input type="number" id="PIN_NUM" name="PIN_NUM" value="<?php echo htmlspecialchars($config['PIN_NUM']); ?>" required>
+
+                        <label for="CORRUPT_NUM">Corrupt Number:</label>
+                        <input type="number" id="CORRUPT_NUM" name="CORRUPT_NUM" value="<?php echo htmlspecialchars($config['CORRUPT_NUM']); ?>" required>
                     </div>
                 </div>
 

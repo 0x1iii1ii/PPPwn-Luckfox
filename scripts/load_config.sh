@@ -29,6 +29,10 @@ HALT_CHOICE=$(read_json 'HALT_CHOICE')
 PPPWN_IPV6=$(read_json 'PPPWN_IPV6')
 PPPWN_EXEC=$(read_json 'PPPWN_EXEC')
 GOLD_CHECK=$(read_json 'GOLD_CHECK')
+#optional nn9dev parameters
+SPRAY_NUM=$(read_json 'SPRAY_NUM')
+PIN_NUM=$(read_json 'PIN_NUM')
+CORRUPT_NUM=$(read_json 'CORRUPT_NUM')
 DIR=$(read_json 'install_dir')
 LOG_FILE=$(read_json 'log_file')
 SCRIPT_DIR="$DIR/scripts"
@@ -48,4 +52,12 @@ CMD="$PPPWN_DIR/$PPPWN_EXEC --interface eth0 --fw $FW_VERSION --stage1 $STAGE1_F
 [ "$NO_WAIT_PADI" == "true" ] && CMD="$CMD --no-wait-padi"
 [ "$REAL_SLEEP" == "true" ] && CMD="$CMD --real-sleep"
 [ "$PPPWN_IPV6" != "true" ] && CMD="$CMD --old-ipv6"
+
+# Append optional nn9dev parameters
+if [ "$PPPWN" = "pppwn3" ]; then
+    [ "$SPRAY_NUM" != "" ] && CMD="$CMD --spray-num $SPRAY_NUM"
+    [ "$PIN_NUM" != "" ] && CMD="$CMD --pin-num $PIN_NUM"
+    [ "$CORRUPT_NUM" != "" ] && CMD="$CMD --corrupt-num $CORRUPT_NUM"
+fi
+
 set +a
